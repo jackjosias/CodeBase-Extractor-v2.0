@@ -1,0 +1,123 @@
+Excellente remarque ! 🎯 Voici les dépendances pour le script :
+
+## 📦 DÉPENDANCES DU SCRIPT
+
+### ✅ Bonne nouvelle : AUCUNE dépendance externe !
+
+Le script utilise **uniquement des bibliothèques Python standard** :
+
+```python
+# Bibliothèques intégrées à Python (pas besoin d'installer)
+import os          # Gestion fichiers/dossiers
+import sys         # Système
+import platform    # Détection OS
+import pathlib     # Chemins modernes
+import mimetypes   # Types de fichiers
+import argparse    # Arguments ligne de commande
+import datetime    # Dates
+import fnmatch     # Pattern matching
+from typing import # Annotations de type (Python 3.5+)
+```
+
+## 🚀 PRÉREQUIS SYSTÈME
+
+### Python version
+```bash
+# Vérifiez votre version Python
+python --version
+# ou
+python3 --version
+
+# Version minimale requise : Python 3.6+
+```
+
+### Installation Python si nécessaire
+
+**Linux (Ubuntu/Debian) :**
+```bash
+sudo apt update
+sudo apt install python3 python3-pip
+```
+
+**Linux (CentOS/RHEL) :**
+```bash
+sudo yum install python3 python3-pip
+# ou sur les versions récentes
+sudo dnf install python3 python3-pip
+```
+
+**macOS :**
+```bash
+# Avec Homebrew
+brew install python3
+
+# Ou télécharger depuis python.org
+```
+
+**Windows :**
+- Télécharger depuis [python.org](https://python.org)
+- Ou utiliser Microsoft Store
+- Ou utiliser Chocolatey : `choco install python`
+
+## 🎯 INSTALLATION ET TEST
+
+### 1. Télécharger le script
+```bash
+# Créer le fichier
+nano codebase_extractor.py
+# ou
+vim codebase_extractor.py
+# ou utilisez votre éditeur préféré
+```
+
+### 2. Rendre exécutable (Linux/Mac)
+```bash
+chmod +x codebase_extractor.py
+```
+
+### 3. Test rapide
+```bash
+# Test de base
+python codebase_extractor.py --help
+
+# Test sur répertoire courant
+python codebase_extractor.py . -o test.txt
+```
+
+## 🔧 VÉRIFICATION DES DÉPENDANCES
+
+Créez ce petit script de test :
+
+## 🧪 PROCÉDURE DE VÉRIFICATION COMPLÈTE
+
+### 1. Testez d'abord les dépendances :
+```bash
+# Lancez le script de vérification
+python dependency_check.py
+```
+
+### 2. Si tout est OK, testez le script principal :
+```bash
+# Test aide
+python codebase_extractor.py --help
+
+# Test extraction simple  
+python codebase_extractor.py . -o test.txt
+```
+
+## 🎯 RÉSUMÉ ULTRA-SIMPLE
+
+**Vous n'avez RIEN à installer !** 🎉
+
+Si vous avez **Python 3.6+** installé, le script fonctionne directement car il utilise uniquement les bibliothèques intégrées à Python.
+
+```bash
+# Seule commande nécessaire pour vérifier :
+python --version
+
+# Si ça affiche Python 3.6+ → Vous êtes prêt ! 🚀
+```
+
+C'est l'un des avantages du script : **zéro dépendance externe** pour éviter les problèmes d'installation ! 
+
+Voulez-vous que je crée une version encore plus simple sans les annotations de type pour compatibilité Python plus ancienne ?

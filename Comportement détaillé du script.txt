@@ -1,0 +1,77 @@
+## 🔍 Comportement détaillé du script
+
+### 📁 Scénario : Dossier avec sous-dossiers et fichiers
+
+Supposons cette structure :
+```
+MonProjet/
+├── app.py
+├── config.json
+├── README.md
+├── frontend/
+│   ├── index.html
+│   ├── style.css
+│   └── components/
+│       ├── header.js
+│       └── footer.js
+├── backend/
+│   ├── server.py
+│   ├── models/
+│   │   ├── user.py
+│   │   └── product.py
+│   └── utils/
+│       └── helpers.py
+└── node_modules/  (ignoré)
+    └── ...
+```
+
+### 🤖 Comportement du script :
+
+1. **Analyse initiale** :
+   - Détecte le système d'exploitation
+   - Scan récursif de TOUS les dossiers et sous-dossiers
+   - Compte les fichiers et dossiers
+   - Ignore automatiquement `node_modules`, `.git`, etc.
+
+2. **Traitement récursif** :
+   - Parcourt `MonProjet/` → trouve `app.py`, `config.json`, `README.md`
+   - Descend dans `frontend/` → trouve `index.html`, `style.css`
+   - Descend dans `frontend/components/` → trouve `header.js`, `footer.js`
+   - Descend dans `backend/` → trouve `server.py`
+   - Descend dans `backend/models/` → trouve `user.py`, `product.py`
+   - Descend dans `backend/utils/` → trouve `helpers.py`
+
+3. **Extraction intelligente** :
+   - Lit le contenu de CHAQUE fichier de code trouvé
+   - Formate selon votre demande : `['chemin_relatif': [contenu]]`
+   - Gère les erreurs d'encodage automatiquement
+
+## 📄 Exemple de sortie générée
+
+## 🎯 Résumé du comportement
+
+### ✅ Ce que fait le script :
+
+1. **Parcours COMPLET** : Va dans chaque sous-dossier, même à plusieurs niveaux de profondeur
+2. **Extraction TOTALE** : Récupère le contenu de TOUS les fichiers de code trouvés
+3. **Format EXACT** : Respecte votre demande `['chemin_relatif': [contenu]]`
+4. **Chemin RELATIF** : Utilise des chemins comme `backend/models/user.py` (pas des chemins absolus)
+5. **Intelligence** : Ignore automatiquement les dossiers inutiles (`node_modules`, `.git`, etc.)
+
+### 🚀 Avantages pour vous :
+
+- **Fini le copier-coller** : Un seul clic et tout est extrait
+- **Format IA-ready** : Parfait pour nourrir des LLM
+- **Vue d'ensemble** : Statistiques + arborescence + contenu
+- **Zéro effort** : Lance et oublie, le script fait tout
+
+### 💡 Usage typique :
+
+```bash
+# Dans votre projet
+python codebase_extractor.py .
+
+# Résultat : Un fichier .txt avec TOUT votre code formaté pour les IA !
+```
+
+Le script va littéralement remplacer des heures de copier-coller par quelques secondes d'exécution. Plus jamais de perte de temps ! 🎉
