@@ -1,3 +1,5 @@
+// Jack-Josias – Créateur du projet
+
 ## 🚀 Guide complet d'utilisation - Tous les cas d'usage
 
 Voici tous les cas d'usage possibles avec des exemples concrets :
@@ -332,33 +334,64 @@ done
 
 ---
 
-## 🛠 CONSEILS PRATIQUES
+## 🎪 CAS D'USAGE : Extraction de plusieurs dossiers simultanément
 
-### ✅ Bonnes pratiques
-- Utilisez des noms de fichier descriptifs
-- Organisez vos extractions par date/projet
-- Créez des alias pour les commandes fréquentes
-- Intégrez dans vos workflows de développement
+Vous pouvez extraire plusieurs dossiers en une seule commande :
 
-### ⚠️ À éviter
-- Ne pas extraire de très gros projets sans vérifier l'espace disque
-- Éviter les projets avec des fichiers binaires lourds
-- Ne pas oublier de nettoyer les anciennes extractions
-
-### 🚀 Optimisations
 ```bash
-# Créer un répertoire dédié
-mkdir ~/extractions
-cd ~/extractions
-
-# Extraction avec timestamp
-python /path/to/codebase_extractor.py ~/MonProjet -o "$(date +%Y%m%d_%H%M%S)_MonProjet.txt"
-
-# Extraction multiple
-for dir in ~/projets/*/; do
-    python /path/to/codebase_extractor.py "$dir" -o "$(basename "$dir")_extraction.txt"
-done
+python codebase_extractor.py chemin1 chemin2 chemin3 -o rapport.txt
 ```
+
+Exemple :
+```bash
+python codebase_extractor.py "D:\DONNEES\Bureau\WORSPACE-STAGIAIRE\Next.js 2025\algoway-front\algoway-front\src\lib" "D:\DONNEES\Bureau\WORSPACE-STAGIAIRE\Next.js 2025\algoway-front\algoway-front\src\feat" "D:\DONNEES\Bureau\WORSPACE-STAGIAIRE\Next.js 2025\algoway-front\algoway-front\src\hook" -o extraction_multi.txt
+```
+
+Le rapport final combinera l'arborescence, les statistiques et le contenu de tous les dossiers.
+
+## 🆕 Format de sortie (depuis v2.1)
+
+La section "CONTENU DES FICHIERS DE CODE" regroupe tous les fichiers extraits sur une seule ligne, chaque bloc étant séparé par `&&`.
+
+Exemple :
+```
+['main.py': [
+--------------------------------------------------
+...contenu...
+--------------------------------------------------] && 'utils.py': [
+--------------------------------------------------
+...contenu...
+--------------------------------------------------] ...
+```
+
+---
+
+## NOUVEAUX CAS D'USAGE (2025)
+
+- Extraction multi-dossiers avec exclusion automatique des fichiers générés
+- Génération de rapports en TXT, JSON, Markdown, HTML
+- Export ZIP de tout le projet extrait
+- Analyse de sécurité (détection de secrets, confirmation utilisateur)
+- Découpage automatique en chunks pour ingestion LLM
+
+### Exemples pratiques
+
+- Extraction multi-format et ZIP :
+  python codebase_extractor.py src/ lib/ --format txt,md,html --zip
+
+- Extraction avec découpage LLM :
+  python codebase_extractor.py projet/ --chunk-size 2000
+
+- Forcer l'export malgré des secrets détectés :
+  python codebase_extractor.py . --force
+
+- Ajouter des motifs d'exclusion personnalisés :
+  python codebase_extractor.py . --ignore-patterns '*.bak,*.old'
+
+---
+
+## CONSEIL SÉCURITÉ
+Toujours vérifier le rapport de secrets avant de partager le code extrait !
 
 ---
 
@@ -414,3 +447,7 @@ python "C:\chemin\vers\codebase_extractor.py" %*
 Avec ce script, vous passez de **plusieurs heures de copier-coller** à **quelques secondes** d'extraction automatique ! 
 
 Quel cas d'usage vous intéresse le plus ? Je peux détailler davantage si besoin ! 🎪
+
+---
+
+**Guide rédigé par Jack-Josias (2025)**

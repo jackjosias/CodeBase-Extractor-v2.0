@@ -1,3 +1,5 @@
+// Jack-Josias – Créateur du projet
+
 ## 🔍 Comportement détaillé du script
 
 ### 📁 Scénario : Dossier avec sous-dossiers et fichiers
@@ -46,6 +48,26 @@ MonProjet/
    - Formate selon votre demande : `['chemin_relatif': [contenu]]`
    - Gère les erreurs d'encodage automatiquement
 
+## 🆕 Comportement multi-dossiers (v2.1+)
+
+- Le script accepte désormais plusieurs dossiers en arguments.
+- Il combine l'arborescence, les statistiques et le contenu de tous les dossiers dans un seul rapport.
+- La section "CONTENU DES FICHIERS DE CODE" affiche tous les fichiers extraits sur une seule ligne, séparés par `&&`.
+
+### Exemple de flux :
+
+1. L'utilisateur lance :
+   ```bash
+   python codebase_extractor.py dossier1 dossier2 dossier3 -o rapport.txt
+   ```
+2. Le script analyse chaque dossier, fusionne les stats et l'arborescence.
+3. Le rapport final contient :
+   - Un en-tête global
+   - Les stats cumulées
+   - L'arborescence combinée
+   - Tous les fichiers extraits sur une seule ligne (blocs séparés par &&)
+   - Un pied de page
+
 ## 📄 Exemple de sortie générée
 
 ## 🎯 Résumé du comportement
@@ -75,3 +97,23 @@ python codebase_extractor.py .
 ```
 
 Le script va littéralement remplacer des heures de copier-coller par quelques secondes d'exécution. Plus jamais de perte de temps ! 🎉
+
+---
+
+## COMPORTEMENT DÉTAILLÉ (2025)
+
+- Le script ignore automatiquement les fichiers/dossiers générés (node_modules, .venv, dist, etc.)
+- Il extrait tous les fichiers de code pertinents et génère un rapport dans un ou plusieurs formats (TXT, JSON, Markdown, HTML)
+- Si l'option --zip est utilisée, tous les rapports et fichiers extraits sont archivés dans un ZIP
+- Avant l'export, le script scanne les fichiers pour détecter des secrets/credentials (API keys, mots de passe, etc.)
+  - Si des secrets sont trouvés, l'utilisateur doit confirmer l'export (sauf --force)
+- Si --chunk-size est utilisé, un rapport spécial est généré avec les fichiers découpés en chunks pour ingestion LLM
+
+### Résumé CLI
+- --format txt,json,md,html : formats de sortie
+- --zip : export ZIP
+- --chunk-size N : découpage LLM
+- --ignore-patterns : motifs d'exclusion personnalisés
+- --force : forcer l'export malgré secrets
+
+**Document rédigé par Jack-Josias (2025)**

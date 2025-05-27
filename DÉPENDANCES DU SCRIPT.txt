@@ -1,3 +1,6 @@
+```plaintext
+// Jack-Josias – Créateur du projet
+
 Excellente remarque ! 🎯 Voici les dépendances pour le script :
 
 ## 📦 DÉPENDANCES DU SCRIPT
@@ -31,33 +34,48 @@ python3 --version
 # Version minimale requise : Python 3.6+
 ```
 
-### Installation Python si nécessaire
+## 📦 INSTALLATION PYTHON (si nécessaire)
 
-**Linux (Ubuntu/Debian) :**
-```bash
-sudo apt update
-sudo apt install python3 python3-pip
-```
+Le script ne nécessite aucune installation de package pip supplémentaire : il fonctionne uniquement avec les bibliothèques standard de Python.
 
-**Linux (CentOS/RHEL) :**
-```bash
-sudo yum install python3 python3-pip
-# ou sur les versions récentes
-sudo dnf install python3 python3-pip
-```
+**Si Python n'est pas installé sur votre système, voici comment l'installer :**
 
-**macOS :**
-```bash
-# Avec Homebrew
-brew install python3
-
-# Ou télécharger depuis python.org
-```
-
-**Windows :**
+### Windows
 - Télécharger depuis [python.org](https://python.org)
-- Ou utiliser Microsoft Store
-- Ou utiliser Chocolatey : `choco install python`
+- Ou via Microsoft Store
+- Ou via Chocolatey :
+  ```powershell
+  choco install python
+  ```
+
+### macOS
+- Avec Homebrew :
+  ```bash
+  brew install python3
+  ```
+- Ou télécharger depuis python.org
+
+### Linux (Ubuntu/Debian)
+  ```bash
+  sudo apt update
+  sudo apt install python3 python3-pip
+  ```
+
+### Linux (CentOS/RHEL)
+  ```bash
+  sudo yum install python3 python3-pip
+  # ou sur les versions récentes
+  sudo dnf install python3 python3-pip
+  ```
+
+**Vérifiez l'installation :**
+```bash
+python --version
+# ou
+python3 --version
+```
+
+**Aucune commande pip n'est requise pour ce script !**
 
 ## 🎯 INSTALLATION ET TEST
 
@@ -82,6 +100,9 @@ python codebase_extractor.py --help
 
 # Test sur répertoire courant
 python codebase_extractor.py . -o test.txt
+
+# Test multi-dossiers (nouveau)
+python codebase_extractor.py dossier1 dossier2 dossier3 -o rapport.txt
 ```
 
 ## 🔧 VÉRIFICATION DES DÉPENDANCES
@@ -107,6 +128,10 @@ python codebase_extractor.py . -o test.txt
 
 ## 🎯 RÉSUMÉ ULTRA-SIMPLE
 
+- Le script accepte plusieurs dossiers à extraire en une seule commande.
+- Le rapport combine l'arborescence, les stats et le contenu de tous les dossiers.
+- Les fichiers extraits sont listés sur une seule ligne, séparés par `&&`.
+
 **Vous n'avez RIEN à installer !** 🎉
 
 Si vous avez **Python 3.6+** installé, le script fonctionne directement car il utilise uniquement les bibliothèques intégrées à Python.
@@ -121,3 +146,26 @@ python --version
 C'est l'un des avantages du script : **zéro dépendance externe** pour éviter les problèmes d'installation ! 
 
 Voulez-vous que je crée une version encore plus simple sans les annotations de type pour compatibilité Python plus ancienne ?
+
+## 🚀 NOUVELLES FONCTIONNALITÉS (2025)
+
+- Exclusion automatique des fichiers/dossiers générés (node_modules, .venv, dist, etc.)
+- Génération de rapports multi-format : TXT, JSON, Markdown, HTML (option --format)
+- Export ZIP de tous les rapports et fichiers extraits (--zip)
+- Analyse de sécurité : détection de secrets/credentials, confirmation utilisateur (--force)
+- Découpage automatique en chunks pour LLM (--chunk-size)
+
+### Options CLI principales
+- --format txt,json,md,html
+- --zip
+- --chunk-size N
+- --ignore-patterns motif1,motif2
+- --force
+
+## 🔒 CONSEIL SÉCURITÉ
+Le script vous avertit si des secrets sont détectés dans le code. Toujours vérifier le rapport avant partage !
+
+---
+
+**Fichier rédigé et maintenu par Jack-Josias (2025)**
+```

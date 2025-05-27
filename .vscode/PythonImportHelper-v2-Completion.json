@@ -62,23 +62,7 @@
         "documentation": {}
     },
     {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
         "label": "Dict",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Set",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -103,11 +87,38 @@
         "documentation": {}
     },
     {
+        "label": "zipfile",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "zipfile",
+        "description": "zipfile",
+        "detail": "zipfile",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
         "label": "CodebaseExtractor",
         "kind": 6,
         "importPath": "codebase_extractor",
         "description": "codebase_extractor",
-        "peekOfCode": "class CodebaseExtractor:\n    \"\"\"Agent intelligent pour extraire et formatter une codebase complète\"\"\"\n    def __init__(self):\n        self.system_info = self._detect_system()\n        self.supported_extensions = {\n            # Langages de programmation\n            '.py', '.js', '.ts', '.jsx', '.tsx', '.java', '.c', '.cpp', '.cc', '.cxx',\n            '.h', '.hpp', '.cs', '.php', '.rb', '.go', '.rs', '.swift', '.kt', '.scala',\n            '.r', '.m', '.mm', '.pl', '.sh', '.bash', '.zsh', '.fish', '.ps1', '.bat',\n            '.cmd', '.vbs', '.lua', '.dart', '.elm', '.haskell', '.hs', '.clj', '.cljs',",
+        "peekOfCode": "class CodebaseExtractor:\n    \"\"\"Agent intelligent pour extraire et formatter une codebase complète\"\"\"\n    def __init__(self, extra_ignore_patterns=None):\n        self.system_info = self._detect_system()\n        self.supported_extensions = {\n            # Langages de programmation\n            '.py', '.js', '.ts', '.jsx', '.tsx', '.java', '.c', '.cpp', '.cc', '.cxx',\n            '.h', '.hpp', '.cs', '.php', '.rb', '.go', '.rs', '.swift', '.kt', '.scala',\n            '.r', '.m', '.mm', '.pl', '.sh', '.bash', '.zsh', '.fish', '.ps1', '.bat',\n            '.cmd', '.vbs', '.lua', '.dart', '.elm', '.haskell', '.hs', '.clj', '.cljs',",
         "detail": "codebase_extractor",
         "documentation": {}
     },

@@ -1,0 +1,739 @@
+================================================================================
+CODEBASE EXTRACTION REPORT
+================================================================================
+Projet: Dividends
+Chemin: D:\DONNEES\Bureau\WORSPACE-STAGIAIRE\Next.js 2025\algoway-front\algoway-front\src\presentation\(Algoway)\pages\views\Dashboard_Content_Views\Dividends
+Date d'extraction: 2025-05-26 17:19:36
+Système: windows 64bit
+
+STATISTIQUES DU PROJET:
+------------------------------
+📁 Total dossiers: 2
+📄 Total fichiers: 5
+💻 Fichiers de code: 5
+
+STRUCTURE DU PROJET:
+------------------------------
+Dividends/
+├── Skeleton/
+│   ├── DividendsPageSkeleton.module.css
+│   └── DividendsPageSkeleton.tsx
+├── global/
+│   └── _.css
+├── DividendsPage.tsx
+└── local.module.css
+
+================================================================================
+CONTENU DES FICHIERS DE CODE
+================================================================================
+
+['DividendsPage.tsx': [
+--------------------------------------------------
+// # composant serveur (tentative, pourrait devenir client si des interactions globales sont nécessaires)
+import PageHeader from '@/components/features/dividends/PageHeader/PageHeader';
+import styles from './local.module.css';
+import StockInfoAside from '@/components/features/dividends/StockInfoAside/StockInfoAside';
+import MobileStockSummary from '@/components/features/dividends/MobileStockSummary/MobileStockSummary';
+import DividendsInfoBar from '@/components/features/dividends/DividendsInfoBar/DividendsInfoBar';
+import DividendPerformanceSection from '@/components/features/dividends/DividendPerformanceSection/DividendPerformanceSection';
+import EpsDividendSection from '@/components/features/dividends/EpsDividendSection/EpsDividendSection';
+import HistorySection from '@/components/features/dividends/HistorySection/HistorySection';
+import AveragesAside from '@/components/features/dividends/AveragesAside/AveragesAside';
+import OffcanvasToggle from '@/components/ui/dividends/OffcanvasToggle/OffcanvasToggle';
+
+// Import des composants Features (chemins relatifs à src/)
+
+// Données pour les composants (simulées ou à passer en props)
+// Ces données seraient typiquement récupérées via une API ou des services dans une application réelle.
+
+const breadcrumbItems = [
+  { label: 'Home', href: '#' },
+  { label: 'Equity', href: '#' },
+  { label: '...', href: '#' },
+  { label: 'Securities', href: '#' },
+  { label: 'Security Description', href: '#', active: true },
+];
+
+const pillNavItems = [
+  { label: 'Overview', href: '#', active: true },
+  { label: 'Issue Info', href: '#' },
+  { label: 'Ratios', href: '#' },
+  { label: 'Revenue & EPS', href: '#' },
+  { label: 'Industry Info', href: '#' },
+];
+
+const stockInfo = {
+  logoSrc: '/img/BOA-logo.svg', // Chemin depuis /public
+  altText: 'BOA Logo',
+  stockName: 'BOAB',
+  badges: [
+    { text: 'XOF', type: 'dark' as const },
+    { text: 'BRVM', type: 'dark' as const },
+  ],
+  companyName: 'BANK OF AFRICA BN',
+  websiteUrl: 'boabank.com',
+  description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...",
+  readMoreLink: '#',
+};
+
+const stockPrice = {
+  currentPrice: '51,51',
+  currency: 'XOF',
+  variationAmount: -0.54,
+  variationPercentage: -0.96,
+  performanceBadges: [
+    { value: '-1.25%', type: 'danger' },
+    { value: '+2.05%', type: 'success' },
+    { value: '-1.25%', type: 'danger' },
+    { value: '+2.05%', type: 'success' },
+    { value: '-1.25%', type: 'danger' },
+    { value: '+2.05%', type: 'success' },
+    { value: '+2.05%', type: 'success' },
+    { value: '+2.05%', type: 'success' },
+  ],
+};
+
+const keyStats = {
+  title: 'Key Stats & Comparison',
+  headers: ['Competitors', 'BOAB', 'ECOBANK', 'CORIS BANK', 'UBA GROUP'],
+  rows: [
+    { label: 'Px/Chg (XOF)', values: ['54.39/-0.26%', '54.39/-0.26%', '54.39/-0.26%', '54.39/-0.26%'] },
+    { label: '52 Wk High', values: ['68.00', '68.00', '68.00', '68.00'] },
+    { label: '52 Wk Low', values: ['45.30', '45.30', '45.30', '45.30'] },
+    { label: 'YTD Change/%', values: ['-5.13/-8.62%', '-5.13/-8.62%', '-5.13/-8.62%', '-5.13/-8.62%'] },
+    { label: 'Market Cap (XOF)', values: ['17,373.6M', '17,373.6M', '17,373.6M', '17,373.6M'] },
+    { label: 'SI/% of Float', values: ['3.5M/1.1%', '3.5M/1.1%', '3.5M/1.1%', '3.5M/1.1%'] },
+    { label: 'Shares Out/Float', values: ['319.4M/317.9M', '319.4M/317.9M', '319.4M/317.9M', '319.4M/317.9M'] },
+    { label: 'Days To Cover', values: ['400', '400', '400', '400'] },
+  ],
+};
+
+const newsItems = [
+  { country: 'TOGO', time: '10:55 - 04/10/24', text: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout..", link: '#' },
+  { country: 'BENIN', time: '10:55 - 04/10/24', text: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout..", link: '#' },
+  { country: 'CONGO', time: '10:55 - 04/10/24', text: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout..", link: '#' },
+  { country: 'GHANA', time: '11:15 - 04/10/24', text: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout..", link: '#' },
+  { country: 'NIGERIA', time: '12:00 - 04/10/24', text: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout..", link: '#' },
+  { country: 'SENEGAL', time: '13:30 - 04/10/24', text: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout..", link: '#' },
+];
+
+const dividendsInfoBarData = {
+  title: 'Dividends',
+  items: [
+    { label: 'Next Ex-date:', value: 'Jan 02, 2025' },
+    { label: 'Next payment date:', value: 'Jan 06, 2025' },
+    { label: 'Dividend Amount:', value: '0,79 €' },
+    { label: 'Dividend Return TTM:', value: '5,49 %' },
+  ],
+};
+
+const dividendPerformanceData = {
+  infoList: [
+    { label: 'Période', value: '2017 - 2024' },
+    { label: 'Rendement sur 12M', value: '7,91%' },
+    { label: 'Rendement indiqué', value: '7,91' },
+    { label: 'Croissance div 3A', value: '24,84%' },
+    { label: 'Croissance div 5A', value: '14,47%' },
+    { label: 'Dernier cours', value: 'XOF 9990.00' },
+    { label: 'Freq de paiement', value: 'Annuels' },
+  ],
+  doughnutChart: {
+    percentage: 43.48,
+    centerText: '43,48%',
+    legend: [
+      { label: 'Earnings not shared', colorVar: '--dividends-doughnut-color-not-shared' },
+      { label: 'Payment Ratio (TTM)', colorVar: '--dividends-doughnut-color-payment' },
+    ],
+  },
+};
+
+const historyData = {
+  title: 'History',
+  headers: ['Ex-date', 'Saved Date', 'Payment Date', 'Amount', 'Frequency'],
+  rows: [
+    { exDate: '02/01/2025', savedDate: '02/01/2025', paymentDate: '06/01/2025', amount: '0,790', frequency: 'Interim' },
+    { exDate: '25/09/2024', savedDate: '02/01/2025', paymentDate: '06/01/2025', amount: '0,790', frequency: 'Interim' },
+    { exDate: '19/06/2024', savedDate: '02/01/2025', paymentDate: '06/01/2025', amount: '0,790', frequency: 'Finale' },
+    { exDate: '19/06/2024', savedDate: '02/01/2025', paymentDate: '06/01/2025', amount: '0,790', frequency: 'Finale' },
+    { exDate: '19/06/2024', savedDate: '02/01/2025', paymentDate: '06/01/2025', amount: '0,790', frequency: 'Trimestrial' },
+    { exDate: '19/06/2024', savedDate: '02/01/2025', paymentDate: '06/01/2025', amount: '0,790', frequency: 'Trimestrial' },
+    { exDate: '19/06/2024', savedDate: '02/01/2025', paymentDate: '06/01/2025', amount: '0,790', frequency: 'Trimestrial' },
+    { exDate: '19/06/2024', savedDate: '02/01/2025', paymentDate: '06/01/2025', amount: '0,790', frequency: 'Trimestrial' },
+    { exDate: '19/06/2024', savedDate: '02/01/2025', paymentDate: '06/01/2025', amount: '0,790', frequency: 'Trimestrial' },
+    { exDate: '18/06/2024', savedDate: '01/01/2025', paymentDate: '05/01/2025', amount: '0,780', frequency: 'Trimestrial' },
+    { exDate: '17/06/2024', savedDate: '01/01/2025', paymentDate: '05/01/2025', amount: '0,780', frequency: 'Trimestrial' },
+    { exDate: '16/06/2024', savedDate: '01/01/2025', paymentDate: '05/01/2025', amount: '0,780', frequency: 'Trimestrial' },
+  ],
+};
+
+const sharesCountryData = {
+  title: 'Shares Per Country',
+  barChartItems: [
+    { label: 'Ivory Coast', percentage: '100%', value: 100, colorClass: 'ivory-coast' },
+    { label: 'Morocco', percentage: '81%', value: 81, colorClass: 'morocco' },
+    { label: 'South Africa', percentage: '66%', value: 66, colorClass: 'south-africa' },
+    { label: 'Benin', percentage: '33%', value: 33, colorClass: 'benin' },
+    { label: 'Ghana', percentage: '29%', value: 29, colorClass: 'ghana' },
+  ],
+  tableHeaders: ['Countries', 'Shares'],
+  tableRows: [
+    { country: 'Ivory Coast', shares: '36.154B' },
+    { country: 'Morocco', shares: '17.598B' },
+    { country: 'South Africa', shares: '3.553B' },
+    { country: 'Benin', shares: '4.300B' },
+    { country: 'Ghana', shares: '5.553B' },
+    { country: 'Nigeria', shares: '2.100B' },
+    { country: 'Senegal', shares: '1.950B' },
+    { country: 'Kenya', shares: '1.500B' },
+    { country: 'Cameroon', shares: '1.200B' },
+    { country: 'Mali', shares: '0.900B' },
+  ],
+};
+
+
+export default function DividendsPageContent() {
+  return (
+    <div className={`${styles.dividendsPageContentWrapper} ${styles.dividendsConstrainedWidth} mt-5`}>
+      <PageHeader
+        className={`${styles.pageLocalHeader} sticky-top`}
+        breadcrumbItems={breadcrumbItems}
+        pillNavItems={pillNavItems}
+        ariaLabel="Page Navigation and Context"
+      />
+
+      <div className={`${styles.pageMainContentArea}`}>
+        <OffcanvasToggle
+          targetId="mainAsideOffcanvas"
+          ariaLabel="Toggle sidebar"
+          className="d-lg-none" // Bootstrap class for visibility
+        />
+        <div className={`${styles.mainContainerFluid}`}>
+          <div className={`${styles.mainRow} g-0`}> {/* g-0 de Bootstrap */}
+            <StockInfoAside
+              className={`${styles.asideCol} col-lg-4`} // col-lg-4 de Bootstrap
+              offcanvasId="mainAsideOffcanvas"
+              stockInfo={stockInfo}
+              stockPrice={stockPrice}
+              keyStats={keyStats}
+              newsItems={newsItems}
+              tradingViewChartContainerId="mainStockChartContainer" // ID pour le graphique TV
+            />
+
+            <MobileStockSummary
+              className={`${styles.mobileSummaryContainer} col-12 d-lg-none reveal-on-scroll`} // Bootstrap classes
+              stockInfo={stockInfo} // Réutilise les mêmes données que l'aside
+              collapseId="descriptionCollapseMobile"
+            />
+
+            <div className={`${styles.mainContentCol} col-lg-8 py-2 reveal-on-scroll`}> {/* col-lg-8 et py-2 de Bootstrap */}
+              <DividendsInfoBar
+                className="mt-2 reveal-on-scroll reveal-delay-1"
+                title={dividendsInfoBarData.title}
+                items={dividendsInfoBarData.items}
+                mainTitleId="dividends-main-title"
+              />
+              <div className="row g-0"> {/* Row interne pour la section principale et l'aside des moyennes */}
+                <div className="col-12 col-lg-9 d-flex">
+                  <section
+                    className="card dividends-card-border-none h-100 reveal-on-scroll" // Utiliser une classe de Card si stylée
+                    aria-labelledby="dividends-main-title" // H1 est dans DividendsInfoBar
+                  >
+                    <div className="m-2 d-flex flex-column">
+                      <DividendPerformanceSection
+                        className="mb-0 reveal-on-scroll reveal-delay-1"
+                        infoList={dividendPerformanceData.infoList}
+                        doughnutChart={dividendPerformanceData.doughnutChart}
+                        doughnutChartId="paymentRatioDoughnutChart"
+                      />
+                      <EpsDividendSection
+                        className="mt-2 reveal-on-scroll reveal-delay-2"
+                        chartId="epsDividendChart"
+                        tableId="epsDividendTable"
+                        scrollContainerId="epsDividendScrollContainer"
+                        // Les données epsDividendChartData et epsDividendTableData seront gérées en interne ou via un hook
+                      />
+                      <HistorySection
+                        className="mt-0 p-2 dividends-history-section reveal-on-scroll reveal-delay-3" // Classe spécifique pour fond
+                        title={historyData.title}
+                        headers={historyData.headers}
+                        rows={historyData.rows} // Ces données seront probablement gérées par le composant lui-même
+                        scrollContainerId="historyTableHScrollContainer"
+                      />
+                    </div>
+                  </section>
+                </div>
+                <AveragesAside
+                  className={`${styles.secondaryAsideCol} ${styles.averagesContainerHiddenMobile} col-12 col-lg-3 ms-0 me-0 reveal-on-scroll`}
+                  averagesChartId="averagesChart"
+                  sharesCountryData={sharesCountryData}
+                  seasonalityChartId="seasonalityChart"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+--------------------------------------------------
+]]
+
+['Skeleton\DividendsPageSkeleton.module.css': [
+--------------------------------------------------
+
+--------------------------------------------------
+]]
+
+['Skeleton\DividendsPageSkeleton.tsx': [
+--------------------------------------------------
+
+--------------------------------------------------
+]]
+
+['global\_.css': [
+--------------------------------------------------
+/* 🎨 Jack-Josias ΩΨΩ v2.0 - CSS Fusion v1.8 (Progression #13 - SÉMANTIQUE DIVIDENDS) 💎💰 */
+
+:root {
+  /* Variables 'dividends-' */
+  --dividends-bg-primary: #102a43;
+  --dividends-bg-card: transparent;
+  --dividends-sticky-thead-bg: var(--dividends-bg-primary);
+  --dividends-text-primary: #f8f9fa;
+  --dividends-text-light: #d9d9d9;
+  --dividends-text-secondary: #a0aec0;
+  --dividends-border-color: #324b55;
+  --dividends-info-bar-bg: #0d2033;
+  --dividends-tab-bg: rgba(252, 250, 249, 0.2);
+  --dividends-accent-cyan: #03786e;
+  --dividends-accent-yellow: #ff9e04;
+  --dividends-accent-yellow-dark: #b77b17;
+  --dividends-accent-yellow-darker: #745a29;
+  --dividends-accent-yellow-darkest: #474534;
+  --dividends-accent-yellow-black: #474534;
+  --dividends-accent-pink: #ce4243;
+  --dividends-success: #03786e;
+  --dividends-danger: #ce4243;
+
+  --dividends-font-family-base: "Roboto", Helvetica, sans-serif;
+  --dividends-font-family-nav: "DM Sans", sans-serif;
+  --dividends-font-family-breadcrumb: "Mulish", sans-serif;
+  --dividends-font-family-title-accent: "Lilita One", sans-serif; /* Ajouté pour les titres accentués */
+
+  --dividends-font-size-a: 8px;
+  --dividends-font-size-x: 0.55rem;
+  --dividends-font-size-xs: 0.65rem;
+  --dividends-font-size-s: 0.75rem;
+  --dividends-font-size-m: 0.8rem;
+  --dividends-font-size-l: 0.875rem;
+  --dividends-font-size-xl: 0.95rem;
+  --dividends-font-size-xxl: 1.1rem;
+  --dividends-font-size-xxxl: 1.25rem;
+
+  --dividends-header-border-bottom-color: #d0d0d0;
+  --dividends-header-border-bottom-width: 3px;
+  --dividends-nav-pills-active-bg: #d9d9d9;
+  --dividends-nav-pills-active-text: #102a43;
+  --dividends-nav-pills-inactive-bg: #828282;
+  --dividends-nav-pills-inactive-text: #ffffff;
+  --dividends-breadcrumb-text-color: #fcfaf9;
+  --dividends-breadcrumb-active-color: #ffffff;
+  --dividends-breadcrumb-separator-color: #fcfaf9;
+  --dividends-breadcrumb-link-hover-color: #828282;
+
+  --dividends-scroll-fade-size: 22px;
+  --dividends-scroll-fade-color: rgba(16, 42, 67, 0.70);
+
+  --dividends-tv-chart-bg: #000000;
+  --dividends-tv-chart-text: var(--dividends-text-light);
+  --dividends-tv-area-top: rgba(249, 12, 79, 0.5);
+  --dividends-tv-area-bottom: rgba(255, 77, 128, 0.0);
+  --dividends-tv-area-line: #FF4040;
+  --dividends-tv-volume-up-color: #26a69a; /* Pour TradingView JS */
+  --dividends-tv-volume-down-color: #ef5350; /* Pour TradingView JS */
+  --dividends-tv-nav-bg: #333333;
+  --dividends-tv-nav-border: #555555;
+  --dividends-tv-nav-text: var(--dividends-text-light);
+  --dividends-tv-nav-active-bg: var(--dividends-accent-cyan);
+  --dividends-tv-nav-active-text: var(--dividends-text-primary);
+  --dividends-tv-nav-hover-bg: #444444;
+  --dividends-tv-border-radius: 8px;
+
+  --dividends-header-height: 6rem; /* Approx */
+  --dividends-header-height-tablet: 6.6rem; /* Approx */
+  --dividends-offcanvas-zindex: 1045;
+  --dividends-header-zindex: 1030;
+  --dividends-toggle-banner-zindex: 1040;
+
+  --dividends-scroll-indicator-h-color: var(--dividends-text-light);
+  --dividends-scroll-indicator-h-width: 1.5rem;
+  --dividends-scroll-indicator-h-arrow-size: 0.8rem;
+  --dividends-scroll-indicator-v-height: 1.2rem;
+  --dividends-scroll-indicator-v-arrow-size: 0.7rem;
+  --dividends-scroll-indicator-bg: rgba(0, 0, 0, 0.5);
+
+  --dividends-doughnut-color-payment: var(--dividends-accent-cyan);
+  --dividends-doughnut-color-not-shared: #E2E8F0;
+  --dividends-doughnut-center-text-color: var(--dividends-text-light);
+  --dividends-doughnut-legend-text-color: var(--dividends-text-secondary);
+  --dividends-doughnut-legend-box-size: 10px;
+
+  --dividends-radio-border-color: #5A6772;
+  --dividends-radio-checked-bg: var(--dividends-accent-yellow);
+  --dividends-radio-checked-dot: var(--dividends-bg-primary);
+  --dividends-radio-size: 16px;
+  --dividends-radio-dot-size: 8px;
+
+  --dividends-history-header-color: var(--dividends-text-secondary);
+  --dividends-history-body-color: var(--dividends-text-light);
+  --dividends-history-header-border-color: var(--dividends-text-secondary);
+  --dividends-history-row-border-color: var(--dividends-border-color);
+  --dividends-history-max-height: 110px;
+  --dividends-countries-max-height: 100px;
+  --dividends-table-row-hover-bg: rgba(255, 255, 255, 0.08);
+
+  --dividends-reveal-delay-base: 0.12s;
+  --dividends-reveal-duration: 0.7s;
+  --dividends-reveal-translate-y: 20px;
+  --dividends-reveal-easing: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --dividends-transition-duration: 0.25s;
+  --dividends-transition-easing: ease-in-out;
+
+  /* Variables Bootstrap surchargées (si nécessaire au niveau global) */
+  --bs-body-color: var(--dividends-text-primary);
+  --bs-body-bg: var(--dividends-bg-primary);
+  --bs-link-color: var(--dividends-accent-cyan);
+  --bs-link-hover-color: #ffffff;
+  --bs-border-color: var(--dividends-border-color);
+  --bs-border-radius-sm: 0.2rem;
+  --bs-border-radius: 0.25rem;
+  --bs-border-radius-lg: 0.375rem;
+  --bs-border-radius-xl: 0.5rem;
+  --bs-border-radius-xxl: 1rem;
+  --bs-border-radius-pill: 50rem;
+  --bs-btn-padding-x-sm: 0.6rem;
+  --bs-btn-padding-y-sm: 0.2rem;
+  --bs-btn-font-size-sm: var(--dividends-font-size-s);
+}
+
+/* Styles Globaux et Bootstrap Overrides */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100%;
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  font-family: var(--dividends-font-family-base);
+  font-size: var(--dividends-font-size-m);
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Empêche le scroll du body si le contenu de la page est géré */
+}
+
+/* Liens globaux */
+a {
+  color: var(--bs-link-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--dividends-transition-duration) var(--dividends-transition-easing);
+  cursor: pointer;
+}
+
+a:hover {
+  color: var(--bs-link-hover-color);
+  text-decoration: underline;
+}
+
+/* Utilitaires de texte globaux (si certains sont vraiment universels) */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.clickable {
+  cursor: pointer;
+  pointer-events: auto !important; /* Assure que c'est cliquable */
+}
+
+/* Styles pour les reveal animations */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(var(--dividends-reveal-translate-y));
+  transition: opacity var(--dividends-reveal-duration) var(--dividends-reveal-easing),
+              transform var(--dividends-reveal-duration) var(--dividends-reveal-easing);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-on-scroll.reveal-delay-1 { transition-delay: calc(var(--dividends-reveal-delay-base) * 1); }
+.reveal-on-scroll.reveal-delay-2 { transition-delay: calc(var(--dividends-reveal-delay-base) * 2); }
+.reveal-on-scroll.reveal-delay-3 { transition-delay: calc(var(--dividends-reveal-delay-base) * 3); }
+.reveal-on-scroll.reveal-delay-4 { transition-delay: calc(var(--dividends-reveal-delay-base) * 4); }
+.reveal-on-scroll.reveal-delay-5 { transition-delay: calc(var(--dividends-reveal-delay-base) * 5); }
+
+
+/* Masquer le logo TradingView (comme dans le CSS original) */
+#tv-attr-logo, .tv-trading-view-logo {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Styles pour l'état offcanvas ouvert sur le body */
+body.dividends-offcanvas-open {
+  /* Potentiellement des styles globaux quand l'offcanvas est ouvert,
+     comme empêcher le scroll du body si ce n'est pas déjà géré.
+     Pour l'instant, le style principal est sur le toggle banner. */
+}
+
+/* Fallback CSS si :has n'est pas supporté (pour les fades de scroll) */
+@supports not selector(:has(*)) {
+  /* Les classes .show-top-fade, .show-bottom-fade, .show-top-indicator, .show-bottom-indicator
+     seront ajoutées par JS aux conteneurs respectifs pour afficher les fades/indicateurs
+     si :has n'est pas supporté. Les styles pour ces classes seront dans les .module.css
+     des composants HorizontalScroll et VerticalScroll.
+     Ici, on pourrait mettre des fallbacks très génériques si besoin, mais
+     il est préférable de gérer cela au niveau des composants.
+  */
+}
+
+/* Styles pour les scrollbars (si on veut les customiser globalement, sinon par composant) */
+/* Firefox */
+* {
+  /* scrollbar-width: thin; */ /* Optionnel, peut être trop global */
+  /* scrollbar-color: var(--dividends-text-secondary) transparent; */ /* Optionnel */
+}
+
+/* Webkit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  /* width: 6px; */ /* Optionnel */
+  /* height: 6px; */ /* Optionnel */
+}
+::-webkit-scrollbar-thumb {
+  /* background-color: var(--dividends-text-secondary); */ /* Optionnel */
+  /* border-radius: 3px; */ /* Optionnel */
+}
+::-webkit-scrollbar-track {
+  /* background: transparent; */ /* Optionnel */
+}
+--------------------------------------------------
+]]
+
+['local.module.css': [
+--------------------------------------------------
+/* Fichier: src/presentation/pages/dividends/local.module.css */
+
+/* Styles d'agencement spécifiques à la page Dividends */
+
+.dividendsPageContentWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 100vh; /* Empêche le wrapper de dépasser (pour page autonome) */
+  overflow: hidden; /* Empêche le contenu interne de déborder (pour page autonome) */
+}
+
+.dividendsConstrainedWidth {
+  width: 100%; /* Par défaut, prend toute la largeur */
+}
+
+/* "Header" de page local (Breadcrumbs, Nav Pills) */
+.pageLocalHeader {
+  flex-shrink: 0;
+  padding-bottom: 0;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--dividends-bg-primary); /* Assure le fond */
+  z-index: var(--dividends-header-zindex);
+  /* La classe .sticky-top de Bootstrap sera appliquée directement sur l'élément */
+}
+
+/* Contenu Principal */
+.pageMainContentArea {
+  flex-grow: 1;
+  padding-top: 0.5rem; /* Correspond à pt-2 */
+  padding-bottom: 0.5rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: auto; /* Active le défilement pour cette zone si nécessaire */
+  min-height: 0; /* Nécessaire pour flexbox et scroll */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+.pageMainContentArea::-webkit-scrollbar {
+  display: none; /* Webkit */
+}
+
+/* Styles pour le conteneur Bootstrap interne et la rangée principale */
+.mainContainerFluid { /* Classe pour le .container-fluid dans .pageMainContentArea */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+  min-height: 0;
+  padding-top: 0.5rem; /* pt-2 */
+  padding-left: 0.5rem; /* p-2 */
+  padding-right: 0.5rem; /* p-2 */
+  /* py-0 est appliqué, donc pas de padding-bottom ici */
+}
+
+.mainRow { /* Classe pour le .row.g-0 principal */
+  flex-grow: 1;
+  display: flex;
+  overflow: hidden;
+  min-height: 0;
+  /* g-0 est une classe Bootstrap, pas besoin de la redéfinir ici */
+}
+
+/* Styles pour les colonnes principales */
+.mainRow > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+  /* La hauteur sera gérée par le contenu ou des classes spécifiques si besoin */
+  overflow: hidden; /* Empêche le débordement interne des colonnes */
+  min-height: 0; /* Nécessaire pour flexbox et scroll interne potentiel */
+}
+
+.mainContentCol { /* col-lg-8 */
+  padding-top: 0.5rem; /* py-2 */
+  padding-bottom: 0.5rem; /* py-2 */
+}
+
+.asideCol { /* col-lg-4 */
+  /* Pas de padding spécifique ici, géré par le contenu de l'aside (Card) */
+}
+
+.secondaryAsideCol { /* col-lg-3 pour AveragesAside */
+  /* Pas de padding spécifique ici, géré par le contenu de l'aside (Card) */
+}
+
+
+/* Media Queries pour l'agencement global de la page */
+@media (min-width: 992px) {
+  .dividendsConstrainedWidth,
+  .pageLocalHeader,
+  .pageMainContentArea {
+    max-width: 90%;
+  }
+
+  .mainContainerFluid,
+  .pageLocalHeader > .container-fluid { /* Cible le container-fluid dans le header local */
+    padding-right: calc(var(--bs-gutter-x) * .5 + .5rem);
+    padding-left: calc(var(--bs-gutter-x) * .5 + .5rem);
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 992px) { /* Pour le breakpoint 1024px spécifique */
+  .dividendsConstrainedWidth,
+  .pageLocalHeader,
+  .pageMainContentArea {
+    max-width: 100%; /* Rétablir à 100% pour 1024px si c'est le comportement désiré */
+  }
+   .mainContainerFluid,
+  .pageLocalHeader > .container-fluid {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+}
+@media (max-width: 991.98px) { /* En dessous de lg */
+    .mainContainerFluid,
+    .pageLocalHeader > .container-fluid {
+        padding-right: 0.5rem; /* p-2 */
+        padding-left: 0.5rem; /* p-2 */
+    }
+}
+
+
+@media (min-width: 1200px) {
+  .dividendsConstrainedWidth,
+  .pageLocalHeader,
+  .pageMainContentArea {
+    max-width: 1200px;
+  }
+   .mainContainerFluid,
+  .pageLocalHeader > .container-fluid {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .dividendsConstrainedWidth,
+  .pageLocalHeader,
+  .pageMainContentArea {
+    max-width: 100%; /* Rétablir à 100% pour les écrans très larges */
+  }
+   .mainContainerFluid,
+  .pageLocalHeader > .container-fluid {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    /* height: 100%; */ /* Peut causer des problèmes si le contenu doit déborder */
+  }
+}
+
+/* Ajustements spécifiques pour la bannière offcanvas et le résumé mobile */
+.offcanvasToggleBanner {
+  /* Styles pour .dividends-aside-toggle-banner sont dans OffcanvasToggle.module.css */
+  /* Cette classe est juste un placeholder si des styles d'agencement étaient nécessaires ici */
+}
+
+.mobileSummaryContainer { /* Pour le div.col-12.d-lg-none.mb-0.px-0.reveal-on-scroll */
+  padding-right: 0 !important; /* px-0 */
+  padding-left: 0 !important; /* px-0 */
+  margin-bottom: 0 !important; /* mb-0 */
+}
+
+/* Ajustement pour la colonne des moyennes sur petits écrans */
+@media (max-width: 991.98px) { /* en dessous de lg */
+  .averagesContainerHiddenMobile {
+    display: none !important;
+  }
+}
+@media (min-width: 992px) { /* lg et plus */
+  .averagesContainerHiddenMobile {
+    display: flex !important; /* ou block, selon le type d'élément */
+  }
+}
+--------------------------------------------------
+]]
+
+================================================================================
+FIN DE L'EXTRACTION
+================================================================================
+✅ 5 fichiers extraits avec succès
+📅 Extraction terminée le 2025-05-26 17:19:36

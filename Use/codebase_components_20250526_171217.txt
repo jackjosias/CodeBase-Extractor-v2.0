@@ -1,0 +1,5190 @@
+================================================================================
+CODEBASE EXTRACTION REPORT
+================================================================================
+Projet: components
+Chemin: D:\DONNEES\Bureau\WORSPACE-STAGIAIRE\Next.js 2025\algoway-front\algoway-front\src\components
+Date d'extraction: 2025-05-26 17:12:17
+Système: windows 64bit
+
+STATISTIQUES DU PROJET:
+------------------------------
+📁 Total dossiers: 33
+📄 Total fichiers: 57
+💻 Fichiers de code: 57
+
+STRUCTURE DU PROJET:
+------------------------------
+components/
+├── features/
+│   ├── Table/
+│   │   ├── Table.module.css
+│   │   └── Table.tsx
+│   └── dividends/
+│       ├── AveragesAside/
+│       │   ├── AveragesAside.module.css
+│       │   └── AveragesAside.tsx
+│       ├── Breadcrumb/
+│       │   ├── Breadcrumb.module.css
+│       │   └── Breadcrumb.tsx
+│       ├── DividendPerformanceSection/
+│       │   ├── DividendPerformanceSection.module.css
+│       │   └── DividendPerformanceSection.tsx
+│       ├── DividendsInfoBar/
+│       │   ├── DividendsInfoBar.module.css
+│       │   └── DividendsInfoBar.tsx
+│       ├── EpsDividendSection/
+│       │   ├── EpsDividendSection.module.css
+│       │   └── EpsDividendSection.tsx
+│       ├── HistorySection/
+│       │   ├── HistorySection.module.css
+│       │   └── HistorySection.tsx
+│       ├── KeyStatsWidget/
+│       │   └── KeyStatsWidget.tsx
+│       ├── MobileStockSummary/
+│       │   ├── MobileStockSummary.module.css
+│       │   └── MobileStockSummary.tsx
+│       ├── NewsWidget/
+│       │   ├── NewsWidget.module.css
+│       │   └── NewsWidget.tsx
+│       ├── PageHeader/
+│       │   ├── PageHeader.module.css
+│       │   └── PageHeader.tsx
+│       ├── StockInfoAside/
+│       │   ├── StockInfoAside.module.css
+│       │   └── StockInfoAside.tsx
+│       ├── StockInfoHeader/
+│       │   ├── StockInfoHeader.module.css
+│       │   └── StockInfoHeader.tsx
+│       └── TradingViewChartWidget/
+│           ├── TradingViewChartWidget.module.css
+│           └── TradingViewChartWidget.tsx
+└── ui/
+    └── dividends/
+        ├── Badge/
+        │   ├── Badge.module.css
+        │   └── Badge.tsx
+        ├── Button/
+        │   ├── Button.module.css
+        │   └── Button.tsx
+        ├── Card/
+        │   ├── Card.module.css
+        │   └── Card.tsx
+        ├── ChartPlaceholder/
+        │   ├── ChartPlaceholder.module.css
+        │   └── ChartPlaceholder.tsx
+        ├── HorizontalScroll/
+        │   ├── HorizontalScroll.module.css
+        │   └── HorizontalScroll.tsx
+        ├── Icon/
+        │   ├── Icon.module.css
+        │   └── Icon.tsx
+        ├── ImageDisplay/
+        │   ├── ImageDisplay.module.css
+        │   └── ImageDisplay.tsx
+        ├── Link/
+        │   ├── Link.module.css
+        │   └── Link.tsx
+        ├── ListItem/
+        │   ├── ListItem.module.css
+        │   └── ListItem.tsx
+        ├── OffcanvasToggle/
+        │   ├── OffcanvasToggle.module.css
+        │   └── OffcanvasToggle.tsx
+        ├── PillNav/
+        │   ├── PillNav.module.css
+        │   └── PillNav.tsx
+        ├── RadioToggle/
+        │   ├── RadioToggle.module.css
+        │   └── RadioToggle.tsx
+        ├── SectionTitle/
+        │   ├── SectionTitle.module.css
+        │   └── SectionTitle.tsx
+        ├── Table/
+        │   ├── Table.module.css
+        │   └── Table.tsx
+        └── VerticalScroll/
+            ├── VerticalScroll.module.css
+            └── VerticalScroll.tsx
+
+================================================================================
+CONTENU DES FICHIERS DE CODE
+================================================================================
+
+['features\Table\Table.module.css': [
+--------------------------------------------------
+.tableBase {
+  /* .dividends-table */
+  color: var(--dividends-text-light);
+  font-size: var(--dividends-font-size-l); /* Taille de police par défaut pour les tables */
+  border-color: var(--dividends-border-color);
+  background-color: transparent !important; /* Surcharge Bootstrap */
+  border-collapse: collapse; /* Important pour éviter les doubles bordures */
+  width: 100%; /* Prend toute la largeur de son conteneur par défaut */
+  margin-bottom: 0; /* Souvent utilisé dans le HTML original */
+}
+
+.tableHeaderCell, /* th */
+.tableCell { /* td */
+  background-color: transparent !important; /* Surcharge Bootstrap */
+  color: inherit; /* Hérite la couleur de .tableBase */
+  border: none; /* Pas de bordures de cellule par défaut, les bordures de ligne sont gérées par <tr> ou CSS */
+  white-space: nowrap; /* Empêche le retour à la ligne du contenu des cellules */
+  padding: 0.3rem 0.5rem; /* Padding de base pour les cellules */
+  vertical-align: middle; /* Alignement vertical centré */
+  font-family: var(--dividends-font-family-breadcrumb); /* Mulish, comme dans le HTML original */
+}
+
+.tableBase thead .tableHeaderCell { /* Styles spécifiques pour <th> */
+  color: var(--dividends-text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  font-size: var(--dividends-font-size-s); /* Plus petit pour les en-têtes */
+  vertical-align: bottom; /* Aligne le texte en bas de la cellule d'en-tête */
+  border-bottom: none; /* Pas de bordure sous le thead par défaut */
+  color: var(--white); /* Couleur spécifique du HTML original pour les en-têtes */
+}
+
+.stickyThead th { /* Pour thead sticky */
+  position: sticky;
+  top: 0; /* Se colle en haut du conteneur scrollable parent */
+  background-color: var(--dividends-sticky-thead-bg); /* Fond opaque pour masquer le contenu en dessous */
+  z-index: 2; /* Au-dessus du contenu scrollable du tbody */
+}
+.historyHeaderTableSpecific th { /* Pour .dividends-history-header-table thead th */
+   /* Les largeurs sont appliquées via style prop dans le composant Table */
+   /* Assurer que le fond est correct pour le header fixe de l'historique */
+    background-color: var(--dividends-sticky-thead-bg) !important;
+}
+.historyHeaderTableSpecific th:first-child { text-align: start; }
+.historyHeaderTableSpecific th:not(:first-child) { text-align: end; }
+
+
+/* Styles pour les lignes de tableau */
+.tableRow:hover .tableCell { /* Hover sur les cellules d'une ligne */
+  background-color: var(--dividends-table-row-hover-bg) !important;
+  color: var(--dividends-text-primary);
+  /* box-shadow: inset 0 0 10px rgba(0,0,0,0.1); -> Peut être trop chargé */
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+
+/* --- Styles spécifiques aux variants --- */
+
+/* Variant: Key Stats (.dividends-table-key-stats) */
+.tableKeyStats .tableCell {
+  padding: 0;
+  margin: 0;
+  font-size: var(--dividends-font-size-x);
+}
+.tableKeyStats tbody tr:first-child .tableCell {
+  padding-top: 0rem; /* Pas de padding en haut pour la première ligne */
+}
+.keyStatsLabelCell { /* td:first-child dans Key Stats */
+  color: var(--white) !important; /* .dividends-table-key-stats-title */
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  text-align: left; /* Assurer l'alignement à gauche pour le label */
+}
+.tableKeyStats .tableCell:not(.keyStatsLabelCell) { /* Cellules de données dans Key Stats */
+  padding: 1.1px; /* Padding très spécifique du HTML original */
+  margin: 0;
+  text-align: end; /* Données alignées à droite */
+}
+/* Pour la première cellule de valeur (BOAB) de la première ligne de données en gras */
+.tableKeyStats tbody tr:first-child .keyStatsValueCell:first-of-type {
+    font-weight: bold;
+}
+
+
+/* Variant: Annual Data (.dividends-table-annual-data) */
+.tableAnnualData {
+  font-size: var(--dividends-font-size-m);
+}
+.tableAnnualData thead .tableHeaderCell {
+  color: var(--dividends-text-secondary);
+  font-weight: 500;
+  font-size: var(--dividends-font-size-s);
+  padding-bottom: 0.1rem;
+  border-bottom: 1px solid var(--dividends-border-color); /* Bordure sous les en-têtes */
+}
+.tableAnnualData tbody .tableCell {
+  padding: 0.1rem 0.5rem;
+  color: var(--dividends-text-light);
+  font-weight: 400;
+}
+.annualDataLabelCell { /* td:first-child dans Annual Data */
+  color: var(--dividends-text-primary) !important;
+  font-weight: 500 !important;
+  text-align: left !important;
+}
+.tableAnnualData .textYellow { /* Classe pour les cellules jaunes */
+  color: var(--dividends-accent-yellow) !important;
+  font-weight: 500;
+}
+.tableAnnualData .noDataCell,
+.tableKeyStats .noDataCell { /* Pour les '--' */
+  color: var(--dividends-text-secondary) !important;
+  font-weight: normal !important;
+}
+
+
+/* Variant: History (.dividends-table-history) */
+.tableHistory .tableCell {
+  padding: 0.15rem 0.5rem;
+  color: var(--dividends-history-body-color);
+  font-size: var(--dividends-font-size-m);
+  font-weight: 400;
+  border-bottom: none; /* Pas de bordure de cellule, les lignes sont gérées par <tr> si besoin */
+  vertical-align: middle;
+}
+.tableHistory .tableCell:first-child { text-align: start; }
+.tableHistory .tableCell:not(:first-child) { text-align: end; }
+
+.historyPaymentDateCell, .historyFrequencyCell {
+    color: var(--dividends-nav-pills-inactive-bg); /* Couleur spécifique du HTML original */
+}
+.historyAmountCell {
+    text-align: end !important; /* Assuré par :not(:first-child) mais peut être forcé */
+}
+
+
+/* Variant: Dense (utilisé pour country shares - .dividends-table-dense) */
+.tableDense .tableCell,
+.tableDense .tableHeaderCell {
+  padding: 0.1rem 0.3rem;
+  font-size: var(--dividends-font-size-xs);
+}
+.tableDense thead .tableHeaderCell {
+  font-size: var(--dividends-font-size-xs);
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+.rowReported .tableCell { /* .dividends-row-reported td */
+  color: var(--dividends-accent-yellow);
+  font-weight: 500;
+}
+
+
+/* Responsive pour les tables si nécessaire */
+@media (max-width: 575.98px) {
+  .tableAnnualData {
+    font-size: var(--dividends-font-size-xs);
+  }
+  .tableAnnualData thead .tableHeaderCell,
+  .tableAnnualData tbody .tableCell {
+    padding: 0.2rem 0.3rem;
+  }
+  .tableHistory {
+    font-size: var(--dividends-font-size-xs);
+  }
+  .tableHistory .tableHeaderCell,
+  .tableHistory .tableCell {
+    padding: 0.15rem 0.3rem;
+  }
+}
+--------------------------------------------------
+]]
+
+['features\Table\Table.tsx': [
+--------------------------------------------------
+// # composant serveur
+import React from 'react';
+import styles from './Table.module.css';
+
+export interface TableHeader {
+  key: string;
+  label: string;
+  className?: string;
+  style?: React.CSSProperties;
+  cellClassName?: string;
+  cellStyle?: React.CSSProperties;
+}
+
+export interface TableRowData {
+  [key: string]: string | number | null | React.ReactNode;
+  isYellow?: boolean;
+  isReported?: boolean;
+}
+
+interface TableProps {
+  id?: string; // Prop id ajoutée et optionnelle
+  headers: TableHeader[];
+  rows: TableRowData[];
+  caption?: string;
+  className?: string;
+  variant?: 'default' | 'key-stats' | 'annual-data' | 'history' | 'country-shares' | 'dense';
+  isHistoryHeader?: boolean;
+  isHistoryBody?: boolean;
+  tableLayout?: 'auto' | 'fixed';
+  minWidth?: string;
+  stickyHeader?: boolean;
+}
+
+const Table: React.FC<TableProps> = ({
+  id, // id est maintenant une prop acceptée
+  headers,
+  rows,
+  caption,
+  className = '',
+  variant = 'default',
+  isHistoryHeader = false,
+  isHistoryBody = false,
+  tableLayout,
+  minWidth,
+  stickyHeader = false,
+}) => {
+  const tableClasses = [
+    styles.tableBase,
+    'table',
+    'table-sm',
+    variant === 'key-stats' ? styles.tableKeyStats : '',
+    variant === 'annual-data' ? styles.tableAnnualData : '',
+    variant === 'history' ? styles.tableHistory : '',
+    variant === 'country-shares' ? styles.tableCountryShares : '',
+    variant === 'dense' ? styles.tableDense : '',
+    className,
+  ].filter(Boolean).join(' ');
+
+  const tableStyle: React.CSSProperties = {};
+  if (tableLayout) tableStyle.tableLayout = tableLayout;
+  if (minWidth) tableStyle.minWidth = minWidth;
+  if (isHistoryHeader || isHistoryBody) tableStyle.width = '100%';
+
+  const theadClasses = [
+    stickyHeader ? styles.stickyThead : '',
+    isHistoryHeader ? styles.historyHeaderTableSpecific : '',
+  ].filter(Boolean).join(' ');
+
+  return (
+    <table id={id} className={tableClasses} style={tableStyle}> {/* id appliqué ici */}
+      {caption && <caption>{caption}</caption>}
+      {!isHistoryBody && (
+        <thead className={theadClasses}>
+          <tr>
+            {headers.map((header) => (
+              <th
+                key={header.key}
+                scope="col"
+                className={`${header.className || ''} ${
+                  variant === 'key-stats' && header.key !== 'label' ? 'text-end' : ''
+                } ${
+                  variant === 'annual-data' && header.key !== 'label' ? 'text-end' : ''
+                }`}
+                style={header.style}
+              >
+                {header.label}
+              </th>
+            ))}
+          </tr>
+        </thead>
+      )}
+      <tbody>
+        {rows.map((row, rowIndex) => (
+          <tr key={rowIndex} className={row.isReported && variant === 'dense' ? styles.rowReported : ''}>
+            {headers.map((header, cellIndex) => {
+              const cellContent = row[header.key];
+              const isLabelColumn = header.key === 'label' || (variant === 'key-stats' && cellIndex === 0);
+
+              if (variant === 'history' && !isHistoryHeader) {
+                return (
+                  <td
+                    key={header.key}
+                    style={{ ...header.cellStyle, ...header.style }}
+                    className={`${styles.historyCell} ${header.cellClassName || ''} ${
+                      cellIndex === 0 ? '' : 'text-end'
+                    } ${
+                      cellIndex === 2 || cellIndex === 4 ? styles.historyInactiveText : ''
+                    } ${cellIndex === 3 ? styles.historyAmountCell : ''}`}
+                  >
+                    {cellContent === null || cellContent === undefined ? '--' : String(cellContent)}
+                  </td>
+                );
+              }
+              if (variant === 'country-shares' && !isHistoryHeader) {
+                 return (
+                  <td
+                    key={header.key}
+                    className={`${header.cellClassName || ''} ${header.key === 'shares' ? 'text-end' : ''}`}
+                    style={header.cellStyle}
+                  >
+                    {cellContent === null || cellContent === undefined ? '--' : String(cellContent)}
+                  </td>
+                );
+              }
+              return (
+                <td
+                  key={header.key}
+                  className={` ${
+                    isLabelColumn && variant === 'key-stats' ? styles.keyStatsLabel : ''
+                  } ${
+                    isLabelColumn && variant === 'annual-data' ? styles.annualDataLabel : ''
+                  } ${
+                    !isLabelColumn && (variant === 'key-stats' || variant === 'annual-data') ? 'text-end' : ''
+                  } ${
+                    (cellContent === null || cellContent === undefined) && variant === 'annual-data' ? styles.noDataCell : ''
+                  } ${row.isYellow && variant === 'annual-data' ? styles.textYellow : ''} ${header.cellClassName || ''} `}
+                  style={header.cellStyle}
+                >
+                  {cellContent === null || cellContent === undefined ? '--' : cellContent}
+                </td>
+              );
+            })}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+};
+
+export default Table;
+--------------------------------------------------
+]]
+
+['features\dividends\AveragesAside\AveragesAside.module.css': [
+--------------------------------------------------
+.averagesAsideContainer {
+  /* .col-12.col-lg-3.d-flex.dividends-average-container.ms-0.me-0.reveal-on-scroll */
+  /* La Card interne gère le h-100 et w-100 */
+}
+
+/* La Card est stylée par Card.module.css */
+/* SectionTitle est stylé par SectionTitle.module.css */
+/* ChartPlaceholder est stylé par ChartPlaceholder.module.css */
+
+.dataBlock {
+  /* Classe commune pour les sections Averages, Shares, Seasonality */
+}
+.dataBlock + .dataBlock { /* Espace entre les blocs de données */
+    margin-top: 0.75rem; /* Ajuster selon le rendu désiré */
+}
+
+
+.smallChartOverride {
+  /* .dividends-chart-container.small-chart-container */
+  /* Si des surcharges sont nécessaires pour les petits graphiques dans cet aside */
+  /* Le HTML original a .col-lg-3 .dividends-block-avg .dividends-chart-container { min-height: 60px; height: 7rem; } */
+  min-height: 60px;
+  height: 7rem !important; /* Surcharge .small-chart-container de ChartPlaceholder.module.css */
+}
+
+/* Styles pour Shares Bar Chart */
+.sharesBarChartContainer {
+  /* .shares-bar-chart-container.mb-1 */
+  display: flex;
+  flex-direction: column;
+  gap: 2px; /* Espace entre les barres */
+  margin-bottom: 0.25rem !important; /* mb-1 */
+}
+.shareBarItem {
+  /* .share-bar-item */
+  position: relative;
+  min-height: 1.5rem;
+  margin-bottom: -2px; /* Pour que les barres se touchent presque */
+}
+.shareBarVisual {
+  /* .share-bar-visual */
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0px 0px 8px 0px; /* Coins arrondis */
+  z-index: 1;
+  transition: width 0.5s ease-in-out;
+}
+.shareBarItem:first-child .shareBarVisual {
+  border-radius: 8px 8px 8px 0; /* Coins pour la première barre */
+}
+.shareBarLabel {
+  /* .share-bar-label */
+  position: relative;
+  z-index: 2; /* Au-dessus de la barre visuelle */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.2rem 0.6rem;
+  color: var(--dividends-text-primary);
+  font-size: var(--dividends-font-size-xs);
+  font-weight: 400;
+  min-height: 1.5rem; /* Correspond à la hauteur de l'item */
+  width: 100%;
+  font-family: var(--dividends-font-family-base); /* Roboto */
+}
+.shareBarLabel span:first-child {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-right: 0.5rem;
+  flex-shrink: 1;
+}
+.shareBarLabel span:last-child {
+  padding-left: 0.5rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Couleurs spécifiques pour les barres (doivent correspondre aux classes share-bar-item--*) */
+.shareBarItem.share-bar-item--ivory-coast .shareBarVisual { background-color: var(--dividends-accent-yellow); }
+.shareBarItem.share-bar-item--morocco .shareBarVisual { background-color: var(--dividends-accent-yellow-dark); }
+.shareBarItem.share-bar-item--south-africa .shareBarVisual { background-color: var(--dividends-accent-yellow-darker); }
+.shareBarItem.share-bar-item--benin .shareBarVisual { background-color: var(--dividends-accent-yellow-darkest); }
+.shareBarItem.share-bar-item--ghana .shareBarVisual { background-color: var(--dividends-accent-yellow-black); }
+
+
+/* Styles pour la table des pays */
+.countryTableContainer {
+  /* .dividends-table-container-scrolling */
+  /* Le VerticalScroll interne gère les fades/indicateurs */
+}
+/* La table header (.dividends-country-header-table) est gérée par Table.module.css */
+/* Le VerticalScroll (.dividends-country-scroll-inner-wrapper) est géré par VerticalScroll.module.css */
+/* La table body (.dividends-country-body-table) est gérée par Table.module.css */
+
+/* Assurer que le table-responsive dans VerticalScroll fonctionne bien */
+.countryTableContainer .table-responsive {
+    max-height: var(--dividends-countries-max-height); /* Appliqué par VerticalScroll ou directement */
+    overflow-y: auto; /* Géré par VerticalScroll */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.countryTableContainer .table-responsive::-webkit-scrollbar {
+    display: none;
+}
+
+@media (max-width: 991.98px) { /* en dessous de lg */
+  .averagesAsideContainer {
+    /* display: none !important; -> Géré par local.module.css .averagesContainerHiddenMobile */
+  }
+}
+--------------------------------------------------
+]]
+
+['features\dividends\AveragesAside\AveragesAside.tsx': [
+--------------------------------------------------
+// # composant client (contient des graphiques et des tables avec scroll)
+'use client';
+
+import React, { useRef } from 'react';
+import Card from '@/components/ui/dividends/Card/Card';
+import SectionTitle from '@/components/ui/dividends/SectionTitle/SectionTitle';
+import ChartPlaceholder from '@/components/ui/dividends/ChartPlaceholder/ChartPlaceholder';
+import Table, { TableHeader, TableRowData } from '@/components/ui/dividends/Table/Table';
+import VerticalScroll from '@/components/ui/dividends/VerticalScroll/VerticalScroll';
+import { useChartJs } from '@/hooks/dividends/useChartJs';
+import styles from './AveragesAside.module.css';
+import { useRevealOnScroll } from '@/hooks/dividends/useRevealOnScroll';
+
+interface BarChartItem {
+  label: string;
+  percentage: string; // Ex: "100%"
+  value: number; // Pour la largeur de la barre, ex: 100
+  colorClass: string; // Classe CSS pour la couleur de la barre, ex: 'ivory-coast'
+}
+interface CountryShareRow {
+  country: string;
+  shares: string;
+}
+interface SharesCountryData {
+  title: string;
+  barChartItems: BarChartItem[];
+  tableHeaders: string[]; // Ex: ['Countries', 'Shares']
+  tableRows: CountryShareRow[];
+}
+
+interface AveragesAsideProps {
+  className?: string; // Pour col-lg-3 etc.
+  averagesChartId: string; // Ex: "averagesChart"
+  sharesCountryData: SharesCountryData;
+  seasonalityChartId: string; // Ex: "seasonalityChart"
+}
+
+const AveragesAside: React.FC<AveragesAsideProps> = ({
+  className = '',
+  averagesChartId,
+  sharesCountryData,
+  seasonalityChartId,
+}) => {
+  useRevealOnScroll({ targetSelector: `.${styles.averagesAsideContainer} .reveal-on-scroll`, visibleClass: 'is-visible' });
+
+  // Initialisation des graphiques
+  useChartJs({ chartId: averagesChartId, chartType: 'averages' });
+  useChartJs({ chartId: seasonalityChartId, chartType: 'seasonality' });
+
+  const countryTableHeaders: TableHeader[] = sharesCountryData.tableHeaders.map((header, index) => ({
+    key: index === 0 ? 'country' : 'shares',
+    label: header,
+    className: index === 1 ? 'text-end' : '', // Aligner 'Shares' à droite
+  }));
+  const countryTableRows: TableRowData[] = sharesCountryData.tableRows.map(row => ({
+    country: row.country,
+    shares: row.shares,
+  }));
+
+  return (
+    <aside className={`${styles.averagesAsideContainer} ${className}`} aria-labelledby="secondary-data-title">
+      <Card isScrollable> {/* La Card principale est scrollable */}
+        <h2 id="secondary-data-title" className="visually-hidden">Secondary Data and Visualizations</h2>
+
+        {/* Section Averages */}
+        <section className={`${styles.dataBlock} dividends-block-avg reveal-on-scroll reveal-delay-1`} aria-labelledby="averages-title">
+          <SectionTitle id="averages-title" level={3} color="primary" className="h6 card-title mb-0">
+            Averages
+          </SectionTitle>
+          <ChartPlaceholder
+            chartId={averagesChartId}
+            type="chartjs-line-small"
+            className={`${styles.smallChartOverride} small-chart-container`} // Classe originale
+          />
+        </section>
+
+        {/* Section Shares Per Country */}
+        <section className={`${styles.dataBlock} dividends-block-shares reveal-on-scroll reveal-delay-2`} aria-labelledby="shares-country-title">
+          <SectionTitle id="shares-country-title" level={3} color="primary" className="h6 card-title mb-0">
+            {sharesCountryData.title}
+          </SectionTitle>
+          <div className={`${styles.sharesBarChartContainer} shares-bar-chart-container mb-1`}>
+            {sharesCountryData.barChartItems.map(item => (
+              <div key={item.label} className={`${styles.shareBarItem} share-bar-item share-bar-item--${item.colorClass}`}>
+                <div className={styles.shareBarVisual} style={{ width: `${item.value}%` }}></div>
+                <div className={styles.shareBarLabel}>
+                  <span>{item.label}</span>
+                  <span>{item.percentage}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className={`${styles.countryTableContainer} dividends-table-container-scrolling`}>
+            <Table
+              headers={[{ key: 'country', label: 'Countries' }, { key: 'shares', label: 'Shares', className: 'text-end' }]}
+              rows={[]} // Header only
+              variant="dense" // Utilise .dividends-table-dense
+              className="dividends-country-header-table mb-0"
+              tableLayout="fixed"
+              stickyHeader
+            />
+            <VerticalScroll
+              className="dividends-country-scroll-inner-wrapper" // Classe originale pour fades/indicateurs
+              maxHeight="var(--dividends-countries-max-height)"
+            >
+                <div className="table-responsive"> {/* Classe Bootstrap pour le scroll */}
+                    <Table
+                        headers={countryTableHeaders} // Pour l'alignement, mais pas de thead rendu
+                        rows={countryTableRows}
+                        variant="dense"
+                        isHistoryBody // Pour ne pas rendre de thead
+                        className="dividends-country-body-table"
+                        tableLayout="fixed"
+                    />
+                </div>
+            </VerticalScroll>
+          </div>
+        </section>
+
+        {/* Section Seasonalities */}
+        <section className={`${styles.dataBlock} dividends-block-season mt-0 reveal-on-scroll reveal-delay-3`} aria-labelledby="seasonality-title">
+          <SectionTitle id="seasonality-title" level={3} color="primary" className="h6 card-title mb-1">
+            Saisonnalities
+          </SectionTitle>
+          <ChartPlaceholder
+            chartId={seasonalityChartId}
+            type="chartjs-line-small"
+            className={`${styles.smallChartOverride} small-chart-container`}
+          />
+        </section>
+      </Card>
+    </aside>
+  );
+};
+
+export default AveragesAside;
+--------------------------------------------------
+]]
+
+['features\dividends\Breadcrumb\Breadcrumb.module.css': [
+--------------------------------------------------
+.breadcrumbContainer {
+  /* Styles pour l'élément <nav> qui enveloppe le breadcrumb */
+  /* Le HTML original avait .dividends-breadcrumb-styled directement sur <nav> ou <ol>
+     Ici, on le met sur <nav> pour un meilleur contrôle.
+     Les styles de .dividends-breadcrumb-styled sont appliqués ici ou sur .breadcrumbList.
+  */
+  font-family: var(--dividends-font-family-breadcrumb, var(--dividends-font-family-base));
+  font-size: var(--dividends-font-size-l);
+  font-weight: 500;
+  /* margin-bottom: -0.4rem; -> Cet ajustement est contextuel, mieux géré par le composant parent (PageHeader) */
+}
+
+.breadcrumbList {
+  /* Styles pour la balise <ol> - correspond à .dividends-breadcrumb-styled */
+  display: flex; /* Pour aligner les items horizontalement */
+  flex-wrap: wrap; /* Permet le retour à la ligne si trop d'items */
+  padding-left: 0; /* Annule le padding par défaut de <ol> */
+  margin-bottom: 0; /* Annule la marge par défaut de <ol> */
+  list-style: none; /* Enlève les puces */
+  align-items: flex-end; /* Correspond à align-items-end du HTML original */
+}
+
+.breadcrumbItem {
+  /* Styles pour chaque <li> - correspond à .breadcrumb-item de Bootstrap */
+  color: var(--dividends-breadcrumb-text-color);
+  display: flex; /* Pour que le séparateur soit bien aligné avec le texte du lien */
+  align-items: center; /* Alignement vertical du séparateur et du lien */
+}
+
+/* Séparateur personnalisé */
+.breadcrumbItem:not(:first-child)::before {
+  /* Styles pour le séparateur '>' */
+  content: ">"; /* Le séparateur */
+  padding: 0 0.2rem; /* Espacement autour du séparateur */
+  color: var(--dividends-breadcrumb-separator-color);
+  font-weight: normal; /* Le séparateur n'est pas en gras */
+  /* font-family est hérité de .breadcrumbContainer */
+}
+
+.breadcrumbItem.active {
+  /* Styles pour le <li> actif si besoin, mais le lien interne est déjà stylé */
+  /* La classe .active de Bootstrap est aussi appliquée pour compatibilité */
+  color: var(--dividends-breadcrumb-active-color); /* Assure que le texte de l'item est correct */
+}
+
+/* Les styles pour les liens <a> à l'intérieur des .breadcrumbItem
+   sont gérés par le composant Link avec variant="breadcrumb".
+   Voir Link.module.css pour .breadcrumbLink et .breadcrumbActive.
+*/
+
+
+/* Responsive adjustments from original CSS */
+@media (max-width: 575.98px) {
+  .breadcrumbContainer {
+    font-size: var(--dividends-font-size-x) !important;
+  }
+  .breadcrumbItem:not(:first-child)::before {
+    padding: 0 0.4rem !important; /* Plus d'espace sur mobile */
+    /* margin-top: -0rem !important; -> Ajustement fin, peut être omis ou géré par line-height */
+  }
+}
+
+@media (min-width: 992px) {
+  .breadcrumbContainer {
+    /* Le padding-bottom spécifique de .dividends-breadcrumb-styled sur grand écran
+       (padding-bottom: calc(0.4rem + var(--dividends-header-border-bottom-width));)
+       est mieux géré par le composant PageHeader car il dépend de la bordure du header.
+    */
+  }
+}
+--------------------------------------------------
+]]
+
+['features\dividends\Breadcrumb\Breadcrumb.tsx': [
+--------------------------------------------------
+// # composant serveur
+import React from 'react';
+import Link from '@/components/ui/dividends/Link/Link'; // Notre composant Link personnalisé
+import styles from './Breadcrumb.module.css';
+
+export interface BreadcrumbItem {
+  label: string;
+  href: string;
+  active?: boolean;
+}
+
+interface BreadcrumbProps {
+  items: BreadcrumbItem[];
+  className?: string; // Classe pour l'élément <nav> principal
+  listClassName?: string; // Classe pour l'élément <ol>
+  ariaLabel?: string;
+}
+
+const Breadcrumb: React.FC<BreadcrumbProps> = ({
+  items,
+  className = '',
+  listClassName = '',
+  ariaLabel = 'Breadcrumb',
+}) => {
+  const navClasses = [
+    styles.breadcrumbContainer, // Notre style de base pour le conteneur nav
+    className,
+  ].filter(Boolean).join(' ');
+
+  const olClasses = [
+    styles.breadcrumbList, // Notre style pour la liste ol
+    'breadcrumb', // Classe Bootstrap pour la sémantique et styles de base
+    listClassName,
+  ].filter(Boolean).join(' ');
+
+  return (
+    <nav aria-label={ariaLabel} className={navClasses}>
+      <ol className={olClasses}>
+        {items.map((item, index) => (
+          <li
+            key={index}
+            className={`${styles.breadcrumbItem} breadcrumb-item ${item.active ? styles.active : ''} ${item.active ? 'active' : ''}`}
+          >
+            {/* Utilisation de notre composant Link personnalisé qui gère isActive pour le style */}
+            <Link
+              href={item.href}
+              variant="breadcrumb" // Pour appliquer les styles de lien de breadcrumb
+              isActive={item.active}
+              aria-current={item.active ? 'page' : undefined}
+            >
+              {item.label}
+            </Link>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  );
+};
+
+export default Breadcrumb;
+--------------------------------------------------
+]]
+
+['features\dividends\DividendPerformanceSection\DividendPerformanceSection.module.css': [
+--------------------------------------------------
+.dividendPerformanceContainer {
+  /* .mb-0.reveal-on-scroll.reveal-delay-1 */
+}
+
+.contentRow {
+  /* .row.gap-4.align-items-center */
+}
+
+.dividendInfoList {
+  /* .dividends-dividend-info-list */
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: var(--dividends-font-size-m);
+}
+/* ListItem type="dividend-info" est stylé dans ListItem.module.css */
+
+.doughnutColumn {
+    /* col-md-3 */
+    /* Sur mobile, le HTML original a un comportement de stack différent.
+       HTML: <div class="col-md-3"> (pas col-md-5)
+       Le CSS media query pour mobile ajuste le flex-direction.
+    */
+}
+.doughnutColumn > .d-flex { /* Cible .d-flex.align-items-center.justify-content-start */
+    /* Styles par défaut pour desktop */
+}
+
+.doughnutLegendContainer {
+  /* .dividends-doughnut-legend */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.25rem;
+  font-size: var(--dividends-font-size-s);
+}
+
+.legendItem {
+  /* .dividends-legend-item */
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.legendColorBox {
+  /* .dividends-legend-color-box */
+  display: inline-block;
+  width: var(--dividends-doughnut-legend-box-size);
+  height: var(--dividends-doughnut-legend-box-size);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.legendLabel {
+  /* .dividends-legend-label */
+  color: var(--dividends-doughnut-legend-text-color);
+  white-space: nowrap;
+  font-family: var(--dividends-font-family-breadcrumb); /* Mulish */
+}
+
+/* Responsive pour la section Doughnut */
+@media (max-width: 575.98px) {
+  .contentRow { /* [aria-labelledby="dividends-main-title"] .m-2 > .reveal-on-scroll > .row.gap-4 */
+    display: flex;
+    flex-wrap: nowrap !important; /* Surcharge Bootstrap .row */
+    align-items: flex-start !important; /* Surcharge Bootstrap .row */
+    overflow-x: auto; /* Permet le scroll si ça dépasse */
+    padding-bottom: 0.5rem; /* Pour l'ombre de la scrollbar */
+  }
+  .contentRow > .col-md-6 { /* Premier enfant */
+    flex: 0 1 60%;
+    min-width: 160px;
+    margin-bottom: 0 !important;
+    padding-right: 0.5rem;
+  }
+  .contentRow > .col-md-3 { /* Deuxième enfant (doughnut) */
+    flex: 0 1 40%;
+    min-width: 120px; /* Ajusté pour le contenu */
+    margin-bottom: 0 !important;
+  }
+
+  .doughnutColumn > .d-flex { /* Cible .d-flex.align-items-center.justify-content-start */
+    flex-direction: column !important;
+    align-items: flex-start !important; /* align-items-start */
+    justify-content: flex-start !important;
+  }
+  /* Le ChartPlaceholder (me-3) doit avoir sa marge ajustée */
+  .doughnutColumn .flex-shrink-0.me-3 { /* Cible le ChartPlaceholder */
+    margin-right: 0 !important;
+    margin-left: 0 !important; /* Centrer ou aligner à gauche */
+    margin-bottom: 0.25rem !important;
+  }
+  .doughnutLegendContainer {
+    margin-left: 0 !important; /* Annule la marge si le graphique est au-dessus */
+    align-items: center; /* Centrer la légende si le graphique est au-dessus */
+  }
+
+  .dividendInfoList {
+    font-size: var(--dividends-font-size-s);
+  }
+}
+--------------------------------------------------
+]]
+
+['features\dividends\DividendPerformanceSection\DividendPerformanceSection.tsx': [
+--------------------------------------------------
+// # composant client (à cause du graphique doughnut)
+'use client';
+
+import React from 'react';
+import ListItem from '@/components/ui/dividends/ListItem/ListItem';
+import ChartPlaceholder from '@/components/ui/dividends/ChartPlaceholder/ChartPlaceholder';
+import { useChartJs } from '@/hooks/dividends/useChartJs'; // Hook pour le doughnut
+import styles from './DividendPerformanceSection.module.css';
+
+interface InfoListItem {
+  label: string;
+  value: string | number;
+}
+
+interface DoughnutLegendItem {
+  label: string;
+  colorVar: string; // Nom de la variable CSS pour la couleur (ex: '--dividends-doughnut-color-payment')
+}
+
+interface DividendPerformanceSectionProps {
+  infoList: InfoListItem[];
+  doughnutChart: {
+    percentage: number; // Le ratio de paiement, ex: 43.48
+    centerText: string; // Texte au centre, ex: "43,48%"
+    legend: DoughnutLegendItem[];
+  };
+  doughnutChartId: string; // Ex: "paymentRatioDoughnutChart"
+  className?: string;
+}
+
+const DividendPerformanceSection: React.FC<DividendPerformanceSectionProps> = ({
+  infoList,
+  doughnutChart,
+  doughnutChartId,
+  className = '',
+}) => {
+  // Initialisation du graphique Doughnut via le hook
+  useChartJs({ chartId: doughnutChartId, chartType: 'doughnut-payment' });
+  // Le hook utilise paymentRatioDoughnutData depuis data.ts pour les valeurs.
+  // Si doughnutChart.percentage devait être dynamique, le hook devrait l'accepter en paramètre.
+
+  return (
+    <div className={`${styles.dividendPerformanceContainer} ${className}`}>
+      <div className={`${styles.contentRow} row gap-4 align-items-center`}> {/* Classes Bootstrap */}
+        <div className="col-md-6">
+          <div className={styles.dividendInfoList}>
+            {infoList.map((item, index) => (
+              <ListItem
+                key={index}
+                type="dividend-info"
+                label={item.label}
+                value={item.value}
+              />
+            ))}
+          </div>
+        </div>
+        <div className={`${styles.doughnutColumn} col-md-3`}> {/* col-md-3 au lieu de col-md-5 pour correspondre au visuel (2 cols) */}
+          <div className="d-flex align-items-center justify-content-start">
+            <ChartPlaceholder
+              chartId={doughnutChartId}
+              type="chartjs-doughnut"
+              doughnutCenterText={doughnutChart.centerText}
+              className="flex-shrink-0 me-3" // Classes Bootstrap
+              // legendItems={doughnutChart.legend} // La légende est gérée séparément ici
+            />
+            <div className={`${styles.doughnutLegendContainer} flex-grow-1`}> {/* dividends-doughnut-legend */}
+              {doughnutChart.legend.map((item, index) => (
+                <div key={index} className={styles.legendItem}>
+                  <span
+                    className={styles.legendColorBox}
+                    style={{ backgroundColor: `var(${item.colorVar})` }}
+                  ></span>
+                  <span className={styles.legendLabel}>{item.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default DividendPerformanceSection;
+--------------------------------------------------
+]]
+
+['features\dividends\DividendsInfoBar\DividendsInfoBar.module.css': [
+--------------------------------------------------
+.infoBarContainer {
+  /* .dividends-info-bar */
+  background-color: var(--dividends-info-bar-bg); /* Utilise la variable, fallback si --dividends-tab-bg était différent */
+  /* background-color: var(--dividends-tab-bg); */ /* Original CSS */
+  padding: 0.12rem 0.5rem; /* Correspond à p-1 (si 1rem = 16px, 0.25rem approx) */
+  border-radius: 1px 8px 8px 1px;
+  /* d-flex, flex-wrap, justify-content-between, align-items-center sont des classes Bootstrap */
+}
+
+/* Le titre H1 est géré par SectionTitle.module.css (variant="main-page-title") */
+/* .h5, .mb-0, .dividends-text-primary, .ms-1 sont des classes Bootstrap ou globales */
+
+.infoItemsGroup {
+  /* .dividends-main-container */
+  /* d-flex, flex-wrap, align-items-center, gap-3, ms-1 sont des classes Bootstrap */
+}
+
+.infoItem {
+  /* .dividends-info-item */
+  font-size: var(--dividends-font-size-m); /* Taille de base */
+  /* text-nowrap est une classe Bootstrap */
+}
+
+.infoLabel {
+  /* .dividends-info-label */
+  color: var(--white, #ffffff);
+  margin-right: 0.2rem;
+  text-decoration: underline;
+  font-size: var(--dividends-font-size-xs);
+  font-weight: bold;
+  font-family: var(--dividends-font-family-breadcrumb); /* Mulish */
+}
+
+.infoValue {
+  /* .dividends-info-value */
+  color: var(--white, #ffffff) !important; /* Important pour surcharger la couleur de lien par défaut */
+  font-weight: 100; /* Très léger */
+  font-size: var(--dividends-font-size-xs);
+  text-decoration: none; /* Pas de soulignement */
+  font-family: var(--dividends-font-family-breadcrumb); /* Mulish */
+}
+
+@media (max-width: 575.98px) {
+    .infoItemsGroup {
+        gap: 0.25rem !important; /* gap-1 de Bootstrap */
+    }
+    .infoLabel, .infoValue {
+        font-size: var(--dividends-font-size-xs) !important; /* Ajustement du HTML original */
+    }
+}
+@media (max-width: 1024px) {
+    .infoLabel, .infoValue {
+        font-size: var(--dividends-font-size-a); /* Ajustement du HTML original */
+    }
+}
+--------------------------------------------------
+]]
+
+['features\dividends\DividendsInfoBar\DividendsInfoBar.tsx': [
+--------------------------------------------------
+// # composant serveur
+import React from 'react';
+import SectionTitle from '@/components/ui/dividends/SectionTitle/SectionTitle';
+import styles from './DividendsInfoBar.module.css';
+
+interface InfoItem {
+  label: string;
+  value: string;
+}
+
+interface DividendsInfoBarProps {
+  title: string;
+  mainTitleId: string; // ID pour le H1
+  items: InfoItem[];
+  className?: string;
+}
+
+const DividendsInfoBar: React.FC<DividendsInfoBarProps> = ({
+  title,
+  mainTitleId,
+  items,
+  className = '',
+}) => {
+  return (
+    <div className={`${styles.infoBarContainer} d-flex flex-wrap justify-content-between align-items-center p-1 ${className}`}>
+      <SectionTitle
+        level={1} // H1 sémantique
+        id={mainTitleId}
+        variant="main-page-title" // Utilise le style pour .dividends-main-title
+        className="h5 mb-0 dividends-text-primary ms-1" // Classes de style originales (h5 pour la taille)
+      >
+        {title}
+      </SectionTitle>
+      <div className={`${styles.infoItemsGroup} d-flex flex-wrap align-items-center gap-3 ms-1`}> {/* dividends-main-container */}
+        {items.map((item, index) => (
+          <div key={index} className={`${styles.infoItem} text-nowrap`}>
+            <span className={styles.infoLabel}>{item.label}</span>
+            <span className={styles.infoValue}>{item.value}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default DividendsInfoBar;
+--------------------------------------------------
+]]
+
+['features\dividends\EpsDividendSection\EpsDividendSection.module.css': [
+--------------------------------------------------
+.epsDividendSection {
+  /* .mt-2.reveal-on-scroll.reveal-delay-2 */
+}
+
+.headerControls {
+  /* .d-flex.flex-wrap.justify-content-between.align-items-center.mb-0.gap-4 */
+}
+
+/* Titre H2 géré par SectionTitle.module.css (variant="section-heading") */
+
+.chartLegendContainer {
+  /* .dividends-chart-legend.small.d-none.d-md-flex */
+  display: flex; /* d-md-flex */
+  align-items: center;
+  gap: 0.8rem; /* gap-5 approx */
+  font-size: var(--dividends-font-size-s); /* small */
+}
+@media (max-width: 767.98px) { /* d-none */
+  .chartLegendContainer {
+    display: none !important;
+  }
+}
+.legendItem {
+  /* .dividends-legend-item */
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.legendColorBox {
+  /* .dividends-legend-color-box */
+  display: inline-block;
+  width: var(--dividends-doughnut-legend-box-size); /* Réutilise la variable */
+  height: var(--dividends-doughnut-legend-box-size);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.legendLabel {
+  /* .dividends-legend-label */
+  color: var(--dividends-doughnut-legend-text-color); /* Réutilise la variable */
+  white-space: nowrap;
+  font-family: var(--dividends-font-family-breadcrumb); /* Mulish */
+}
+
+
+/* RadioToggle est stylé par RadioToggle.module.css */
+/* ChartPlaceholder est stylé par ChartPlaceholder.module.css (type="chartjs-combined") */
+
+.tableScrollContainer {
+  /* Conteneur pour HorizontalScroll, peut avoir l'ID #epsDividendScrollContainer */
+  /* Styles de HorizontalScroll.module.css s'appliquent */
+}
+.hScrollContainerForTable { /* Le div interne qui reçoit l'ID pour le JS original */
+    width: 100%; /* Assure qu'il prend la largeur pour le scroll */
+}
+
+.tableScrollWrapper {
+  /* Classe pour le wrapper interne de HorizontalScroll si besoin de surcharges */
+}
+
+.epsTable {
+  /* Classe spécifique pour la table .dividends-table-annual-data */
+  /* Les styles de base sont dans Table.module.css (variant="annual-data") */
+}
+.tableHeaderLabel { /* Pour le <th> "Currency : XOF" */
+  text-align: left;
+}
+.tableHeaderValue { /* Pour les <th> des années/trimestres */
+  text-align: end;
+}
+.tableCellLabel { /* Pour les <td> des labels de ligne */
+  /* .dividends-annual-label */
+  color: var(--dividends-text-primary) !important;
+  font-weight: 500 !important;
+  text-align: left !important;
+}
+.tableCellLabel.textYellow { /* Si le label lui-même est jaune */
+    color: var(--dividends-accent-yellow) !important;
+}
+.tableCellValue { /* Pour les <td> des valeurs */
+  text-align: end;
+}
+.tableCellValue.textYellow { /* Si la valeur est jaune */
+    color: var(--dividends-accent-yellow) !important;
+    font-weight: 500;
+}
+.tableCellValue.noData { /* Pour les '--' */
+    color: var(--dividends-text-secondary) !important;
+    font-weight: normal !important;
+}
+
+@media (max-width: 575.98px) {
+    .chartLegendContainer {
+        display: none !important; /* Assuré par d-none d-md-flex */
+    }
+}
+--------------------------------------------------
+]]
+
+['features\dividends\EpsDividendSection\EpsDividendSection.tsx': [
+--------------------------------------------------
+// # composant client (graphique, radio toggle, table dynamique, scroll horizontal)
+'use client';
+import React, { useState, useCallback } from 'react'; // useEffect supprimé
+import SectionTitle from '@/components/ui/dividends/SectionTitle/SectionTitle';
+import ChartPlaceholder from '@/components/ui/dividends/ChartPlaceholder/ChartPlaceholder';
+import RadioToggle from '@/components/ui/dividends/RadioToggle/RadioToggle';
+import Table, { TableHeader, TableRowData } from '@/components/ui/dividends/Table/Table';
+import HorizontalScroll from '@/components/ui/dividends/HorizontalScroll/HorizontalScroll';
+import { useChartJs } from '@/hooks/dividends/useChartJs';
+import { epsDividendTableData } from '@/lib/dividends/data'; // epsDividendChartData supprimé
+import styles from './EpsDividendSection.module.css';
+
+interface EpsDividendSectionProps {
+  className?: string;
+  chartId: string;
+  tableId: string;
+  scrollContainerId: string;
+}
+
+type DataType = 'annual' | 'trim';
+
+const radioOptions = [
+  { id: 'epsDividendAnnual', label: 'Annuel', value: 'annual' as DataType },
+  { id: 'epsDividendTrim', label: 'Trimestriel', value: 'trim' as DataType },
+];
+
+const chartLegendItems = [
+  { label: 'Dividend Per Share (Year)', colorVar: '--dividends-text-light' },
+  { label: 'Dividend Return (FY) %', colorVar: '--dividends-accent-yellow' },
+];
+
+const EpsDividendSection: React.FC<EpsDividendSectionProps> = ({
+  className = '',
+  chartId,
+  tableId,
+  scrollContainerId,
+}) => {
+  const [activeDataType, setActiveDataType] = useState<DataType>('annual');
+  const { updateDataType: updateChartDataType } = useChartJs({ // chart supprimé
+    chartId: chartId,
+    chartType: 'eps-dividend',
+    initialDataType: activeDataType,
+  });
+
+  const [currentTableData, setCurrentTableData] = useState<{
+    headers: string[],
+    rows: { label: string; values: (string | number | null)[]; isYellow?: boolean }[]
+  }>(epsDividendTableData[activeDataType]);
+
+  const handleDataTypeChange = useCallback((newType: string) => {
+    const newDataType = newType as DataType;
+    setActiveDataType(newDataType);
+    if (updateChartDataType) {
+      updateChartDataType(newDataType);
+    }
+    setCurrentTableData(epsDividendTableData[newDataType]);
+  }, [updateChartDataType]);
+
+  const tableHeaders: TableHeader[] = currentTableData.headers.map((header, index) => ({
+    key: index === 0 ? 'label' : `col${index}`,
+    label: header,
+    className: index === 0 ? styles.tableHeaderLabel : styles.tableHeaderValue,
+    cellClassName: index === 0 ? styles.tableCellLabel : styles.tableCellValue,
+  }));
+
+  const tableRows: TableRowData[] = currentTableData.rows.map(row => {
+    const rowData: TableRowData = {
+      label: row.label,
+      isYellow: row.isYellow
+    };
+    row.values.forEach((value, index) => {
+      rowData[`col${index + 1}`] = value;
+    });
+    return rowData;
+  });
+
+  return (
+    <section className={`${styles.epsDividendSection} ${className}`} aria-labelledby="eps-dividend-section-title">
+      <div className={`${styles.headerControls} d-flex flex-wrap justify-content-between align-items-center mb-0 gap-4`}>
+        <SectionTitle
+          id="eps-dividend-section-title"
+          level={2}
+          variant="section-heading"
+          className="h5 mb-0"
+        >
+          Earning per Share
+        </SectionTitle>
+        <div className="d-flex align-items-center gap-5">
+          <div className={`${styles.chartLegendContainer} small d-none d-md-flex`}>
+            {chartLegendItems.map(item => (
+              <div key={item.label} className={styles.legendItem}>
+                <span className={styles.legendColorBox} style={{ backgroundColor: `var(${item.colorVar})`}}></span>
+                <span className={styles.legendLabel}>{item.label}</span>
+              </div>
+            ))}
+          </div>
+          <RadioToggle
+            options={radioOptions}
+            name="epsDividendRadio"
+            selectedValue={activeDataType}
+            onChange={handleDataTypeChange}
+          />
+        </div>
+      </div>
+      <ChartPlaceholder
+        chartId={chartId}
+        type="chartjs-combined"
+        className="mb-0 mt-0 pt-0"
+      />
+      <HorizontalScroll
+        className={`${styles.tableScrollContainer}`}
+        wrapperClassName={styles.tableScrollWrapper}
+        ariaLabel="Earning per Share Data Table"
+        scrollIndicatorVariant="default"
+      >
+        <div id={scrollContainerId} className={styles.hScrollContainerForTable}>
+          <Table
+            id={tableId} // L'erreur TS2322 ici est résolue par la Prop. 8 (modif de Table.tsx)
+            headers={tableHeaders}
+            rows={tableRows}
+            variant="annual-data"
+            className={styles.epsTable}
+          />
+        </div>
+      </HorizontalScroll>
+    </section>
+  );
+};
+
+export default EpsDividendSection;
+--------------------------------------------------
+]]
+
+['features\dividends\HistorySection\HistorySection.module.css': [
+--------------------------------------------------
+.historySectionContainer {
+  /* .mt-0.p-2.dividends-history-section.reveal-on-scroll.reveal-delay-3 */
+  background-color: var(--dividends-tab-bg); /* Fond de la section */
+  border-radius: 1px;
+  padding: 0.5rem; /* p-2 */
+}
+
+/* Titre H2 géré par SectionTitle.module.css */
+
+.outerHScrollContainer {
+  /* #historyTableHScrollContainer */
+  /* Styles de HorizontalScroll.module.css s'appliquent */
+  width: 100%;
+  position: relative; /* Assuré par HorizontalScroll */
+}
+.outerHScrollWrapper {
+  /* .dividends-horizontal-scroll-wrapper (dans HorizontalScroll) */
+}
+
+.hScrollContentWrapper {
+  /* .dividends-history-scroll-wrapper (contenu du scroll horizontal) */
+  min-width: 500px; /* Largeur minimale pour que le scroll H s'active si besoin */
+  /* Ce wrapper contient le header de table et le VerticalScroll pour le corps */
+  position: relative; /* Pour les indicateurs de VerticalScroll */
+}
+
+.historyHeaderTable {
+  /* .dividends-history-header-table.mb-0 */
+  table-layout: fixed !important; /* Important pour l'alignement avec le corps */
+  width: 100% !important;
+  min-width: 500px; /* Doit correspondre au min-width du corps */
+  position: relative; /* Pour z-index si besoin */
+  z-index: 2; /* Au-dessus du corps scrollable */
+  margin-bottom: 0 !important;
+}
+.historyHeaderTable thead th {
+    /* Styles spécifiques pour les th du header si Table.module.css ne suffit pas */
+    /* Les largeurs sont dans historyTableHeadersConfig */
+    background-color: var(--dividends-sticky-thead-bg); /* Assure le fond pour le header sticky */
+}
+
+
+.historyVScrollWrapper {
+  /* .dividends-history-scroll-wrapper (pour le scroll vertical) */
+  /* Styles de VerticalScroll.module.css s'appliquent */
+  /* Ce wrapper a besoin de 'position: relative' pour ses propres indicateurs/fades,
+     ce qui est géré par VerticalScroll.module.css .vScrollContainer
+  */
+}
+/* Ajustement pour les indicateurs de VerticalScroll dans ce contexte */
+.historyVScrollWrapper > button[class*="scrollIndicatorTop"],
+.historyVScrollWrapper > button[class*="scrollIndicatorBottom"] {
+    left: 50% !important; /* Centrer les flèches V */
+    transform: translateX(-50%) !important;
+    width: auto !important;
+}
+
+
+.historyBodyScrollArea {
+  /* .dividends-history-scroll-area.ps-1 */
+  position: relative; /* Pour tout positionnement interne */
+  overflow-y: auto; /* Géré par VerticalScroll si pas de sélecteur enfant */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-left: 0.25rem; /* ps-1 */
+  max-height: var(--dividends-history-max-height); /* Appliqué par VerticalScroll */
+}
+.historyBodyScrollArea::-webkit-scrollbar {
+  display: none;
+}
+
+.historyBodyTable {
+  /* .dividends-history-body-table */
+  table-layout: fixed !important;
+  width: 100% !important;
+  min-width: 500px; /* Correspond au header */
+  margin-top: 0 !important; /* Pour coller au header */
+}
+/* Les styles des cellules (td) sont dans Table.module.css (variant="history") */
+/* Classes spécifiques pour les cellules si besoin */
+.cellExDate {}
+.cellSavedDate {}
+.cellPaymentDate {
+    color: var(--dividends-nav-pills-inactive-bg); /* Couleur spécifique du HTML original */
+}
+.cellAmount {
+    text-align: end !important; /* Assuré par Table.module.css */
+}
+.cellFrequency {
+    color: var(--dividends-nav-pills-inactive-bg); /* Couleur spécifique du HTML original */
+    text-align: end !important; /* Assuré par Table.module.css */
+}
+--------------------------------------------------
+]]
+
+['features\dividends\HistorySection\HistorySection.tsx': [
+--------------------------------------------------
+// # composant client (à cause des scrolls horizontal et vertical complexes)
+'use client';
+import React from 'react'; // useRef supprimé
+import SectionTitle from '@/components/ui/dividends/SectionTitle/SectionTitle';
+import Table, { TableHeader, TableRowData } from '@/components/ui/dividends/Table/Table';
+import HorizontalScroll from '@/components/ui/dividends/HorizontalScroll/HorizontalScroll';
+import VerticalScroll from '@/components/ui/dividends/VerticalScroll/VerticalScroll';
+import styles from './HistorySection.module.css';
+
+interface HistoryRow {
+  exDate: string;
+  savedDate: string;
+  paymentDate: string;
+  amount: string; // Garder en string pour affichage direct
+  frequency: string; 
+}
+
+interface HistorySectionProps {
+  title: string;
+  headers: string[]; // Labels pour les colonnes: ['Ex-date', 'Saved Date', ...]
+  rows: HistoryRow[];
+  className?: string;
+  scrollContainerId?: string; // Pour le scroll horizontal de toute la section
+}
+
+const historyTableHeadersConfig: TableHeader[] = [
+  { key: 'exDate', label: 'Ex-date', style: { width: 'auto', minWidth: '100px' }, cellClassName: styles.cellExDate },
+  { key: 'savedDate', label: 'Saved Date', style: { width: 'auto', minWidth: '100px' }, cellClassName: styles.cellSavedDate },
+  { key: 'paymentDate', label: 'Payment Date', style: { width: '20%', minWidth: '120px' }, cellClassName: styles.cellPaymentDate },
+  { key: 'amount', label: 'Amount', style: { width: '14%', textAlign: 'end', minWidth: '80px' }, cellClassName: styles.cellAmount },
+  { key: 'frequency', label: 'Frequency', style: { width: '30%', minWidth: '100px' }, cellClassName: styles.cellFrequency },
+];
+
+const HistorySection: React.FC<HistorySectionProps> = ({
+  title,
+  rows,
+  className = '',
+  scrollContainerId = 'historyTableHScrollContainer',
+}) => {
+  const tableRows: TableRowData[] = rows.map(row => ({
+    exDate: row.exDate,
+    savedDate: row.savedDate,
+    paymentDate: row.paymentDate,
+    amount: row.amount,
+    frequency: row.frequency,
+  }));
+
+  return (
+    <section className={`${styles.historySectionContainer} ${className}`} aria-labelledby="history-section-title">
+      <SectionTitle
+        id="history-section-title"
+        level={2}
+        variant="section-heading"
+        className="h5"
+      >
+        {title}
+      </SectionTitle>
+      <HorizontalScroll
+        className={styles.outerHScrollContainer}
+        wrapperClassName={styles.outerHScrollWrapper}
+        ariaLabel="Dividends History Table Horizontal Scroll"
+        scrollIndicatorVariant="history-table"
+      >
+        <div id={scrollContainerId} className={styles.hScrollContentWrapper}>
+          <Table
+            headers={historyTableHeadersConfig}
+            rows={[]} 
+            variant="history"
+            isHistoryHeader
+            className={`${styles.historyHeaderTable} dividends-history-header-table mb-0`}
+            tableLayout="fixed"
+            minWidth="500px"
+            stickyHeader
+          />
+          <VerticalScroll
+            className={`${styles.historyVScrollWrapper} dividends-history-scroll-wrapper`}
+            maxHeight="var(--dividends-history-max-height)"
+            topIndicatorOffset="1.8rem"
+            showTopFadeUnderOffset
+          >
+            <div className={`${styles.historyBodyScrollArea} dividends-history-scroll-area ps-1`}>
+              <Table
+                headers={historyTableHeadersConfig}
+                rows={tableRows}
+                variant="history"
+                isHistoryBody
+                className={`${styles.historyBodyTable} dividends-history-body-table`}
+                tableLayout="fixed"
+                minWidth="500px"
+              />
+            </div>
+          </VerticalScroll>
+        </div>
+      </HorizontalScroll>
+    </section>
+  );
+};
+
+export default HistorySection;
+--------------------------------------------------
+]]
+
+['features\dividends\KeyStatsWidget\KeyStatsWidget.tsx': [
+--------------------------------------------------
+
+--------------------------------------------------
+]]
+
+['features\dividends\MobileStockSummary\MobileStockSummary.module.css': [
+--------------------------------------------------
+.mobileSummaryContainer {
+  /* .col-12.d-lg-none.mb-0.px-0.reveal-on-scroll */
+  /* Les classes Bootstrap gèrent la visibilité et le padding.
+     local.module.css a .mobileSummaryContainer pour px-0 et mb-0.
+  */
+}
+
+.cardNoBorder {
+  /* .card.dividends-card-border-none.p-0 */
+  /* Styles de Card.module.css (cardBorderNone) sont appliqués.
+     p-0 est une classe Bootstrap.
+  */
+   padding: 0.25rem; /* Petit padding interne pour ne pas coller aux bords */
+}
+
+.mobileLogo {
+  /* .dividends-logo-boab-svg (styles de base dans ImageDisplay.module.css) */
+  /* Peut nécessiter des ajustements de taille spécifiques pour mobile si différent de l'aside */
+  width: 32px; /* Plus petit pour le résumé mobile */
+  height: 32px;
+}
+
+.stockNameMobile {
+  /* .h3.mb-0.me-1.dividends-text-name.dividends-text-primary.fw-bold */
+  /* Similaire à .stockName de StockInfoHeader.module.css */
+  line-height: 1; /* Ajusté pour mobile */
+  font-size: var(--dividends-font-size-xl); /* Plus petit que h3 par défaut */
+  font-family: var(--dividends-font-family-title-accent);
+}
+
+.infoBadgesContainerMobile {
+  /* .dividends-info */
+  /* Similaire à .infoBadgesContainer de StockInfoHeader.module.css */
+  /* Les badges et liens sont stylés par leurs composants UI respectifs */
+  font-size: var(--dividends-font-size-xs); /* Plus petit pour mobile */
+}
+.infoBadgesContainerMobile .lh-1 > div > span, /* Cible les Badges de type="text" */
+.infoBadgesContainerMobile .lh-1 > a { /* Cible le Link */
+    font-size: var(--dividends-font-size-xs);
+}
+.infoBadgesContainerMobile .d-flex.align-items-baseline > span { /* Cible les Badges XOF/BRVM et séparateurs */
+    font-size: var(--dividends-font-size-a);
+}
+
+
+.descriptionMobile {
+  /* .dividends-text-secondary.small.mb-0 */
+  color: var(--dividends-text-secondary);
+  font-size: var(--dividends-font-size-s); /* small */
+  padding-top: 0.5rem; /* Espace après le bouton Description */
+  text-align: justify;
+}
+--------------------------------------------------
+]]
+
+['features\dividends\MobileStockSummary\MobileStockSummary.tsx': [
+--------------------------------------------------
+// # composant client (à cause du collapse Bootstrap)
+'use client';
+import React, { useEffect } from 'react';
+import ImageDisplay from '@/components/ui/dividends/ImageDisplay/ImageDisplay';
+import SectionTitle from '@/components/ui/dividends/SectionTitle/SectionTitle';
+import Badge from '@/components/ui/dividends/Badge/Badge';
+import Link from '@/components/ui/dividends/Link/Link';
+import Button from '@/components/ui/dividends/Button/Button';
+// Correction de l'import pour StockInfoBadge (export nommé)
+import type { StockInfoBadge } from '../StockInfoHeader/StockInfoHeader'; 
+import styles from './MobileStockSummary.module.css';
+
+interface MobileStockSummaryProps {
+  stockInfo: {
+    logoSrc: string;
+    altText: string;
+    stockName: string;
+    badges: StockInfoBadge[]; 
+    companyName: string;
+    websiteUrl: string;
+    description: string;
+    readMoreLink: string;
+  };
+  collapseId: string;
+  className?: string;
+}
+
+const MobileStockSummary: React.FC<MobileStockSummaryProps> = ({
+  stockInfo,
+  collapseId,
+  className = '',
+}) => {
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Accès à la bibliothèque globale Bootstrap
+    if (typeof window !== 'undefined' && (window as any).bootstrap) {
+      // const collapseElement = document.getElementById(collapseId);
+      // if (collapseElement) {
+      //   new (window as any).bootstrap.Collapse(collapseElement, { toggle: false });
+      // }
+    }
+  }, [collapseId]);
+
+  return (
+    <div className={`${styles.mobileSummaryContainer} ${className}`}>
+      <div className={`${styles.cardNoBorder} card dividends-card-border-none p-0`}>
+        <div className="d-flex align-items-center mb-0 flex-wrap gap-0">
+          <div className="flex-shrink-0 me-0">
+            <ImageDisplay
+              src={stockInfo.logoSrc}
+              alt={stockInfo.altText}
+              isLogo
+              imgClassName={styles.mobileLogo}
+            />
+          </div>
+          <div>
+            <SectionTitle
+              level={2}
+              id="stock-info-title-mobile"
+              className={`${styles.stockNameMobile} h3 mb-0 me-1 dividends-text-name dividends-text-primary fw-bold`}
+            >
+              {stockInfo.stockName}
+            </SectionTitle>
+          </div>
+          <div className={styles.infoBadgesContainerMobile}>
+            <div className="d-flex align-items-baseline">
+              {stockInfo.badges.map((badge, index) => (
+                <React.Fragment key={index}>
+                  <Badge text={badge.text} type={badge.type} />
+                  {/* Erreur TS2741 résolue si Badge.tsx a text?: string */}
+                  {index < stockInfo.badges.length - 1 && <Badge type="info-separator" />} 
+                </React.Fragment>
+              ))}
+            </div>
+            <div className="lh-1">
+              <Badge type="text" text={stockInfo.companyName} className="me-0" />
+               {/* Erreur TS2741 résolue si Badge.tsx a text?: string */}
+              <Badge type="info-separator" />
+              <Link
+                href={`http://${stockInfo.websiteUrl}`}
+                variant="badge"
+                className="fw-bold ms-0"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {stockInfo.websiteUrl}
+              </Link>
+            </div>
+          </div>
+          <div className="ms-auto d-flex flex-nowrap align-items-center flex-shrink-0">
+            <Button
+              variant="analyze"
+              className="btn-sm"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target={`#${collapseId}`}
+              aria-expanded="false"
+              aria-controls={collapseId}
+            >
+              Description
+            </Button>
+          </div>
+        </div>
+        <div className="collapse" id={collapseId}>
+          <p className={`${styles.descriptionMobile} dividends-text-secondary small mb-0`}>
+            {stockInfo.description}
+            <Link href={stockInfo.readMoreLink} variant="read-more" className="dividends-link ms-1">Read More</Link>
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default MobileStockSummary;
+--------------------------------------------------
+]]
+
+['features\dividends\NewsWidget\NewsWidget.module.css': [
+--------------------------------------------------
+.newsWidgetContainer {
+  /* .dividends-news-list-container */
+  flex-grow: 1; /* Pour prendre l'espace dans l'aside */
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* Important pour flex et scroll interne */
+  overflow: hidden; /* Cache le contenu qui dépasse */
+  /* position: relative; -> Géré par VerticalScroll.module.css .vScrollContainer */
+}
+
+/* Le titre est géré par SectionTitle */
+
+.newsListScrollContainer {
+  /* Ce conteneur est celui qui aura les fades de VerticalScroll.module.css */
+  flex-grow: 1;
+  display: flex; /* Pour que .newsList puisse grandir */
+  min-height: 0;
+  position: relative; /* Nécessaire pour les fades de VerticalScroll */
+}
+
+.newsList {
+  /* .dividends-news-list */
+  flex-grow: 1;
+  overflow-y: auto; /* Activé pour l'auto-scroll et interaction utilisateur */
+  overflow-x: hidden;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE, Edge */
+  padding-right: 5px; /* Espace pour la scrollbar si visible, ou juste padding */
+  padding-left: 0;
+  margin-bottom: 0;
+  border-radius: var(--bs-border-radius-sm);
+  min-height: 50px; /* Hauteur minimale */
+  max-height: 8.5rem; /* Hauteur maximale pour la liste scrollable */
+}
+.newsList::-webkit-scrollbar {
+  display: none; /* Webkit */
+}
+
+/* Les styles des items de news (ListItem type="news") sont dans ListItem.module.css */
+
+/* Les fades sont gérés par VerticalScroll.module.css,
+   en s'assurant que .newsListScrollContainer a les classes .show-top-fade / .show-bottom-fade
+   et que les pseudo-éléments ::before / ::after sont stylés correctement.
+   VerticalScroll.module.css utilise .topFade et .bottomFade.
+*/
+
+/* Ajustement pour le fade du haut pour qu'il soit sous le titre H3 */
+.newsListScrollContainer > .topFade { /* Cible le .topFade généré par VerticalScroll */
+    top: 1.2rem !important; /* Positionné sous le titre H3 (approx) */
+}
+/* Si VerticalScroll n'ajoute pas .topFade directement, il faut styler ::before sur .newsListScrollContainer */
+/* .newsListScrollContainer::before {
+  top: 1.2rem;
+  background: linear-gradient(to bottom, var(--dividends-scroll-fade-color) 0%, transparent 100%);
+} */
+
+
+@media (max-width: 1024px) {
+  .newsList {
+    max-height: 8rem;
+  }
+}
+@media (max-width: 575.98px) {
+  .newsList {
+    max-height: 50% !important; /* Du CSS original, peut être très grand */
+    /* Considérer une valeur fixe plus petite comme 6rem ou 7rem */
+  }
+}
+--------------------------------------------------
+]]
+
+['features\dividends\NewsWidget\NewsWidget.tsx': [
+--------------------------------------------------
+// # composant client (à cause de VerticalScroll et useAutoScroll)
+'use client';
+import React, { useRef } from 'react';
+import SectionTitle from '@/components/ui/dividends/SectionTitle/SectionTitle';
+import ListItem from '@/components/ui/dividends/ListItem/ListItem';
+import VerticalScroll from '@/components/ui/dividends/VerticalScroll/VerticalScroll';
+import { useAutoScroll } from '@/hooks/dividends/useAutoScroll';
+import styles from './NewsWidget.module.css';
+
+// Interface exportée
+export interface NewsItemData { // Ajout de export
+  country: string;
+  time: string;
+  text: string;
+  link: string;
+}
+
+interface NewsWidgetProps {
+  title: string;
+  titleId?: string;
+  newsItems: NewsItemData[];
+  className?: string;
+}
+
+const NewsWidget: React.FC<NewsWidgetProps> = ({
+  title,
+  titleId = 'news-title',
+  newsItems,
+  className = '',
+}) => {
+  const scrollableListRef = useRef<HTMLDivElement>(null); // Type HTMLDivElement pour le div
+
+  useAutoScroll(scrollableListRef, { // Devrait maintenant être compatible
+    isEnabled: true,
+    pixelsPerSecond: 20,
+    pauseDelayMs: 4000
+  });
+
+  return (
+    <section className={`${styles.newsWidgetContainer} ${className}`} aria-labelledby={titleId}>
+      <SectionTitle
+        id={titleId}
+        level={3}
+        variant="accent"
+        className="h6 card-title mb-1 mt-1 flex-shrink-0 reveal-on-scroll reveal-delay-1"
+      >
+        {title}
+      </SectionTitle>
+      <VerticalScroll
+        className={`${styles.newsListScrollContainer} reveal-on-scroll reveal-delay-2`}
+      >
+        <div
+          ref={scrollableListRef} // Correctement typé
+          className={`${styles.newsList} list-group list-group-flush`}
+          role="list"
+        >
+          {newsItems.map((item, index) => (
+            <ListItem
+              key={index}
+              type="news"
+              country={item.country}
+              time={item.time}
+              text={item.text}
+              linkHref={item.link}
+              useArticleTag 
+              isEven={index % 2 !== 0}
+              itemClassName="dividends-news-item"
+            />
+          ))}
+        </div>
+      </VerticalScroll>
+    </section>
+  );
+};
+
+export default NewsWidget;
+--------------------------------------------------
+]]
+
+['features\dividends\PageHeader\PageHeader.module.css': [
+--------------------------------------------------
+.pageLocalHeader {
+  /* Styles du conteneur .page-local-header de local.module.css sont déjà globaux.
+     Ici, on peut ajouter des styles spécifiques à CE composant si nécessaire,
+     mais pour l'instant, il hérite ou utilise les classes Bootstrap.
+     La classe .sticky-top sera passée via props.
+     background-color: var(--dividends-bg-primary); est dans local.module.css
+  */
+  padding-bottom: 0; /* Assuré par le HTML original */
+}
+
+.mainNav {
+  /* Classe .main-nav du HTML original.
+     .container-fluid et .px-lg-1 sont des classes Bootstrap.
+     Pas de styles spécifiques pour .main-nav dans le CSS fourni.
+  */
+}
+
+.headerNavContainer {
+  /* .dividends-header-nav-container */
+  position: relative; /* Pour tout positionnement absolu à l'intérieur */
+  border-bottom: var(--dividends-header-border-bottom-width) solid var(--dividends-header-border-bottom-color);
+  padding-bottom: 0; /* Assuré par le HTML original */
+  gap: 0; /* Assuré par .g-0 de Bootstrap */
+  /* align-items-end est une classe Bootstrap */
+
+  /* Ajustement pour que les PillNav actifs dépassent légèrement la bordure */
+  /* Cela peut nécessiter que les PillNav aient un margin-bottom négatif
+     OU que le padding-bottom de ce conteneur soit ajusté.
+     Le HTML original utilise:
+     .dividends-nav-pills-styled { margin-bottom: calc(-1 * var(--dividends-header-border-bottom-width)); }
+     .dividends-breadcrumb-styled { margin-bottom: -0.4rem; }
+     Ces ajustements fins sont délicats à gérer de manière modulaire.
+     On peut les appliquer ici ou dans les composants enfants.
+  */
+}
+
+/* Ajustement pour le positionnement du Breadcrumb et PillNav par rapport à la bordure */
+/* Ces styles sont inspirés par les marges négatives du CSS original */
+.headerNavContainer > .col-12.col-lg.order-1 > nav { /* Cible le Breadcrumb */
+   margin-bottom: -0.4rem; /* Compense padding pills + bordure */
+}
+@media (min-width: 992px) {
+    .headerNavContainer > .col-12.col-lg.order-1 > nav { /* Cible le Breadcrumb */
+        padding-bottom: calc(0.4rem + var(--dividends-header-border-bottom-width));
+        margin-bottom: 0; /* Annule la marge négative sur grand écran */
+    }
+}
+
+
+.headerNavContainer > .col-12.col-lg-auto.order-2 > nav { /* Cible le PillNav */
+   margin-bottom: calc(-1 * var(--dividends-header-border-bottom-width));
+}
+
+
+/* Les classes .col-*, .order-*, .d-flex, .justify-content-end sont des classes Bootstrap. */
+--------------------------------------------------
+]]
+
+['features\dividends\PageHeader\PageHeader.tsx': [
+--------------------------------------------------
+// # composant client (à cause de PillNav qui gère l'état actif)
+'use client';
+
+import React from 'react';
+import Breadcrumb, { BreadcrumbItem } from '@/components/ui/dividends/Breadcrumb/Breadcrumb';
+import PillNav, { PillNavItem } from '@/components/ui/dividends/PillNav/PillNav';
+import styles from './PageHeader.module.css';
+
+interface PageHeaderProps {
+  breadcrumbItems: BreadcrumbItem[];
+  pillNavItems: PillNavItem[];
+  className?: string; // Pour le conteneur global du header (ex: sticky-top)
+  ariaLabel?: string; // Pour la sémantique de la région du header
+}
+
+const PageHeader: React.FC<PageHeaderProps> = ({
+  breadcrumbItems,
+  pillNavItems,
+  className = '',
+  ariaLabel = "Page Navigation and Context",
+}) => {
+  // La logique de gestion de l'onglet actif est dans PillNav.tsx
+  // Si le PageHeader devait réagir au changement d'onglet, on utiliserait le callback onNavChange de PillNav.
+
+  return (
+    <div className={`${styles.pageLocalHeader} ${className}`} role="region" aria-label={ariaLabel}>
+      <div className={`${styles.mainNav} container-fluid px-lg-1`}> {/* main-nav et container-fluid du HTML original */}
+        <div className={`${styles.headerNavContainer} row g-0 align-items-end`}>
+          <div className="col-12 col-lg order-1"> {/* order-1 pour l'ordre flex */}
+            <Breadcrumb items={breadcrumbItems} />
+          </div>
+          <div className="col-12 col-lg-auto order-2 d-flex justify-content-end"> {/* order-2 et utilitaires flex */}
+            <PillNav items={pillNavItems} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default PageHeader;
+--------------------------------------------------
+]]
+
+['features\dividends\StockInfoAside\StockInfoAside.module.css': [
+--------------------------------------------------
+.stockInfoAside {
+  /* .card.dividends-card.offcanvas-lg.offcanvas-start.col-lg-4.dividends-offcanvas-custom */
+  /* La plupart des styles viennent des classes Bootstrap et globales.
+     .dividends-offcanvas-custom styles:
+  */
+  box-shadow: 0 6px 15px 10px rgba(0,0,0,0.25) !important; /* Uniquement pour offcanvas mobile */
+  top: var(--dividends-header-height) !important; /* Uniquement pour offcanvas mobile */
+  height: calc(100% - var(--dividends-header-height)) !important; /* Uniquement pour offcanvas mobile */
+  background-color: var(--dividends-bg-primary); /* Fond de l'offcanvas mobile */
+  padding: 0; /* Assuré par .offcanvas-body p-0 */
+  z-index: var(--dividends-offcanvas-zindex);
+  transition: transform .3s ease-in-out; /* Pour l'animation offcanvas */
+  border: none; /* Assurer pas de bordure de card sur l'aside lui-même */
+}
+
+/* Styles pour quand l'aside n'est PAS un offcanvas (sur grand écran) */
+@media (min-width: 992px) { /* lg et plus */
+  .stockInfoAside.offcanvas-lg { /* Classes Bootstrap pour comportement offcanvas */
+    position: static !important; /* Annule position: fixed */
+    transform: none !important; /* Annule la translation */
+    visibility: visible !important; /* Toujours visible */
+    border: none !important;
+    background-color: transparent !important; /* Le fond vient du body ou du parent */
+    top: auto !important;
+    height: auto !important;
+    box-shadow: none !important;
+    padding: 0 !important; /* Pas de padding sur l'aside lui-même */
+    z-index: auto !important;
+  }
+  /* Le Card interne gérera le scroll et le style */
+}
+
+
+/* Le .offcanvas-body p-0 est une classe Bootstrap.
+   Le Card interne (isOffcanvasContent isScrollable) gère le padding et le scroll.
+   Les composants enfants (StockInfoHeader, etc.) ont leurs propres classes reveal-on-scroll.
+*/
+
+.newsSectionOverride {
+    /* Si des surcharges spécifiques sont nécessaires pour la section News dans cet aside */
+    margin-top: 0.5rem; /* Petit espace avant les news */
+}
+
+@media (max-width: 768px) {
+    .stockInfoAside.dividends-offcanvas-custom {
+        top: var(--dividends-header-height-tablet) !important;
+        height: calc(100% - var(--dividends-header-height-tablet)) !important;
+    }
+}
+--------------------------------------------------
+]]
+
+['features\dividends\StockInfoAside\StockInfoAside.tsx': [
+--------------------------------------------------
+// Fichier: src/components/features/dividends/StockInfoAside/StockInfoAside.tsx
+// Path: mon-projet-next/src/components/features/dividends/StockInfoAside/StockInfoAside.tsx
+
+// # composant client (car contient des widgets clients comme graphiques, news avec auto-scroll)
+'use client';
+
+import React from 'react';
+import Card from '@/components/ui/dividends/Card/Card';
+// Correction des chemins d'importation pour les features frères, en supposant un alias '@' pour src/
+import StockInfoHeader, { StockInfoBadge } from '@/components/features/dividends/StockInfoHeader/StockInfoHeader';
+import TradingViewChartWidget from '@/components/features/dividends/TradingViewChartWidget/TradingViewChartWidget';
+import StockPriceVariation, { PerformanceBadgeData as PerfBadge } from '@/components/features/dividends/StockPriceVariation/StockPriceVariation';
+import KeyStatsWidget from '@/components/features/dividends/KeyStatsWidget/KeyStatsWidget'; // Import corrigé avec alias
+import NewsWidget, { NewsItemData as NewsData } from '@/components/features/dividends/NewsWidget/NewsWidget';
+import styles from './StockInfoAside.module.css';
+import { useRevealOnScroll } from '@/hooks/dividends/useRevealOnScroll';
+
+interface StockInfoAsideProps {
+  className?: string;
+  offcanvasId: string;
+  stockInfo: {
+    logoSrc: string;
+    altText: string;
+    stockName: string;
+    badges: StockInfoBadge[];
+    companyName: string;
+    websiteUrl: string;
+    description: string;
+    readMoreLink: string;
+  };
+  stockPrice: {
+    currentPrice: string;
+    currency: string;
+    variationAmount: number;
+    variationPercentage: number;
+    performanceBadges: PerfBadge[];
+  };
+  keyStats: {
+    title: string;
+    headers: string[];
+    rows: { label: string; values: (string | number)[] }[];
+  };
+  newsItems: NewsData[];
+  tradingViewChartContainerId: string;
+}
+
+const StockInfoAside: React.FC<StockInfoAsideProps> = ({
+  className = '',
+  offcanvasId,
+  stockInfo,
+  stockPrice,
+  keyStats,
+  newsItems,
+  tradingViewChartContainerId,
+}) => {
+  useRevealOnScroll({ targetSelector: `.${styles.stockInfoAside} .reveal-on-scroll`, visibleClass: 'is-visible' });
+
+  return (
+    <aside
+      className={`${styles.stockInfoAside} card dividends-card offcanvas-lg offcanvas-start col-lg-4 dividends-offcanvas-custom reveal-on-scroll ${className}`}
+      tabIndex={-1}
+      id={offcanvasId}
+      aria-labelledby="stock-info-title-offcanvas"
+    >
+      <div className="offcanvas-body p-0">
+        <Card isOffcanvasContent isScrollable>
+          <StockInfoHeader
+            {...stockInfo}
+            stockNameId="stock-info-title-offcanvas"
+            className="reveal-on-scroll reveal-delay-1"
+          />
+          <TradingViewChartWidget
+            chartContainerId={tradingViewChartContainerId}
+            navId="tvChartNav"
+            className="mb-0 dividends-chart-section reveal-on-scroll reveal-delay-1"
+          />
+          <StockPriceVariation
+            {...stockPrice}
+            className="reveal-on-scroll reveal-delay-2"
+          />
+          <KeyStatsWidget // Utilisation du composant importé
+            title={keyStats.title}
+            headers={keyStats.headers}
+            rows={keyStats.rows}
+            className="reveal-on-scroll"
+          />
+          <NewsWidget
+            title="News"
+            newsItems={newsItems}
+            className={`${styles.newsSectionOverride} dividends-news-list-container reveal-on-scroll`}
+          />
+        </Card>
+      </div>
+    </aside>
+  );
+};
+
+export default StockInfoAside;
+--------------------------------------------------
+]]
+
+['features\dividends\StockInfoHeader\StockInfoHeader.module.css': [
+--------------------------------------------------
+.stockInfoHeaderContainer {
+  /* Conteneur global pour cette section */
+}
+
+.topSection {
+  /* .d-flex.align-items-center.mb-0.flex-wrap.gap-0 */
+  /* Styles spécifiques si les classes Bootstrap ne suffisent pas */
+}
+
+.logoWrapper {
+  /* .flex-shrink-0.me-0.ms-0.pe-0.ps-0 */
+  /* Le style du logo lui-même est dans ImageDisplay.module.css */
+}
+
+.stockName {
+  /* .h3.mb-0.me-1.dividends-text-name.dividends-text-primary.fw-bold */
+  /* La plupart des styles sont des classes Bootstrap ou globales */
+  /* .dividends-text-name specific styles: */
+  line-height: 1rem;
+  font-size: var(--dividends-font-size-xxxl); /* Appliqué par .h3 de Bootstrap */
+  font-family: var(--dividends-font-family-title-accent); /* Lilita One, via .dividends-text-primary */
+}
+
+.infoBadgesContainer {
+  /* .dividends-info */
+  /* Structure interne gérée par flex et Badge components */
+}
+
+.websiteLinkContainer {
+    /* .breackpoint-1024px.align-items-baseline */
+    /* Cette classe .breackpoint-1024px semble être pour un affichage conditionnel
+       qui n'est pas directement dans le CSS fourni. On va supposer qu'elle est
+       toujours visible pour l'instant ou que la logique d-none/d-lg-flex est utilisée.
+    */
+    display: inline-flex; /* Pour que le séparateur et le lien soient sur la même ligne */
+    align-items: baseline;
+}
+@media (max-width: 1023.98px) { /* En dessous de 1024px */
+    /* Si .breackpoint-1024px signifie cacher en dessous:
+    .websiteLinkContainer {
+        display: none;
+    }
+    */
+}
+
+
+.actionButtons {
+  /* .ms-auto.d-flex.flex-nowrap.align-items-center.flex-shrink-0 */
+}
+
+.description {
+  /* .dividends-text-secondary-info.text-justify.small.mb-1 */
+  /* Styles spécifiques à .dividends-text-secondary-info: */
+  color: var(--dividends-text-light) !important;
+  font-family: var(--dividends-font-family-breadcrumb); /* Mulish */
+  text-align: justify;
+}
+--------------------------------------------------
+]]
+
+['features\dividends\StockInfoHeader\StockInfoHeader.tsx': [
+--------------------------------------------------
+// # composant client (à cause des boutons qui pourraient avoir des onClick)
+'use client';
+import React from 'react';
+import ImageDisplay from '@/components/ui/dividends/ImageDisplay/ImageDisplay';
+import SectionTitle from '@/components/ui/dividends/SectionTitle/SectionTitle';
+import Badge from '@/components/ui/dividends/Badge/Badge';
+import Link from '@/components/ui/dividends/Link/Link';
+import Button from '@/components/ui/dividends/Button/Button';
+import styles from './StockInfoHeader.module.css';
+
+// Interface exportée pour être utilisée par MobileStockSummary et StockInfoAside
+export interface StockInfoBadge { // Ajout de export
+  text: string;
+  type: 'dark';
+}
+
+interface StockInfoHeaderProps {
+  logoSrc: string;
+  altText: string;
+  stockName: string;
+  stockNameId?: string;
+  badges: StockInfoBadge[];
+  companyName: string;
+  websiteUrl: string;
+  description: string;
+  readMoreLink: string;
+  className?: string;
+  onConvertClick?: () => void;
+  onAnalyzeClick?: () => void;
+}
+
+const StockInfoHeader: React.FC<StockInfoHeaderProps> = ({
+  logoSrc,
+  altText,
+  stockName,
+  stockNameId,
+  badges,
+  companyName,
+  websiteUrl,
+  description,
+  readMoreLink,
+  className = '',
+  onConvertClick,
+  onAnalyzeClick,
+}) => {
+  return (
+    <div className={`${styles.stockInfoHeaderContainer} ${className}`}>
+      <div className={`${styles.topSection} d-flex align-items-center mb-0 flex-wrap gap-0`}>
+        <div className={`${styles.logoWrapper} flex-shrink-0 me-0 ms-0 pe-0 ps-0`}>
+          <ImageDisplay src={logoSrc} alt={altText} isLogo imgClassName="me-0 ms-0 pe-0 ps-0" />
+        </div>
+        <div>
+          <SectionTitle
+            level={2}
+            id={stockNameId}
+            className={`${styles.stockName} h3 mb-0 me-1 dividends-text-primary fw-bold`}
+          >
+            <b>{stockName}</b>
+          </SectionTitle>
+        </div>
+        <div className={styles.infoBadgesContainer}>
+          <div className="d-flex align-items-baseline lh-1">
+            {badges.map((badge, index) => (
+              <React.Fragment key={index}>
+                <Badge text={badge.text} type={badge.type} />
+                {/* text est optionnel, mais ici il est fourni. L'erreur TS2741 venait des appels SANS text */}
+                {index < badges.length - 1 && <Badge type="info-separator" />} 
+              </React.Fragment>
+            ))}
+          </div>
+          <div className="lh-1 d-flex">
+            <div>
+              <Badge type="text" text={companyName} className="me-0" />
+            </div>
+            <div className={styles.websiteLinkContainer}>
+              <Badge type="info-separator" />
+              <Link
+                href={`http://${websiteUrl}`}
+                variant="badge"
+                className="fw-bold ms-0"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {websiteUrl}
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className={`${styles.actionButtons} ms-auto d-flex flex-nowrap align-items-center flex-shrink-0`}>
+          <Button variant="convert" className="me-1" onClick={onConvertClick}>
+            Convert
+          </Button>
+          <Button variant="analyze" onClick={onAnalyzeClick}>
+            Analyze
+          </Button>
+        </div>
+      </div>
+      <p className={`${styles.description} dividends-text-secondary-info text-justify small mb-1`}>
+        {description}
+        <Link href={readMoreLink} variant="read-more" className="dividends-link ms-1">Read More</Link>
+      </p>
+    </div>
+  );
+};
+
+export default StockInfoHeader;
+--------------------------------------------------
+]]
+
+['features\dividends\TradingViewChartWidget\TradingViewChartWidget.module.css': [
+--------------------------------------------------
+.tradingViewWidgetContainer {
+  /* .mb-0.dividends-chart-section (appliqué au parent dans le HTML) */
+  position: relative; /* Nécessaire pour la nav superposée */
+  border-radius: var(--dividends-tv-border-radius);
+  overflow: hidden; /* Cache les coins de la nav si elle déborde */
+  background-color: var(--dividends-tv-chart-bg); /* Fond du graphique */
+  min-height: 144px; /* Correspond à .dividends-chart-section */
+  flex-shrink: 0;
+}
+
+.tvChartNavContainer {
+  /* .dividends-tv-chart-nav */
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  z-index: 10; /* Au-dessus du graphique */
+  background-color: var(--black, #000000);
+  border-radius: 6px;
+  padding: 3px;
+  display: inline-flex;
+  gap: 3px;
+  border: 2px solid var(--dividends-tv-nav-border);
+}
+/* Les boutons à l'intérieur sont stylés par Button.module.css (variant="tv-nav") */
+
+.chartPlaceholderActual {
+  /* S'assurer que le ChartPlaceholder lui-même ne cause pas de double fond ou bordure
+     si le widgetContainer gère déjà cela.
+     Normalement, ChartPlaceholder avec type="tradingview" est déjà bien configuré.
+  */
+   width: 100%;
+   height: 100%; /* Prend la hauteur du widgetContainer */
+}
+
+/* Le ChartPlaceholder interne (div#mainStockChartContainer) aura sa propre hauteur définie
+   par ChartPlaceholder.module.css ou par le script TV.
+   Le widget doit s'assurer que le ChartPlaceholder s'affiche correctement.
+*/
+--------------------------------------------------
+]]
+
+['features\dividends\TradingViewChartWidget\TradingViewChartWidget.tsx': [
+--------------------------------------------------
+// # composant client
+'use client';
+import React, { useState } from 'react';
+import Button from '@/components/ui/dividends/Button/Button';
+import { useTradingViewChart } from '@/hooks/dividends/useTradingViewChart'; // Hook pour la logique TV
+import styles from './TradingViewChartWidget.module.css';
+import ChartPlaceholder from '@/components/ui/dividends/ChartPlaceholder/ChartPlaceholder'; // Import unique
+
+interface TradingViewChartWidgetProps {
+  chartContainerId: string; // Ex: "mainStockChartContainer"
+  navId?: string; // Ex: "tvChartNav" // Reste optionnel car la version Revised ne l'utilise pas directement pour ChartPlaceholder
+  className?: string; // Classe pour le conteneur global du widget
+}
+
+type TvChartType = 'volume' | 'seriesMarkers' | 'movingAverage';
+
+const tvNavButtons: { label: string; type: TvChartType }[] = [
+  { label: 'Volume', type: 'volume' },
+  { label: 'Series markers', type: 'seriesMarkers' },
+  { label: 'Moving average', type: 'movingAverage' },
+];
+
+// Révision de TradingViewChartWidget pour qu'il gère sa propre navigation:
+const TradingViewChartWidgetRevised: React.FC<TradingViewChartWidgetProps> = ({
+  chartContainerId,
+  className = '',
+}) => {
+  const [activeChartType, setActiveChartType] = useState<TvChartType>('volume');
+  const { setSeriesVisibility } = useTradingViewChart({
+    containerId: chartContainerId,
+    initialChartType: activeChartType,
+  });
+
+  const handleNavClick = (type: TvChartType) => {
+    setActiveChartType(type);
+    tvNavButtons.forEach(btn => {
+      // Assumer que setSeriesVisibility peut prendre le type de série et un booléen
+      // TODO: Étendre la logique de setSeriesVisibility dans le hook si 'seriesMarkers' ou 'movingAverage' doivent être gérés.
+      if (btn.type === 'volume') setSeriesVisibility('volume', btn.type === type);
+    });
+  };
+
+  return (
+    <div className={`${styles.tradingViewWidgetContainer} ${className} reveal-on-scroll reveal-delay-1`}>
+      <div className={styles.tvChartNavContainer}>
+        {tvNavButtons.map((btn) => (
+          <Button
+            key={btn.type}
+            variant="tv-nav"
+            isActive={activeChartType === btn.type}
+            onClick={() => handleNavClick(btn.type)}
+            data-chart-type={btn.type}
+          >
+            {btn.label}
+          </Button>
+        ))}
+      </div>
+      <ChartPlaceholder
+        chartId={chartContainerId}
+        type="tradingview"
+        className={styles.chartPlaceholderActual}
+      />
+    </div>
+  );
+};
+
+export default TradingViewChartWidgetRevised;
+--------------------------------------------------
+]]
+
+['ui\dividends\Badge\Badge.module.css': [
+--------------------------------------------------
+.badgeBase {
+  display: inline-block;
+  padding: 0.1em 0; /* Ajusté pour .dividends-badge-dark */
+  font-size: var(--dividends-font-size-xs);
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0; /* .dividends-badge-dark */
+}
+
+.badgeDark {
+  background-color: transparent;
+  color: var(--dividends-text-secondary);
+  border: none;
+}
+
+.infoSeparator {
+  color: var(--dividends-text-secondary);
+  margin: 0 0.25rem;
+  font-weight: bold;
+  font-size: var(--dividends-font-size-xs); /* Hérité de .badgeBase mais peut être spécifique */
+}
+
+.badgeText {
+  /* .dividends-badge-text */
+  color: var(--dividends-accent-cyan);
+  font-size: var(--dividends-font-size-x);
+  line-height: 0.5; /* Spécifique */
+  padding: 0;
+}
+
+/* Styles pour .equitie-perf-badge */
+.perfBadge {
+  padding: 0.4rem 0.3rem;
+  font-weight: bold;
+  border-radius: var(--bs-border-radius);
+  background-color: var(--equitie-perf-badge-bg, #191818); /* Fallback si variable non définie */
+  border: none;
+  color: var(--white);
+  flex-shrink: 0;
+  font-family: var(--dividends-font-family-breadcrumb); /* Mulish */
+}
+
+.perfBadgeDanger {
+  color: var(--dividends-danger);
+}
+
+.perfBadgeSuccess {
+  color: var(--dividends-success);
+}
+.perfBadgeWarning {
+  color: var(--dividends-warning);
+}
+
+--------------------------------------------------
+]]
+
+['ui\dividends\Badge\Badge.tsx': [
+--------------------------------------------------
+// Fichier: src/components/ui/dividends/Badge/Badge.tsx
+// # composant serveur
+import styles from './Badge.module.css';
+
+interface BadgeProps {
+  text?: string; // Rendu optionnel pour résoudre TS2741
+  type?: 'dark' | 'info-separator' | 'text' | 'performance';
+  variant?: 'success' | 'danger';
+  className?: string;
+  ariaHidden?: boolean;
+}
+
+const Badge: React.FC<BadgeProps> = ({
+  text, 
+  type = 'dark',
+  variant,
+  className = '',
+  ariaHidden,
+}) => {
+  const badgeClasses = [
+    styles.badgeBase,
+    type === 'dark' ? styles.badgeDark : '',
+    type === 'info-separator' ? styles.infoSeparator : '',
+    type === 'text' ? styles.badgeText : '',
+    type === 'performance' ? styles.perfBadge : '',
+    variant === 'success' && type === 'performance' ? styles.perfBadgeSuccess : '',
+    variant === 'danger' && type === 'performance' ? styles.perfBadgeDanger : '',
+    className,
+  ].filter(Boolean).join(' ');
+
+  if (type === 'info-separator') {
+    // Le fallback `text || '•'` gère le cas où text est undefined
+    return <span className={badgeClasses} aria-hidden={ariaHidden ?? true}>{text || '•'}</span>;
+  }
+  // Pour les autres types, si text est undefined, il affichera "undefined" ou rien.
+  // Si un texte est toujours attendu pour les autres types, il faudrait une logique plus fine
+  // ou garder text: string et gérer les séparateurs différemment.
+  // Pour l'instant, rendre text optionnel résout les erreurs TS2741.
+  return <span className={badgeClasses} aria-hidden={ariaHidden}>{text}</span>;
+};
+
+export default Badge;
+--------------------------------------------------
+]]
+
+['ui\dividends\Button\Button.module.css': [
+--------------------------------------------------
+.btnBase {
+  /* Styles communs à .dividends-btn-convert, .dividends-btn-analyze */
+  border-radius: var(--bs-border-radius);
+  white-space: nowrap;
+  line-height: 1.5;
+  font-weight: 500;
+  flex-shrink: 0;
+  transition: background-color var(--dividends-transition-duration) var(--dividends-transition-easing),
+              border-color var(--dividends-transition-duration) var(--dividends-transition-easing),
+              color var(--dividends-transition-duration) var(--dividends-transition-easing),
+              transform var(--dividends-transition-duration) var(--dividends-transition-easing),
+              box-shadow var(--dividends-transition-duration) var(--dividends-transition-easing);
+  cursor: pointer;
+  font-family: var(--dividends-font-family-breadcrumb); /* Mulish */
+  border: 1px solid; /* Base pour les boutons avec bordure */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnBase:hover,
+.btnBase:focus {
+  transform: scale(1.03) translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.btnSm {
+  /* Correspond à .btn-sm de Bootstrap et .dividends-btn-* */
+  font-size: var(--bs-btn-font-size-sm);
+  padding: var(--bs-btn-padding-y-sm) var(--bs-btn-padding-x-sm);
+}
+
+.btnAnalyze {
+  background-color: var(--dividends-text-primary);
+  border-color: var(--dividends-text-primary);
+  color: var(--dividends-bg-primary);
+}
+.btnAnalyze:hover,
+.btnAnalyze:focus {
+  background-color: var(--dividends-text-light);
+  border-color: var(--dividends-text-light);
+  color: var(--dividends-bg-primary);
+}
+
+.btnConvert {
+  color: var(--dividends-text-primary);
+  border-color: var(--dividends-text-primary);
+  background-color: transparent;
+}
+.btnConvert:hover,
+.btnConvert:focus {
+  background-color: rgba(255,255,255,0.1);
+  color: var(--white, #ffffff);
+  border-color: var(--white, #ffffff);
+}
+
+/* Styles pour .dividends-tv-nav-button */
+.btnTvNav {
+  background-color: transparent;
+  border: none;
+  color: var(--dividends-tv-nav-text);
+  font-size: var(--dividends-font-size-s);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--bs-border-radius-sm);
+  white-space: nowrap;
+  line-height: 1.2;
+}
+.btnTvNav:hover {
+  background-color: var(--dividends-tv-nav-hover-bg);
+  transform: none; /* Pas de transform pour ces boutons */
+  box-shadow: none;
+}
+.btnTvNav.active {
+  background-color: var(--dividends-tv-nav-hover-bg); /* Utilise hover pour actif */
+  color: var(--dividends-tv-nav-active-text);
+  font-weight: 500;
+  cursor: default;
+  transform: none;
+  box-shadow: none;
+}
+.btnTvNav.active:hover {
+    background-color: var(--dividends-tv-nav-hover-bg); /* Garder le même fond sur hover de l'actif */
+}
+
+
+/* Styles pour .scroll-indicator.clickable (button version) */
+.btnScrollIndicator {
+  position: absolute; /* Ou relatif si le parent gère la position absolue */
+  z-index: 3; /* Ou plus haut si nécessaire */
+  color: var(--dividends-text-secondary);
+  font-size: var(--dividends-font-size-m); /* Ou spécifique arrow size */
+  pointer-events: none; /* Sera auto via .clickable */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out,
+              color 0.15s ease-in-out,
+              background-color 0.15s ease-in-out,
+              transform 0.15s ease-in-out;
+  line-height: 1;
+  padding: 2px 0;
+  background-color: transparent;
+  text-align: center;
+  border: none;
+  display: flex; /* Pour centrer l'icône/texte */
+  align-items: center;
+  justify-content: center;
+}
+
+.btnScrollIndicator.clickable { /* Classe appliquée par JS ou directement */
+  cursor: pointer !important;
+  pointer-events: auto !important;
+}
+
+.btnScrollIndicator.clickable:hover {
+  color: var(--white, #ffffff) !important;
+  background-color: rgba(255,255,255,0.15);
+  transform: scale(1.1);
+  border-radius: 4px;
+  box-shadow: none; /* Pas de box-shadow pour les indicateurs */
+}
+
+/* Positionnement et taille spécifique pour les indicateurs de scroll horizontaux */
+.scrollIndicatorLeft,
+.scrollIndicatorRight {
+  top: 0;
+  bottom: 0;
+  width: var(--dividends-scroll-indicator-h-width);
+  font-size: var(--dividends-scroll-indicator-h-arrow-size);
+}
+.scrollIndicatorLeft { left: 0; }
+.scrollIndicatorRight { right: 0; }
+
+/* Positionnement et taille spécifique pour les indicateurs de scroll verticaux */
+.scrollIndicatorTop,
+.scrollIndicatorBottom {
+  left: 0;
+  right: 0;
+  height: var(--dividends-scroll-indicator-v-height);
+  font-size: var(--dividends-scroll-indicator-v-arrow-size);
+}
+.scrollIndicatorTop { top: 0; }
+.scrollIndicatorBottom { bottom: 0; }
+
+/* Styles pour les boutons de l'offcanvas toggle banner */
+/* Ces styles sont très spécifiques et pourraient être dans OffcanvasToggle.module.css,
+   mais si Button doit les gérer, on peut les ajouter ici.
+   Pour l'instant, je suppose que OffcanvasToggle aura ses propres styles.
+*/
+--------------------------------------------------
+]]
+
+['ui\dividends\Button\Button.tsx': [
+--------------------------------------------------
+// # composant client (à cause de onClick et potentiels états pour :active/:focus gérés par JS)
+'use client';
+
+import React from 'react';
+import styles from './Button.module.css';
+
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode;
+  variant?: 'convert' | 'analyze' | 'tv-nav' | 'scroll-indicator'; // Étendre selon les besoins
+  size?: 'sm' | 'md' | 'lg'; // Si des tailles spécifiques sont nécessaires au-delà de Bootstrap
+  isActive?: boolean; // Pour les boutons de navigation TV
+  ariaLabel?: string; // Pour l'accessibilité, surtout pour les boutons icônes
+  // Pour les boutons de type 'scroll-indicator'
+  scrollDirection?: 'left' | 'right' | 'up' | 'down';
+}
+
+const Button: React.FC<ButtonProps> = ({
+  children,
+  variant = 'analyze', // 'analyze' est un bon défaut car il a un fond
+  size = 'sm', // Correspond à btn-sm
+  isActive = false,
+  className = '',
+  ariaLabel,
+  scrollDirection,
+  ...props
+}) => {
+  const buttonClasses = [
+    styles.btnBase,
+    variant === 'convert' ? styles.btnConvert : '',
+    variant === 'analyze' ? styles.btnAnalyze : '',
+    variant === 'tv-nav' ? styles.btnTvNav : '',
+    variant === 'scroll-indicator' ? styles.btnScrollIndicator : '',
+    isActive && variant === 'tv-nav' ? styles.active : '',
+    size === 'sm' ? styles.btnSm : '', // Ajouter d'autres tailles si besoin
+    // Pour les indicateurs de scroll, les classes de direction peuvent être utiles
+    scrollDirection === 'left' && variant === 'scroll-indicator' ? styles.scrollIndicatorLeft : '',
+    scrollDirection === 'right' && variant === 'scroll-indicator' ? styles.scrollIndicatorRight : '',
+    scrollDirection === 'up' && variant === 'scroll-indicator' ? styles.scrollIndicatorTop : '',
+    scrollDirection === 'down' && variant === 'scroll-indicator' ? styles.scrollIndicatorBottom : '',
+    className,
+  ].filter(Boolean).join(' ');
+
+  return (
+    <button
+      className={buttonClasses}
+      aria-label={ariaLabel || (typeof children === 'string' ? children : undefined)}
+      aria-pressed={variant === 'tv-nav' ? isActive : undefined}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+};
+
+export default Button;
+--------------------------------------------------
+]]
+
+['ui\dividends\Card\Card.module.css': [
+--------------------------------------------------
+.cardBase {
+  /* .dividends-card */
+  background-color: var(--dividends-bg-card, transparent);
+  border: none; /* Par défaut, comme dans le HTML */
+  border-radius: var(--bs-border-radius-lg);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden; /* Important pour le border-radius et le scroll interne */
+}
+
+.cardBorderNone {
+  /* .dividends-card-border-none */
+  border-radius: 0;
+}
+
+.offcanvasCardContent {
+  /* Styles spécifiques si la card est le contenu direct d'un offcanvas Bootstrap */
+  /* .dividends-offcanvas-custom .offcanvas-body .dividends-card */
+  height: 100%;
+  width: 100%;
+  border-radius: 0; /* Souvent, les cards dans offcanvas n'ont pas de radius */
+}
+
+.cardBody {
+  /* .dividends-card .card-body */
+  padding: 0.5rem; /* Correspond à p-0 dans offcanvas-body puis p-0.5rem dans card-body */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 0.6rem; /* Correspond à gap-0 dans offcanvas-section-card */
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--dividends-text-secondary) transparent;
+  min-height: 0; /* Important pour flex-grow dans un parent scrollable */
+}
+
+.cardBody::-webkit-scrollbar {
+  width: 6px;
+}
+.cardBody::-webkit-scrollbar-thumb {
+  background-color: var(--dividends-text-secondary);
+  border-radius: 3px;
+}
+.cardBody::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Styles spécifiques pour les cards dans les colonnes lg-3/lg-9 (si nécessaire) */
+/* .col-lg-3 .dividends-card, .col-lg-9 .dividends-card {
+  box-shadow: none;
+} */
+
+/* .col-lg-3 .cardBody {
+  gap: 0.75rem;
+} */
+--------------------------------------------------
+]]
+
+['ui\dividends\Card\Card.tsx': [
+--------------------------------------------------
+// # composant serveur
+import React from 'react';
+import styles from './Card.module.css';
+
+interface CardProps {
+  children: React.ReactNode;
+  className?: string;
+  ariaLabelledby?: string;
+  role?: string;
+  hasBorder?: boolean; // Pour .dividends-card-border-none
+  isOffcanvasContent?: boolean; // Si la card est le contenu direct d'un offcanvas
+  isScrollable?: boolean; // Si le card-body doit être scrollable
+}
+
+const Card: React.FC<CardProps> = ({
+  children,
+  className = '',
+  ariaLabelledby,
+  role,
+  hasBorder = true, // Par défaut, la card a des styles (même si c'est transparent bg)
+  isOffcanvasContent = false,
+  isScrollable = true, // Par défaut, le card-body est scrollable comme dans l'exemple
+}) => {
+  const cardClasses = [
+    styles.cardBase,
+    !hasBorder ? styles.cardBorderNone : '',
+    isOffcanvasContent ? styles.offcanvasCardContent : '',
+    className,
+  ].filter(Boolean).join(' ');
+
+  // Le HTML original a souvent un <section class="card"> puis un <div class="card-body">
+  // Si children est déjà le card-body, on ne l'enveloppe pas.
+  // Ici, on suppose que children est le contenu du card-body.
+
+  return (
+    <section
+      className={cardClasses}
+      aria-labelledby={ariaLabelledby}
+      role={role}
+    >
+      {isScrollable ? (
+        <div className={styles.cardBody}>
+          {children}
+        </div>
+      ) : (
+        // Si non scrollable, children est directement dans la card
+        children
+      )}
+    </section>
+  );
+};
+
+export default Card;
+--------------------------------------------------
+]]
+
+['ui\dividends\ChartPlaceholder\ChartPlaceholder.module.css': [
+--------------------------------------------------
+/* Styles pour TradingView Chart Section */
+.tvChartSection {
+  /* .dividends-chart-section */
+  position: relative;
+  border-radius: var(--dividends-tv-border-radius);
+  overflow: hidden;
+  background-color: var(--dividends-tv-chart-bg);
+  min-height: 144px; /* Hauteur minimale de base */
+  flex-shrink: 0;
+}
+
+.tvChartNav {
+  /* .dividends-tv-chart-nav */
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  transform: none;
+  z-index: 10;
+  background-color: var(--black, #000000);
+  border-radius: 6px;
+  padding: 3px;
+  display: inline-flex;
+  gap: 3px;
+  border: 2px solid var(--dividends-tv-nav-border);
+}
+/* Les boutons à l'intérieur de .tvChartNav sont gérés par Button.module.css (variant="tv-nav") */
+
+.tvChartInnerContainer {
+  /* #mainStockChartContainer */
+  width: 100%;
+  height: 10.4rem; /* Hauteur fixe par défaut, peut être ajustée par props ou classes parentes */
+  position: relative;
+}
+@media (max-width: 1024px) {
+  .tvChartInnerContainer {
+    height: 10rem;
+  }
+}
+@media (min-width: 1200px) {
+  .tvChartInnerContainer {
+    height: 11rem;
+  }
+}
+
+
+/* Styles génériques pour conteneurs Chart.js */
+.chartJsContainer {
+  /* .dividends-chart-container */
+  position: relative;
+  width: 100%;
+}
+.chartJsContainer canvas {
+    display: block;
+    width: 100% !important; /* Assurer que le canvas prend toute la largeur */
+    height: auto !important; /* La hauteur sera gérée par l'aspect ratio ou le conteneur */
+}
+
+
+.smallChartContainer {
+  /* .small-chart-container (pour Averages, Seasonality) */
+  height: 4.4rem; /* Hauteur fixe pour les petits graphiques */
+  /* min-height: 60px; */ /* Peut être redondant si height est fixe */
+}
+/* Cas spécifique pour les graphiques dans col-lg-3 */
+/* Ceci devrait être géré par le composant Feature AveragesAside en passant une classe au ChartPlaceholder */
+.averagesAsideChart { /* Exemple de classe passée par AveragesAside */
+    min-height: 60px;
+    height: 7rem !important; /* Surcharger .smallChartContainer si nécessaire */
+}
+
+
+/* Styles pour Doughnut Chart */
+.doughnutChartContainer {
+  /* .dividends-doughnut-chart-container */
+  position: relative;
+  max-width: 150px;
+  width: 100%; /* Prendra la largeur du parent jusqu'à max-width */
+  margin: 0; /* Le centrage sera géré par le parent flex */
+}
+.doughnutChartContainer canvas {
+    aspect-ratio: 1 / 1; /* Assure qu'il reste carré */
+}
+
+.doughnutCenterText {
+  /* .dividends-doughnut-center-text */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--dividends-doughnut-center-text-color);
+  font-size: var(--dividends-font-size-xl);
+  font-weight: 700;
+  font-family: var(--dividends-font-family-breadcrumb); /* Mulish */
+  pointer-events: none;
+  text-align: center;
+  line-height: 1;
+}
+
+/* Styles pour Combined Chart (EPS/Dividend) */
+.combinedChartContainer {
+  /* .dividends-chart-container.combined-chart-container */
+  height: 5rem; /* Ajusté P#7 */
+}
+@media (max-width: 575.98px) {
+  .combinedChartContainer {
+    height: 8rem;
+  }
+}
+
+
+/* Styles pour les légendes HTML (si utilisées) */
+.chartLegend {
+  /* .dividends-chart-legend (pour EPS/Dividend) ou .dividends-doughnut-legend */
+  display: flex;
+  align-items: center;
+  gap: 0.8rem; /* Défaut pour .dividends-chart-legend */
+  font-size: var(--dividends-font-size-s); /* small pour .dividends-chart-legend */
+}
+
+.doughnutLegend {
+  /* .dividends-doughnut-legend */
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.25rem; /* Spécifique au doughnut */
+}
+
+.legendItem {
+  /* .dividends-legend-item */
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.legendColorBox {
+  /* .dividends-legend-color-box */
+  display: inline-block;
+  width: var(--dividends-doughnut-legend-box-size);
+  height: var(--dividends-doughnut-legend-box-size);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.legendLabel {
+  /* .dividends-legend-label */
+  color: var(--dividends-doughnut-legend-text-color); /* Couleur par défaut */
+  white-space: nowrap;
+  font-family: var(--dividends-font-family-breadcrumb); /* Mulish */
+}
+
+/* Responsive pour légendes */
+@media (max-width: 575.98px) {
+  .chartLegend {
+    /* display: none; -> Géré par le composant Feature si la légende doit être cachée */
+  }
+  .legendItem span { /* .dividends-legend-item span */
+    font-size: var(--dividends-font-size-x) !important;
+  }
+  .doughnutCenterText {
+    font-size: var(--dividends-font-size-l);
+  }
+  .doughnutChartContainer {
+    max-width: 120px;
+  }
+}
+@media (max-width: 1024px) {
+    .legendLabel {
+        font-size: var(--dividends-font-size-a) !important;
+    }
+    .doughnutCenterText {
+        font-size: var(--dividends-font-size-xs);
+    }
+    .chartLegend { /* Pour EPS/Dividend legend */
+        gap: 0rem; /* Ajustement spécifique */
+    }
+}
+--------------------------------------------------
+]]
+
+['ui\dividends\ChartPlaceholder\ChartPlaceholder.tsx': [
+--------------------------------------------------
+// # composant client (car il contiendra un <canvas> et sera manipulé par des bibliothèques JS client)
+'use client';
+
+import React, { useRef } from 'react';
+import styles from './ChartPlaceholder.module.css';
+
+interface ChartPlaceholderProps {
+  chartId: string; // ID pour le canvas ou le conteneur du graphique
+  className?: string; // Classe pour le conteneur principal du graphique
+  canvasClassName?: string; // Classe spécifique pour l'élément canvas
+  type: 'tradingview' | 'chartjs-doughnut' | 'chartjs-combined' | 'chartjs-line-small'; // Pour adapter les styles/structure
+  // Props pour TradingView (si le conteneur a besoin de styles spécifiques)
+  tvNavId?: string; // Si une navigation est associée (ex: mainStockChartContainer avec tvChartNav)
+  // Props pour Chart.js Doughnut
+  doughnutCenterText?: string;
+  // Props pour les légendes Chart.js (si gérées en HTML à côté du canvas)
+  legendItems?: { label: string; colorVar: string; value?: string }[];
+}
+
+const ChartPlaceholder: React.FC<ChartPlaceholderProps> = ({
+  chartId,
+  className = '',
+  canvasClassName = '',
+  type,
+  tvNavId,
+  doughnutCenterText,
+  legendItems,
+}) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // La logique d'initialisation des graphiques sera dans les hooks (useTradingViewChart, useChartJs)
+  // et appelée depuis les composants Features. Ce composant fournit juste le DOM.
+
+  const getContainerClasses = () => {
+    switch (type) {
+      case 'tradingview':
+        return styles.tvChartSection; // .dividends-chart-section
+      case 'chartjs-doughnut':
+        return styles.doughnutChartContainer; // .dividends-doughnut-chart-container
+      case 'chartjs-combined':
+        return styles.combinedChartContainer; // .dividends-chart-container.combined-chart-container
+      case 'chartjs-line-small':
+        return `${styles.chartJsContainer} ${styles.smallChartContainer}`; // .dividends-chart-container.small-chart-container
+      default:
+        return styles.chartJsContainer; // .dividends-chart-container (générique)
+    }
+  };
+
+  return (
+    <div ref={containerRef} className={`${getContainerClasses()} ${className}`}>
+      {type === 'tradingview' && tvNavId && (
+        <div id={tvNavId} className={styles.tvChartNav}>
+          {/* Les boutons seront ajoutés par le composant Feature ou un hook */}
+        </div>
+      )}
+      {/* Pour TradingView, l'ID est sur le conteneur, pas sur un canvas enfant direct */}
+      {type === 'tradingview' ? (
+        <div id={chartId} className={styles.tvChartInnerContainer}>
+          {/* TradingView injectera son contenu ici */}
+        </div>
+      ) : (
+        <canvas id={chartId} className={canvasClassName}></canvas>
+      )}
+
+      {type === 'chartjs-doughnut' && doughnutCenterText && (
+        <div className={styles.doughnutCenterText}>{doughnutCenterText}</div>
+      )}
+
+      {legendItems && legendItems.length > 0 && (
+        <div className={`${styles.chartLegend} ${type === 'chartjs-doughnut' ? styles.doughnutLegend : ''}`}>
+          {legendItems.map((item, index) => (
+            <div key={index} className={styles.legendItem}>
+              <span
+                className={styles.legendColorBox}
+                style={{ backgroundColor: `var(${item.colorVar})` }}
+              ></span>
+              <span className={styles.legendLabel}>{item.label} {item.value && `(${item.value})`}</span>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default ChartPlaceholder;
+--------------------------------------------------
+]]
+
+['ui\dividends\HorizontalScroll\HorizontalScroll.module.css': [
+--------------------------------------------------
+.hScrollContainer {
+  /* .dividends-h-scroll-container */
+  position: relative;
+  display: flex; /* Nécessaire pour que le wrapper prenne l'espace et les indicateurs se positionnent */
+  align-items: stretch; /* Les indicateurs prennent toute la hauteur */
+  width: 100%;
+  overflow: hidden; /* Cache les parties des indicateurs qui pourraient déborder si mal positionnés */
+}
+
+.horizontalScrollWrapper {
+  /* .dividends-horizontal-scroll-wrapper */
+  flex-grow: 1; /* Prend l'espace disponible entre les indicateurs */
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE, Edge */
+}
+.horizontalScrollWrapper::-webkit-scrollbar {
+  display: none; /* Webkit */
+}
+
+/* Styles pour les indicateurs de scroll (flèches) */
+/* Les styles de base du bouton sont dans Button.module.css (variant="scroll-indicator") */
+/* Ici, on gère le positionnement et la visibilité via les fades */
+.scrollIndicatorLeft,
+.scrollIndicatorRight {
+  /* Ces classes sont sur le Button, Button.module.css gère déjà le style de base */
+  /* On s'assure qu'ils sont bien positionnés par rapport aux fades */
+  z-index: 11 !important; /* Au-dessus des fades */
+  opacity: 0; /* Caché par défaut, affiché par JS via canScrollLeft/Right */
+  pointer-events: none; /* Inactif par défaut */
+}
+.scrollIndicatorLeft.clickable, /* .clickable est ajouté par le composant quand il est visible */
+.scrollIndicatorRight.clickable {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+/* Fades pour le scroll horizontal */
+.hScrollContainer::before, /* Fade gauche */
+.hScrollContainer::after {  /* Fade droit */
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--dividends-scroll-fade-size, 22px); /* Utilise la variable globale */
+  z-index: 5; /* En dessous des indicateurs de flèche */
+  pointer-events: none; /* Ne pas interférer avec le clic */
+  opacity: 0; /* Caché par défaut */
+  transition: opacity 0.3s ease-in-out;
+}
+
+.hScrollContainer::before { /* Fade gauche */
+  left: 0;
+  background: linear-gradient(to right, var(--dividends-scroll-fade-color) 0%, transparent 100%);
+}
+.hScrollContainer::after { /* Fade droit */
+  right: 0;
+  background: linear-gradient(to left, var(--dividends-scroll-fade-color) 0%, transparent 100%);
+}
+
+/* Visibilité des fades basée sur les classes JS (fallback pour :has) */
+.hScrollContainer.hasScrollLeft::before {
+  opacity: 1;
+}
+.hScrollContainer.hasScrollRight::after {
+  opacity: 1;
+}
+
+/* Support pour :has (méthode moderne) */
+@supports selector(:has(*)) {
+  .hScrollContainer:has(.horizontalScrollWrapper:not(:first-child))::before, /* Si on peut scroller à gauche */
+  .hScrollContainer.hasScrollLeft::before { /* Maintenir la classe JS pour cohérence */
+    opacity: 1;
+  }
+
+  .hScrollContainer:has(.horizontalScrollWrapper:not(:last-child))::after, /* Si on peut scroller à droite */
+  .hScrollContainer.hasScrollRight::after { /* Maintenir la classe JS */
+    opacity: 1;
+  }
+  
+  /* Cache les indicateurs si pas de scroll possible dans cette direction */
+  .scrollIndicatorLeft:not(.clickable),
+  .scrollIndicatorRight:not(.clickable) {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}
+
+/* Styles spécifiques pour les indicateurs de la table History */
+.historyTableIndicator {
+  /* .dividends-history-section .scroll-indicator-horizontal */
+  z-index: 12 !important; /* Encore plus haut si nécessaire */
+}
+
+/* Responsive pour les indicateurs/fades si besoin */
+@media (max-width: 575.98px) {
+  .hScrollContainer::before,
+  .hScrollContainer::after {
+    width: var(--dividends-scroll-h-fade-size-mobile, var(--dividends-scroll-fade-size)); /* Permet de surcharger sur mobile */
+  }
+  /* Les tailles des boutons indicateurs sont dans Button.module.css */
+}
+--------------------------------------------------
+]]
+
+['ui\dividends\HorizontalScroll\HorizontalScroll.tsx': [
+--------------------------------------------------
+// # composant client
+'use client';
+
+import React, { useRef, useEffect, useState, useCallback } from 'react';
+import Button from '@/components/ui/dividends/Button/Button'; // Notre composant Button
+import styles from './HorizontalScroll.module.css';
+import Icon from '../Icon/Icon';
+
+interface HorizontalScrollProps {
+  children: React.ReactNode;
+  className?: string; // Classe pour le conteneur principal .dividends-h-scroll-container
+  wrapperClassName?: string; // Classe pour .dividends-horizontal-scroll-wrapper
+  ariaLabel?: string; // Pour l'accessibilité du conteneur de scroll
+  scrollIndicatorVariant?: 'default' | 'history-table'; // Pour des styles d'indicateurs différents
+}
+
+const HorizontalScroll: React.FC<HorizontalScrollProps> = ({
+  children,
+  className = '',
+  wrapperClassName = '',
+  ariaLabel = "Scrollable horizontal content",
+  scrollIndicatorVariant = 'default',
+}) => {
+  const scrollWrapperRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true); // Initialement, on peut souvent scroller à droite
+
+  const SCROLL_MARGIN = 3; // Petite marge pour la détection de fin de scroll
+
+  const updateScrollIndicators = useCallback(() => {
+    const element = scrollWrapperRef.current;
+    if (element) {
+      const currentScrollLeft = Math.round(element.scrollLeft);
+      const currentScrollWidth = Math.ceil(element.scrollWidth);
+      const currentClientWidth = Math.ceil(element.clientWidth);
+
+      setCanScrollLeft(currentScrollLeft > SCROLL_MARGIN);
+      setCanScrollRight(currentScrollWidth - (currentScrollLeft + currentClientWidth) > SCROLL_MARGIN);
+
+      // Pour le fallback :has()
+      containerRef.current?.classList.toggle(styles.hasScrollLeft, currentScrollLeft > SCROLL_MARGIN);
+      containerRef.current?.classList.toggle(styles.hasScrollRight, currentScrollWidth - (currentScrollLeft + currentClientWidth) > SCROLL_MARGIN);
+    }
+  }, []);
+
+  useEffect(() => {
+    const element = scrollWrapperRef.current;
+    if (element) {
+      updateScrollIndicators(); // Initial check
+      element.addEventListener('scroll', updateScrollIndicators, { passive: true });
+
+      // Observer les changements de taille du wrapper et de son contenu
+      const resizeObserver = new ResizeObserver(updateScrollIndicators);
+      resizeObserver.observe(element);
+      if (element.firstElementChild) { // Observer le premier enfant (souvent la table)
+        resizeObserver.observe(element.firstElementChild);
+      }
+      
+      // Observer les changements de contenu (ex: table qui se remplit)
+      const mutationObserver = new MutationObserver(updateScrollIndicators);
+      mutationObserver.observe(element, { childList: true, subtree: true });
+
+
+      return () => {
+        element.removeEventListener('scroll', updateScrollIndicators);
+        resizeObserver.disconnect();
+        mutationObserver.disconnect();
+      };
+    }
+  }, [updateScrollIndicators]);
+
+  const handleScrollAction = (direction: 'left' | 'right') => {
+    const element = scrollWrapperRef.current;
+    if (element) {
+      const scrollAmount = element.clientWidth * 0.8; // Scroller de 80% de la largeur visible
+      if (direction === 'left') {
+        element.scrollTo({ left: element.scrollLeft - scrollAmount, behavior: 'smooth' });
+      } else {
+        element.scrollTo({ left: element.scrollLeft + scrollAmount, behavior: 'smooth' });
+      }
+    }
+  };
+  
+  const indicatorBaseClass = scrollIndicatorVariant === 'history-table' ? styles.historyTableIndicator : '';
+
+  return (
+    <div ref={containerRef} className={`${styles.hScrollContainer} ${className}`} role="region" aria-label={ariaLabel}>
+      {canScrollLeft && (
+        <Button
+          variant="scroll-indicator"
+          scrollDirection="left"
+          onClick={() => handleScrollAction('left')}
+          ariaLabel="Scroll Left"
+          className={`${styles.scrollIndicatorLeft} ${indicatorBaseClass} ${styles.clickable}`} // styles.clickable pour forcer pointer-events
+        >
+          <Icon type="chevron-left" />
+        </Button>
+      )}
+      <div
+        ref={scrollWrapperRef}
+        className={`${styles.horizontalScrollWrapper} ${wrapperClassName}`}
+        // tabIndex={0} // Rendre scrollable au clavier si pas d'éléments focusables à l'intérieur
+      >
+        {children}
+      </div>
+      {canScrollRight && (
+        <Button
+          variant="scroll-indicator"
+          scrollDirection="right"
+          onClick={() => handleScrollAction('right')}
+          ariaLabel="Scroll Right"
+          className={`${styles.scrollIndicatorRight} ${indicatorBaseClass} ${styles.clickable}`}
+        >
+          <Icon type="chevron-right" />
+        </Button>
+      )}
+    </div>
+  );
+};
+
+export default HorizontalScroll;
+--------------------------------------------------
+]]
+
+['ui\dividends\Icon\Icon.module.css': [
+--------------------------------------------------
+.iconBase {
+  display: inline-flex; /* Pour un meilleur alignement et contrôle de la taille */
+  align-items: center;
+  justify-content: center;
+  line-height: 1; /* Empêche les hauteurs de ligne indésirables */
+  /* La taille et la couleur peuvent être héritées ou définies par props */
+}
+
+/* Styles pour .equitie-dividends-bullet */
+.bulletIcon {
+  display: inline-block;
+  width: 0.5em; /* Relatif à la taille de la police parente */
+  height: 0.5em;
+  background-color: var(--equitie-dividends-bullet-color, var(--dividends-text-secondary)); /* Fallback */
+  border-radius: 50%;
+  /* margin-bottom: 0.1em; -> Géré par l'alignement vertical du parent */
+  vertical-align: middle; /* Bon alignement par défaut */
+}
+
+/* Si vous utilisez des SVGs inline ou des composants SVG, vous pouvez cibler svg ici */
+.iconBase svg {
+  width: 1em; /* Taille par défaut, peut être surchargée par la prop size */
+  height: 1em;
+  fill: currentColor; /* Permet à la couleur d'être héritée ou définie par la prop color */
+}
+--------------------------------------------------
+]]
+
+['ui\dividends\Icon\Icon.tsx': [
+--------------------------------------------------
+// # composant serveur
+import React from 'react';
+import styles from './Icon.module.css'; // Si des styles spécifiques sont nécessaires
+
+// Importer les SVGs comme composants React si possible (nécessite un loader SVG dans next.config.js)
+// Ou utiliser des SVGs inline. Pour la simplicité ici, on va simuler avec du texte/Unicode.
+// Dans un vrai projet, on utiliserait des fichiers SVG.
+
+interface IconProps {
+  type: 'chevron-left' | 'chevron-right' | 'chevron-up' | 'chevron-down' | 'bullet' | 'custom';
+  className?: string;
+  ariaHidden?: boolean;
+  customSvg?: React.ReactNode; // Pour passer un SVG inline ou un composant SVG
+  size?: string; // ex: '1em', '16px'
+  color?: string; // Pour surcharger la couleur via style
+}
+
+const Icon: React.FC<IconProps> = ({
+  type,
+  className = '',
+  ariaHidden = true, // Les icônes sont souvent décoratives
+  customSvg,
+  size,
+  color,
+}) => {
+  const iconStyle: React.CSSProperties = {};
+  if (size) iconStyle.fontSize = size; // Ou width/height si c'est un SVG avec viewBox
+  if (color) iconStyle.color = color;
+
+  let iconContent: React.ReactNode;
+
+  switch (type) {
+    case 'chevron-left':
+      iconContent = '◄'; // Alternative: <svg>...</svg>
+      break;
+    case 'chevron-right':
+      iconContent = '►'; // Alternative: <svg>...</svg>
+      break;
+    case 'chevron-up':
+      iconContent = '▲'; // Alternative: <svg>...</svg>
+      break;
+    case 'chevron-down':
+      iconContent = '▼'; // Alternative: <svg>...</svg>
+      break;
+    case 'bullet':
+      // .equitie-dividends-bullet
+      return (
+        <span
+          className={`${styles.bulletIcon} ${className}`}
+          aria-hidden={ariaHidden}
+          style={iconStyle}
+        ></span>
+      );
+    case 'custom':
+      iconContent = customSvg;
+      break;
+    default:
+      iconContent = null;
+  }
+
+  return (
+    <span className={`${styles.iconBase} ${className}`} aria-hidden={ariaHidden} style={iconStyle}>
+      {iconContent}
+    </span>
+  );
+};
+
+export default Icon;
+--------------------------------------------------
+]]
+
+['ui\dividends\ImageDisplay\ImageDisplay.module.css': [
+--------------------------------------------------
+/* Fichier: src/components/ui/dividends/ImageDisplay/ImageDisplay.module.css */
+
+.imageContainer {
+  display: inline-block; /* ou block, selon le besoin */
+  line-height: 0; /* Pour éviter les espaces sous l'image */
+}
+
+.logoImage {
+  /* Styles spécifiques pour les logos, ex: .dividends-logo-boab-svg */
+  width: 40px; /* Correspond à .dividends-logo-boab-svg */
+  height: 40px; /* Correspond à .dividends-logo-boab-svg */
+  border-radius: 50%;
+  vertical-align: middle;
+  object-fit: contain; /* Assure que le logo s'adapte bien */
+}
+
+.imageFillContainer {
+  position: relative;
+  /* Définir width/height ici ou sur le parent pour que 'fill' fonctionne bien */
+  /* Par exemple:
+  width: 40px;
+  height: 40px;
+  */
+}
+
+.imageObjectFitContain {
+  object-fit: contain;
+}
+--------------------------------------------------
+]]
+
+['ui\dividends\ImageDisplay\ImageDisplay.tsx': [
+--------------------------------------------------
+// Fichier: src/components/ui/dividends/ImageDisplay/ImageDisplay.tsx
+// # composant serveur
+import Image from 'next/image'; // Utiliser next/image pour les optimisations
+import styles from './ImageDisplay.module.css';
+
+interface ImageDisplayProps {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  className?: string;
+  imgClassName?: string; // Classe spécifique pour l'élément img/Image
+  isLogo?: boolean; // Pour appliquer des styles spécifiques au logo
+}
+
+const ImageDisplay: React.FC<ImageDisplayProps> = ({
+  src,
+  alt,
+  width,
+  height,
+  className = '',
+  imgClassName = '',
+  isLogo = false,
+}) => {
+  const combinedClassName = `${styles.imageContainer} ${className}`;
+  const imageSpecificClass = `${isLogo ? styles.logoImage : ''} ${imgClassName}`;
+
+  // Si les dimensions sont fournies, Next/Image les utilisera.
+  // Sinon, on peut utiliser fill et un conteneur parent avec position relative.
+  // Pour la simplicité et la fidélité au HTML (où les dimensions sont souvent implicites via CSS),
+  // on peut omettre width/height si elles sont gérées par CSS.
+  // Cependant, pour les logos, des dimensions fixes sont souvent bonnes.
+
+  if (width && height) {
+    return (
+      <div className={combinedClassName}>
+        <Image
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          className={imageSpecificClass}
+        />
+      </div>
+    );
+  }
+
+  // Fallback si pas de dimensions, ou pour un comportement plus flexible avec CSS
+  // Note: 'fill' nécessite un parent avec position: relative.
+  return (
+    <div className={`${combinedClassName} ${styles.imageFillContainer}`}>
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes="(max-width: 768px) 50vw, 33vw" // Exemple de sizes, à ajuster
+        className={`${imageSpecificClass} ${styles.imageObjectFitContain}`} // Assurer un bon object-fit
+      />
+    </div>
+  );
+};
+
+export default ImageDisplay;
+--------------------------------------------------
+]]
+
+['ui\dividends\Link\Link.module.css': [
+--------------------------------------------------
+.linkBase {
+  color: var(--bs-link-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--dividends-transition-duration) var(--dividends-transition-easing);
+  cursor: pointer;
+}
+
+.linkBase:hover {
+  color: var(--bs-link-hover-color);
+  text-decoration: underline;
+}
+
+.breadcrumbLink {
+  /* .dividends-breadcrumb-styled .breadcrumb-item a */
+  color: var(--dividends-breadcrumb-text-color); /* Hérité de .breadcrumb-item */
+  font-family: var(--dividends-font-family-breadcrumb); /* Mulish */
+}
+.breadcrumbLink:hover {
+  color: var(--dividends-breadcrumb-link-hover-color);
+}
+
+.breadcrumbActive {
+  /* .dividends-breadcrumb-styled .breadcrumb-item.active a */
+  color: var(--dividends-breadcrumb-active-color);
+  font-weight: 500; /* Ou bold si besoin */
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none; /* Assurer pas de soulignement */
+}
+.breadcrumbActive:hover {
+    text-decoration: none;
+}
+
+
+.badgeLink {
+  /* .dividends-badge-link */
+  color: var(--alto, #d9d9d9); /* Fallback */
+  text-decoration: underline;
+  font-size: var(--dividends-font-size-xs);
+  vertical-align: baseline;
+  font-weight: bold; /* fw-bold */
+}
+.badgeLink:hover {
+  color: var(--white, #ffffff); /* Fallback */
+}
+
+.readMoreLink {
+  /* .dividends-link, souvent similaire à badgeLink */
+  font-size: var(--dividends-font-size-xs); /* small */
+  /* Peut hériter de .linkBase ou avoir des styles spécifiques */
+}
+
+--------------------------------------------------
+]]
+
+['ui\dividends\Link\Link.tsx': [
+--------------------------------------------------
+// # composant serveur
+import NextLink, { LinkProps as NextLinkProps } from 'next/link';
+import styles from './Link.module.css';
+
+interface LinkComponentProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  href: string; // Rendre href obligatoire
+  children: React.ReactNode;
+  variant?: 'default' | 'breadcrumb' | 'badge' | 'read-more';
+  isActive?: boolean; // Pour les liens de breadcrumb actifs
+  nextLinkProps?: Omit<NextLinkProps, 'href'>; // Props spécifiques à NextLink
+}
+
+const Link: React.FC<LinkComponentProps> = ({
+  href,
+  children,
+  className = '',
+  variant = 'default',
+  isActive = false,
+  nextLinkProps,
+  ...anchorProps
+}) => {
+  const linkClasses = [
+    styles.linkBase,
+    variant === 'breadcrumb' ? styles.breadcrumbLink : '',
+    variant === 'badge' ? styles.badgeLink : '',
+    variant === 'read-more' ? styles.readMoreLink : '', // Peut être le même que badgeLink ou spécifique
+    isActive && variant === 'breadcrumb' ? styles.breadcrumbActive : '',
+    className,
+  ].filter(Boolean).join(' ');
+
+  if (isActive && variant === 'breadcrumb') {
+    // Les liens actifs dans le breadcrumb ne sont souvent pas de vrais liens
+    return (
+      <span className={linkClasses} aria-current="page">
+        {children}
+      </span>
+    );
+  }
+  
+  // Pour les liens externes ou ceux qui ne doivent pas utiliser le routeur Next.js
+  if (href.startsWith('http') || href.startsWith('#') || (nextLinkProps && nextLinkProps.prefetch === false)) {
+    return (
+      <a href={href} className={linkClasses} {...anchorProps}>
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <NextLink href={href} className={linkClasses} {...nextLinkProps} {...anchorProps}>
+      {children}
+    </NextLink>
+  );
+};
+
+export default Link;
+--------------------------------------------------
+]]
+
+['ui\dividends\ListItem\ListItem.module.css': [
+--------------------------------------------------
+.listItemBase {
+  /* Styles de base si nécessaire, mais souvent les classes Bootstrap ou spécifiques dominent */
+}
+
+/* Styles pour News Item */
+.newsItem {
+  /* .dividends-news-item */
+  position: relative;
+  padding-left: 0.75rem !important; /* px-0 de Bootstrap est surchargé */
+  border: none !important; /* list-group-item border */
+  padding-top: 0.2rem !important;
+  padding-bottom: 0.2rem !important;
+  transition: background-color var(--dividends-transition-duration) var(--dividends-transition-easing),
+              transform var(--dividends-transition-duration) var(--dividends-transition-easing);
+}
+
+.newsItem:hover {
+  background-color: rgba(255,255,255,0.07) !important;
+  transform: translateX(3px);
+  border-radius: var(--bs-border-radius-lg);
+}
+
+.newsItem::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  bottom: 0.25rem;
+  width: 3px;
+  background-color: var(--white, #ffffff); /* --equitie-dividends-accent-default */
+  border-radius: 1.5px;
+  transition: background-color 0.3s ease;
+}
+
+.newsItemEven::before {
+  background-color: var(--dividends-accent-cyan);
+}
+.newsItemEven .newsMeta strong {
+  color: var(--dividends-accent-cyan) !important;
+}
+
+.newsContent {
+  /* .dividends-news-content */
+  width: 100%;
+}
+.newsContent p {
+  line-height: 1.3;
+  text-align: justify;
+  text-justify: inter-word;
+  width: 100%;
+  margin-bottom: 0 !important;
+  color: var(--dividends-text-secondary); /* .dividends-text-secondary */
+  font-family: var(--dividends-font-family-nav); /* DM Sans */
+}
+.newsMeta {
+  /* p.mb-0.small.dividends-text-secondary.align-items-baseline */
+  display: flex; /* Pour aligner strong, bullet, time */
+  align-items: baseline;
+}
+.newsMeta strong {
+  color: var(--dividends-text-primary); /* Couleur par défaut pour le pays */
+}
+.newsText {
+  /* p.mb-0.small.dividends-text-secondary */
+}
+
+
+/* Styles pour Dividend Info Item */
+.dividendInfoItem {
+  /* .dividends-dividend-info-item */
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 0px solid var(--dividends-border-color); /* Pas de bordure dans le HTML */
+  padding-bottom: 0.1rem;
+  font-size: var(--dividends-font-size-m); /* Hérité du parent .dividends-dividend-info-list */
+}
+.dividendInfoItem:last-child {
+  border-bottom: none;
+}
+
+.dividendLabel {
+  /* .dividends-dividend-label */
+  color: var(--dividends-text-primary);
+  margin-right: 1rem;
+  font-weight: 500;
+  font-family: var(--dividends-font-family-breadcrumb); /* Mulish */
+  font-size: var(--dividends-font-size-xs);
+}
+
+.dividendValue {
+  /* .dividends-dividend-value */
+  color: var(--dividends-text-light);
+  text-align: right;
+  font-size: var(--dividends-font-size-xs);
+}
+
+/* Styles pour History Row Cell (si ListItem gère les <td>) */
+.historyCell {
+  /* .dividends-table-history tbody td */
+  padding: 0.15rem 0.5rem;
+  color: var(--dividends-history-body-color);
+  font-size: var(--dividends-font-size-m);
+  font-weight: 400;
+  border-bottom: none; /* Les bordures sont sur <tr> ou gérées par :not(:last-child) */
+  vertical-align: middle;
+  font-style: normal;
+  white-space: nowrap; /* Assuré par la table parente */
+}
+
+.historyCell:first-child {
+  text-align: start;
+}
+.historyCell:not(:first-child) {
+  text-align: end;
+}
+
+/* Specific styling for certain columns in history table */
+/* td:nth-child(3) and td:nth-child(5) had specific color in original CSS */
+/* This can be handled by passing specific classNames from HistorySection */
+.historyPaymentDateCell, .historyFrequencyCell {
+    color: var(--dividends-nav-pills-inactive-bg); /* Example */
+}
+.historyAmountCell {
+    text-align: end !important;
+}
+--------------------------------------------------
+]]
+
+['ui\dividends\ListItem\ListItem.tsx': [
+--------------------------------------------------
+// # composant serveur
+import React from 'react';
+import Link from '@/components/ui/dividends/Link/Link';
+import Badge from '@/components/ui/dividends/Badge/Badge';
+import styles from './ListItem.module.css';
+
+interface ListItemProps {
+  // Props pour un item de type "news"
+  type: 'news' | 'dividend-info' | 'country-share' | 'history-row'; // Étendre selon les besoins
+  country?: string;
+  time?: string;
+  text?: string;
+  linkHref?: string;
+  linkText?: string;
+
+  // Props pour un item de type "dividend-info"
+  label?: string;
+  value?: string | number;
+
+  // Props pour un item de type "country-share" (table)
+  countryName?: string;
+  shares?: string;
+
+  // Props pour un item de type "history-row" (table)
+  // Les données de la ligne d'historique sont passées en tant que record
+  historyData?: Record<string, string | number | null>;
+  historyHeaders?: { key: string; label: string; style?: React.CSSProperties, className?: string }[];
+
+
+  className?: string;
+  itemClassName?: string; // Classe spécifique pour l'élément de liste lui-même (li, article, tr)
+  useArticleTag?: boolean; // Pour les news
+  isEven?: boolean; // Pour style alterné des news
+}
+
+const ListItem: React.FC<ListItemProps> = ({
+  type,
+  country, time, text, linkHref, linkText = "Read More",
+  label, value,
+  countryName, shares,
+  historyData, historyHeaders,
+  itemClassName = '',
+  useArticleTag = false,
+  isEven = false,
+}) => {
+  const baseClasses = `${styles.listItemBase} ${itemClassName}`;
+
+  if (type === 'news') {
+    const newsItemClasses = [
+      baseClasses,
+      styles.newsItem,
+      'list-group-item bg-transparent px-0 py-0', // Classes Bootstrap
+      isEven ? styles.newsItemEven : '',
+    ].filter(Boolean).join(' ');
+
+    const Tag = useArticleTag ? 'article' : 'div';
+
+    return (
+      <Tag className={newsItemClasses}>
+        <div className={styles.newsContent}>
+          <p className={`${styles.newsMeta} mb-0 small`}>
+            {country && <strong>{country}</strong>}
+            {country && time && <Badge type="info-separator" text="•" className="mx-1" />}
+            {time}
+          </p>
+          <p className={`${styles.newsText} mb-0 small`}>
+            {text}
+            {linkHref && <Link href={linkHref} variant="read-more" className="dividends-link ms-1">{linkText}</Link>}
+          </p>
+        </div>
+      </Tag>
+    );
+  }
+
+  if (type === 'dividend-info') {
+    const dividendInfoClasses = [
+      baseClasses,
+      styles.dividendInfoItem,
+    ].filter(Boolean).join(' ');
+    return (
+      <div className={dividendInfoClasses}>
+        <span className={styles.dividendLabel}>{label}</span>
+        <span className={styles.dividendValue}>{value}</span>
+      </div>
+    );
+  }
+
+  if (type === 'country-share' && countryName && shares) {
+    // Ce composant rendra les <td>, le <tr> sera dans le composant Table ou SharesCountryWidget
+    return (
+      <>
+        <td>{countryName}</td>
+        <td className="text-end">{shares}</td>
+      </>
+    );
+  }
+
+  if (type === 'history-row' && historyData && historyHeaders) {
+    // Ce composant rendra les <td>, le <tr> sera dans le composant Table ou HistorySection
+    return (
+      <>
+        {historyHeaders.map(header => (
+          <td
+            key={header.key}
+            style={header.style}
+            className={`${styles.historyCell} ${header.className || ''}`}
+          >
+            {historyData[header.key] ?? '--'}
+          </td>
+        ))}
+      </>
+    );
+  }
+
+
+  return <li className={baseClasses}>{label}: {value}</li>; // Fallback simple
+};
+
+export default ListItem;
+--------------------------------------------------
+]]
+
+['ui\dividends\OffcanvasToggle\OffcanvasToggle.module.css': [
+--------------------------------------------------
+.asideToggleBanner {
+  /* .dividends-aside-toggle-banner */
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: var(--dividends-toggle-banner-zindex);
+  background-color: var(--dividends-accent-yellow) !important; /* !important pour surcharger .btn */
+  color: var(--dividends-text-primary);
+  border: none;
+  padding: 0rem; /* Ajuster si besoin, HTML original est 0 */
+  height: 15%; /* Hauteur de la bannière */
+  min-width: 30px; /* Largeur minimale pour être cliquable */
+  writing-mode: vertical-rl; /* Pour le texte vertical si besoin, ou ajuster padding/line-height */
+  text-orientation: mixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 var(--bs-border-radius-lg) var(--bs-border-radius-lg) 0;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out,
+              left 0.3s ease-in-out,
+              right 0.3s ease-in-out, /* Ajouté pour la transition inverse */
+              background-color var(--dividends-transition-duration) var(--dividends-transition-easing);
+  font-size: 1.2rem; /* Taille du "|" */
+  line-height: 1; /* Pour le "|" */
+  box-shadow: 2px 0px 5px rgba(0,0,0,0.2);
+}
+
+.asideToggleBanner:hover {
+  background-color: color-mix(in srgb, var(--dividends-accent-yellow) 85%, black) !important;
+}
+
+/* Styles lorsque l'offcanvas est ouvert (classe ajoutée au body par le composant) */
+/* On cible le bouton directement, pas besoin de .dividends-offcanvas-open sur le bouton lui-même */
+:global(body.dividends-offcanvas-open) .asideToggleBanner {
+  left: auto; /* Annule le left: 0 */
+  right: 0; /* Se positionne à droite */
+  /* transform: translateY(-50%); */ /* Reste le même */
+  /* background-color: var(--dividends-accent-yellow) !important; */ /* Reste le même */
+  color: var(--black); /* Changement de couleur du texte */
+  border-radius: var(--bs-border-radius-lg) 0 0 var(--bs-border-radius-lg); /* Coins arrondis inversés */
+  box-shadow: -2px 0px 5px rgba(0,0,0,0.2);
+  z-index: 2000; /* Au-dessus de l'overlay de l'offcanvas Bootstrap (qui est à 1040 par défaut) */
+}
+
+:global(body.dividends-offcanvas-open) .asideToggleBanner:hover {
+  background-color: color-mix(in srgb, var(--dividends-accent-yellow) 100%, black) !important;
+}
+--------------------------------------------------
+]]
+
+['ui\dividends\OffcanvasToggle\OffcanvasToggle.tsx': [
+--------------------------------------------------
+// # composant client (car il interagit avec Bootstrap JS pour l'offcanvas)
+'use client';
+
+import React, { useEffect, useState } from 'react';
+import styles from './OffcanvasToggle.module.css';
+// Icon pourrait être utilisé ici si le "|" est remplacé par une icône SVG
+// import Icon from '@/components/ui/dividends/Icon/Icon';
+
+interface OffcanvasToggleProps {
+  targetId: string; // ID de l'offcanvas Bootstrap à cibler
+  ariaLabel: string;
+  className?: string; // Pour des classes comme d-lg-none
+  // Le contenu du bouton est fixe ("|") dans le HTML original
+}
+
+const OffcanvasToggle: React.FC<OffcanvasToggleProps> = ({
+  targetId,
+  ariaLabel,
+  className = '',
+}) => {
+  const [isOffcanvasOpen, setIsOffcanvasOpen] = useState(false);
+
+  useEffect(() => {
+    const offcanvasElement = document.getElementById(targetId);
+
+    const handleShow = () => {
+      setIsOffcanvasOpen(true);
+      document.body.classList.add('dividends-offcanvas-open');
+    };
+    const handleHide = () => {
+      setIsOffcanvasOpen(false);
+      document.body.classList.remove('dividends-offcanvas-open');
+    };
+
+    if (offcanvasElement) {
+      offcanvasElement.addEventListener('show.bs.offcanvas', handleShow);
+      offcanvasElement.addEventListener('hide.bs.offcanvas', handleHide);
+    }
+
+    return () => {
+      if (offcanvasElement) {
+        offcanvasElement.removeEventListener('show.bs.offcanvas', handleShow);
+        offcanvasElement.removeEventListener('hide.bs.offcanvas', handleHide);
+      }
+      // Nettoyer la classe du body si le composant est démonté alors que l'offcanvas est ouvert
+      if (document.body.classList.contains('dividends-offcanvas-open')) {
+          document.body.classList.remove('dividends-offcanvas-open');
+      }
+    };
+  }, [targetId]);
+
+  return (
+    <button
+      className={`${styles.asideToggleBanner} btn ${className}`} // btn pour reset Bootstrap
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target={`#${targetId}`}
+      aria-controls={targetId}
+      aria-label={ariaLabel}
+      aria-expanded={isOffcanvasOpen} // Mettre à jour aria-expanded dynamiquement
+    >
+      | {/* Contenu original du bouton */}
+    </button>
+  );
+};
+
+export default OffcanvasToggle;
+--------------------------------------------------
+]]
+
+['ui\dividends\PillNav\PillNav.module.css': [
+--------------------------------------------------
+.pillNavStyled {
+  /* .dividends-nav-pills-styled */
+  border: none;
+  display: flex; /* Assuré par .nav de Bootstrap */
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE, Edge */
+  align-items: flex-end; /* align-items-end */
+  /* padding-bottom: 0.19rem; */ /* Géré par PageHeader si besoin */
+  /* margin-bottom: calc(-1 * var(--dividends-header-border-bottom-width)); */ /* Géré par PageHeader */
+}
+.pillNavStyled::-webkit-scrollbar {
+  display: none; /* Webkit */
+}
+
+.pillNavList {
+  /* Styles pour la balise <ul> si nécessaire. Bootstrap gère list-style et padding. */
+  /* Assurer que les classes .nav et .nav-pills de Bootstrap sont aussi sur l'ul pour un style correct */
+  margin-bottom: 0; /* Pour contrer le margin-bottom de .nav-pills de Bootstrap si besoin */
+}
+
+.navItem {
+  /* .dividends-nav-pills-styled .nav-item */
+  margin-right: 0; /* Pas de marge entre items dans le HTML original */
+  position: relative;
+  flex-shrink: 0;
+  display: flex; /* Pour que le lien prenne toute la hauteur/largeur de l'item */
+}
+
+.navLink {
+  /* .dividends-nav-pills-styled .nav-link */
+  background-color: var(--dividends-nav-pills-inactive-bg);
+  color: var(--dividends-nav-pills-inactive-text);
+  font-family: var(--dividends-font-family-nav); /* DM Sans */
+  font-size: var(--dividends-font-size-l);
+  font-weight: 500;
+  border: none;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 0; /* Pas de radius pour les inactifs initialement */
+  transition: background-color 0.6s ease-in-out,
+              color 0.6s ease-in-out,
+              transform 0.6s ease-in-out, /* Réduit pour correspondre à l'original */
+              box-shadow var(--dividends-transition-duration) var(--dividends-transition-easing);
+  margin-bottom: 0;
+  padding: 0.1rem 0.3rem !important; /* !important pour surcharger Bootstrap .nav-link padding */
+  position: relative;
+  z-index: 2; /* Pour être au-dessus de la bordure du header */
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  /* Variables Bootstrap surchargées localement pour ce composant si nécessaire */
+  --bs-nav-pills-link-active-color: var(--dividends-nav-pills-active-text);
+  --bs-nav-pills-link-active-bg: var(--dividends-nav-pills-active-bg);
+  --bs-nav-link-color: var(--dividends-nav-pills-inactive-text);
+  --bs-nav-link-hover-color: var(--dividends-nav-pills-inactive-text);
+}
+
+.navLink:hover:not(.active) { /* Ne pas appliquer le hover si le lien est actif */
+  background-color: color-mix(in srgb, var(--dividends-nav-pills-inactive-bg) 80%, black);
+  color: var(--dividends-nav-pills-inactive-text);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1) inset;
+}
+
+.navLink.active {
+  /* .dividends-nav-pills-styled .nav-link.active */
+  background-color: var(--dividends-nav-pills-active-bg);
+  color: var(--dividends-nav-pills-active-text); /* Utilise la variable BS surchargée */
+  font-weight: bold;
+  padding: 0.3rem 0.4rem !important; /* !important pour surcharger Bootstrap */
+  border-radius: 8px 8px 0 0;
+  transform: translateY(-0.1px); /* Léger soulèvement */
+  cursor: default;
+  box-shadow: none; /* Pas d'ombre sur l'actif */
+}
+
+/* .activePillItem est une classe sur le <li> pour des styles spécifiques au conteneur de l'item actif si besoin */
+.activePillItem {
+  /* Ex: .dividends-active-pill-item */
+}
+
+/* Responsive */
+@media (max-width: 575.98px) {
+  .navLink {
+    font-size: var(--dividends-font-size-a) !important;
+    padding: 0.3rem 0.5rem !important;
+  }
+  .navLink.active {
+    padding: 0.45rem 0.7rem !important;
+  }
+}
+/* ... autres media queries du CSS original pour .dividends-nav-pills-styled .nav-link ... */
+@media (max-width: 1024px) {
+    .navLink {
+        font-size: var(--dividends-font-size-l); /* Reste L sur 1024px */
+        padding: 0.2rem 0.6rem !important;
+    }
+    .navLink.active {
+        padding: 0.35rem 0.8rem !important;
+    }
+}
+/* etc. pour 1200px, 1400px si les paddings changent */
+--------------------------------------------------
+]]
+
+['ui\dividends\PillNav\PillNav.tsx': [
+--------------------------------------------------
+// # composant client (pour gérer l'état actif au clic)
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import Link from '@/components/ui/dividends/Link/Link'; // Notre composant Link
+import styles from './PillNav.module.css';
+
+export interface PillNavItem {
+  label: string;
+  href: string;
+  active?: boolean;
+  ariaCurrent?: 'page';
+}
+
+interface PillNavProps {
+  items: PillNavItem[];
+  className?: string;
+  ariaLabel?: string;
+  onNavChange?: (newActiveItemHref: string) => void; // Callback pour informer le parent du changement
+}
+
+const PillNav: React.FC<PillNavProps> = ({
+  items,
+  className = '',
+  ariaLabel = 'Page Sections Navigation',
+  onNavChange,
+}) => {
+  const initialActiveItem = items.find(item => item.active)?.href || (items.length > 0 ? items[0].href : '');
+  const [activeHref, setActiveHref] = useState(initialActiveItem);
+
+  useEffect(() => {
+    // Met à jour si les props items changent l'item actif
+    const currentActiveItem = items.find(item => item.active)?.href;
+    if (currentActiveItem && currentActiveItem !== activeHref) {
+      setActiveHref(currentActiveItem);
+    }
+  }, [items, activeHref]);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // Si href est juste '#', on prévient le comportement par défaut pour éviter le saut de page
+    // et on gère le changement d'état localement.
+    // Pour de vraies URLs, NextLink s'en chargera.
+    if (href === '#' || href.startsWith('#')) {
+        e.preventDefault();
+    }
+    setActiveHref(href);
+    if (onNavChange) {
+      onNavChange(href);
+    }
+  };
+
+  const navClasses = [
+    styles.pillNavStyled, // Notre style principal
+    'nav', // Classe Bootstrap de base
+    'nav-pills', // Classe Bootstrap pour le style des pills
+    className,
+  ].filter(Boolean).join(' ');
+
+  return (
+    <nav aria-label={ariaLabel} className={navClasses}>
+      <ul className={`${styles.pillNavList} nav nav-pills`}> {/* Classes BS pour la liste */}
+        {items.map((item) => (
+          <li key={item.href} className={`${styles.navItem} nav-item ${item.href === activeHref ? styles.activePillItem : ''}`}>
+            <Link
+              href={item.href}
+              className={`${styles.navLink} nav-link ${item.href === activeHref ? styles.active : ''} ${item.href === activeHref ? 'active' : ''}`}
+              aria-current={item.href === activeHref ? 'page' : undefined}
+              onClick={(e) => handleNavClick(e, item.href)}
+              // On ne passe pas isActive ici, car l'état est géré localement par activeHref
+            >
+              {item.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+};
+
+export default PillNav;
+--------------------------------------------------
+]]
+
+['ui\dividends\RadioToggle\RadioToggle.module.css': [
+--------------------------------------------------
+.radioToggleContainer {
+  /* .dividends-radio-toggle */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem; /* Correspond au gap-5 de Bootstrap (si 1rem = 16px, 5*0.1rem approx) */
+}
+
+.radioOption {
+  /* .dividends-radio-option */
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-family: var(--font-family-inter, var(--dividends-font-family-base)); /* Fallback */
+}
+
+.radioInput {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: var(--dividends-radio-size);
+  height: var(--dividends-radio-size);
+  border: 1px solid var(--dividends-radio-border-color);
+  border-radius: 50%;
+  outline: none;
+  margin-right: 0.4rem;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.radioInput::before {
+  content: '';
+  display: block;
+  width: var(--dividends-radio-dot-size);
+  height: var(--dividends-radio-dot-size);
+  border-radius: 50%;
+  background-color: transparent;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.radioInput:checked {
+  border-color: var(--dividends-radio-checked-bg);
+  background-color: var(--dividends-radio-checked-bg);
+}
+
+.radioInput:checked::before {
+  transform: translate(-50%, -50%) scale(1);
+  background-color: var(--dividends-radio-checked-dot);
+}
+
+.radioLabel {
+  font-size: var(--dividends-font-size-s);
+  color: var(--dividends-text-secondary);
+  cursor: pointer;
+  transition: color var(--dividends-transition-duration) var(--dividends-transition-easing);
+  margin-bottom: 0; /* Pour annuler le margin-bottom de label de Bootstrap */
+}
+
+.radioInput:checked + .radioLabel {
+  color: var(--dividends-text-light);
+  font-weight: 500;
+}
+
+.radioOption:hover .radioLabel { /* :has(.radioInput:not(:checked):hover) n'est pas bien supporté */
+  color: var(--white, #ffffff);
+}
+.radioOption:hover .radioInput:not(:checked) {
+    border-color: var(--dividends-text-light); /* Effet de hover sur le cercle non coché */
+}
+
+/* Responsive */
+@media (max-width: 575.98px) {
+  .radioToggleContainer {
+    gap: 0.5rem;
+  }
+  .radioLabel {
+    font-size: var(--dividends-font-size-xs);
+  }
+}
+@media (max-width: 1024px) {
+    .radioLabel {
+        font-size: var(--dividends-font-size-a) !important;
+    }
+}
+--------------------------------------------------
+]]
+
+['ui\dividends\RadioToggle\RadioToggle.tsx': [
+--------------------------------------------------
+// # composant client
+'use client';
+
+import React from 'react';
+import styles from './RadioToggle.module.css';
+
+interface RadioOption {
+  id: string;
+  label: string;
+  value: string;
+}
+
+interface RadioToggleProps {
+  options: RadioOption[];
+  name: string; // Nom du groupe de radios
+  selectedValue: string;
+  onChange: (value: string) => void;
+  className?: string; // Classe pour le conteneur .dividends-radio-toggle
+  ariaLabelledby?: string; // Si le groupe a un titre externe
+}
+
+const RadioToggle: React.FC<RadioToggleProps> = ({
+  options,
+  name,
+  selectedValue,
+  onChange,
+  className = '',
+  ariaLabelledby,
+}) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    onChange(event.target.value);
+  };
+
+  return (
+    <div
+      className={`${styles.radioToggleContainer} ${className}`}
+      role="radiogroup"
+      aria-labelledby={ariaLabelledby}
+    >
+      {options.map((option) => (
+        <div key={option.id} className={styles.radioOption}>
+          <input
+            type="radio"
+            id={option.id}
+            name={name}
+            value={option.value}
+            checked={selectedValue === option.value}
+            onChange={handleChange}
+            className={styles.radioInput}
+          />
+          <label htmlFor={option.id} className={styles.radioLabel}>
+            {option.label}
+          </label>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default RadioToggle;
+--------------------------------------------------
+]]
+
+['ui\dividends\SectionTitle\SectionTitle.module.css': [
+--------------------------------------------------
+.titleBase {
+  margin-bottom: 0; /* mb-0 souvent utilisé */
+  font-family: var(--dividends-font-family-base); /* Défaut */
+  /* Les tailles de h1-h6 sont gérées par Bootstrap ou des classes spécifiques */
+}
+
+.titleAccent {
+  /* .dividends-title-accent (appliqué à h3 dans l'HTML) */
+  color: var(--dividends-accent-yellow) !important;
+  font-weight: 700;
+  font-family: var(--dividends-font-family-title-accent); /* Lilita One */
+  font-size: var(--dividends-font-size-xl); /* Taille de base pour cette classe */
+  flex-shrink: 0;
+}
+
+.mainPageTitle {
+  /* Pour le H1 principal de la page (.dividends-main-title) */
+  /* HTML original utilise h5 avec .dividends-text-primary et .ms-1 */
+  /* Ici, on assume que c'est un H1 */
+  font-size: var(--dividends-font-size-xl); /* Correspond à h5 */
+  font-weight: 500; /* Pas de fw-bold dans le HTML original pour H1 */
+  color: var(--dividends-text-primary) !important; /* .dividends-text-primary */
+  font-family: var(--dividends-font-family-title-accent); /* Lilita One */
+}
+
+.sectionHeading {
+  /* Pour les H2 .dividends-title-section .dividends-text-yellow */
+  font-size: var(--dividends-font-size-xxl);
+  font-weight: 700;
+  font-family: var(--dividends-font-family-title-accent); /* Lilita One */
+  color: var(--dividends-accent-yellow) !important; /* .dividends-text-yellow */
+}
+
+/* Classes de couleur utilitaires si nécessaire */
+.textPrimary {
+  color: var(--dividends-text-primary) !important;
+  font-family: var(--dividends-font-family-title-accent); /* Lilita One */
+}
+.textYellow {
+  color: var(--dividends-accent-yellow) !important;
+}
+.textLight {
+  color: var(--dividends-text-light) !important;
+}
+.textSecondary {
+  color: var(--dividends-text-secondary) !important;
+}
+
+/* Styles spécifiques pour les titres de stock (ex: BOAB) */
+/* .dividends-text-name (appliqué à h2) */
+.stockNameTitle {
+  line-height: 1rem;
+  font-size: var(--dividends-font-size-xxxl); /* h3 dans l'HTML, mais sémantiquement h2 */
+  font-weight: bold; /* fw-bold */
+  color: var(--dividends-text-primary) !important; /* .dividends-text-primary */
+  font-family: var(--dividends-font-family-title-accent); /* Lilita One */
+}
+--------------------------------------------------
+]]
+
+['ui\dividends\SectionTitle\SectionTitle.tsx': [
+--------------------------------------------------
+// # composant serveur
+import React from 'react';
+import type { JSX } from 'react';
+import styles from './SectionTitle.module.css';
+
+interface SectionTitleProps {
+  id?: string;
+  level?: 1 | 2 | 3 | 4 | 5 | 6; // Niveau de titre h1-h6
+  children: React.ReactNode;
+  className?: string;
+  variant?: 'default' | 'accent' | 'main-page-title' | 'section-heading'; // Pour différents styles de titres
+  color?: 'primary' | 'yellow' | 'light' | 'secondary'; // Pour les couleurs de texte
+}
+
+const SectionTitle: React.FC<SectionTitleProps> = ({
+  id,
+  level = 2, // H2 par défaut
+  children,
+  className = '',
+  variant = 'default',
+  color,
+}) => {
+  const Tag = `h${level}` as keyof JSX.IntrinsicElements & string;
+
+  const titleClasses = [
+    styles.titleBase,
+    variant === 'accent' ? styles.titleAccent : '',
+    variant === 'main-page-title' ? styles.mainPageTitle : '', // Pour H1 .dividends-main-title
+    variant === 'section-heading' ? styles.sectionHeading : '', // Pour H2 .dividends-title-section
+    color === 'primary' ? styles.textPrimary : '',
+    color === 'yellow' ? styles.textYellow : '',
+    color === 'light' ? styles.textLight : '',
+    color === 'secondary' ? styles.textSecondary : '',
+    className,
+  ].filter(Boolean).join(' ');
+
+  return React.createElement(
+    Tag,
+    { id, className: titleClasses },
+    children
+  );
+};
+
+export default SectionTitle;
+--------------------------------------------------
+]]
+
+['ui\dividends\Table\Table.module.css': [
+--------------------------------------------------
+.tableBase {
+  /* .dividends-table */
+  color: var(--dividends-text-light);
+  font-size: var(--dividends-font-size-l);
+  border-color: var(--dividends-border-color);
+  background-color: transparent !important; /* Important pour surcharger Bootstrap */
+  border-collapse: collapse; /* Important */
+  width: 100%;
+  margin-bottom: 0; /* Souvent mb-0 dans le HTML */
+}
+
+.tableBase th,
+.tableBase td {
+  background-color: transparent !important; /* Important */
+  color: inherit;
+  border: none; /* Pas de bordures de cellule par défaut */
+  white-space: nowrap;
+  padding: 0.3rem 0.5rem; /* Padding de base */
+  vertical-align: middle;
+  font-family: var(--dividends-font-family-breadcrumb); /* Mulish */
+}
+
+.tableBase thead th {
+  color: var(--dividends-text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  font-size: var(--dividends-font-size-s);
+  vertical-align: bottom;
+  border-bottom: none; /* Pas de bordure sous le thead par défaut */
+  /* background-color: var(--dividends-sticky-thead-bg); -> Appliqué par .stickyThead */
+  font-family: var(--dividends-font-family-breadcrumb); /* Mulish */
+  color: var(--white); /* Couleur spécifique du HTML */
+}
+
+.stickyThead th { /* Pour thead sticky */
+  position: sticky;
+  top: 0;
+  background-color: var(--dividends-sticky-thead-bg);
+  z-index: 2; /* Au-dessus du contenu scrollable */
+}
+
+
+/* Styles pour .dividends-table-key-stats */
+.tableKeyStats td {
+  padding: 0;
+  margin: 0;
+  font-size: var(--dividends-font-size-x);
+}
+.tableKeyStats tbody tr:first-child td {
+  padding-top: 0rem;
+}
+.keyStatsLabel { /* td:first-child */
+  color: var(--dividends-text-secondary);
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+}
+.tableKeyStats tbody tr td:not(:first-child) { /* Les cellules de données */
+  padding: 1.1px;
+  margin: 0;
+}
+.tableKeyStats td.text-end { /* Assure que text-end est appliqué */
+  text-align: end;
+}
+.tableKeyStats .keyStatsLabel { /* Spécifique pour la première colonne de key-stats */
+  color: var(--white) !important; /* .dividends-table-key-stats-title */
+}
+
+
+/* Styles pour .dividends-table-annual-data */
+.tableAnnualData {
+  font-size: var(--dividends-font-size-m);
+}
+.tableAnnualData thead th {
+  color: var(--dividends-text-secondary);
+  font-weight: 500;
+  font-size: var(--dividends-font-size-s);
+  padding-bottom: 0.1rem;
+  border-bottom: 1px solid var(--dividends-border-color);
+}
+.tableAnnualData tbody td {
+  padding: 0.1rem 0.5rem;
+  color: var(--dividends-text-light);
+  font-weight: 400;
+}
+.annualDataLabel { /* td:first-child */
+  color: var(--dividends-text-primary) !important;
+  font-weight: 500 !important;
+  text-align: left !important;
+}
+.tableAnnualData .textYellow {
+  color: var(--dividends-accent-yellow) !important;
+  font-weight: 500;
+}
+.noDataCell {
+  color: var(--dividends-text-secondary) !important; /* Pour les '--' */
+  font-weight: normal !important;
+}
+
+
+/* Styles pour .dividends-table-history */
+.tableHistory {
+  /* Styles spécifiques si la table history a des besoins particuliers au-delà de .tableBase */
+  /* Ex: table-layout: fixed; width: 100%; min-width: 500px; */
+}
+.historyHeaderTableSpecific th { /* Pour .dividends-history-header-table thead th */
+   /* Les largeurs sont appliquées via style prop dans le composant Table */
+}
+.historyHeaderTableSpecific th:first-child { text-align: start; }
+.historyHeaderTableSpecific th:not(:first-child) { text-align: end; }
+
+.historyCell {
+  padding: 0.15rem 0.5rem;
+  color: var(--dividends-history-body-color);
+  font-size: var(--dividends-font-size-m);
+  font-weight: 400;
+  border-bottom: none;
+  vertical-align: middle;
+}
+.historyInactiveText { /* Pour Payment Date et Frequency */
+    color: var(--dividends-nav-pills-inactive-bg);
+}
+.historyAmountCell { /* Pour la colonne Amount */
+    text-align: end !important;
+}
+
+
+/* Styles pour .dividends-table-dense (utilisé pour country shares) */
+.tableDense td,
+.tableDense th {
+  padding: 0.1rem 0.3rem;
+  font-size: var(--dividends-font-size-xs);
+}
+.tableDense thead th {
+  font-size: var(--dividends-font-size-xs);
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+.rowReported td { /* .dividends-row-reported td */
+  color: var(--dividends-accent-yellow);
+  font-weight: 500;
+}
+
+/* Hover sur les lignes pour certaines tables */
+.tableKeyStats tbody tr:hover td,
+.tableHistory tbody tr:hover td, /* Si applicable au corps de la table history */
+.tableCountryShares tbody tr:hover td { /* Pour la table des pays */
+  background-color: var(--dividends-table-row-hover-bg) !important;
+  color: var(--dividends-text-primary);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Responsive pour les tables si nécessaire */
+@media (max-width: 575.98px) {
+  .tableAnnualData {
+    font-size: var(--dividends-font-size-xs);
+  }
+  .tableAnnualData thead th,
+  .tableAnnualData tbody td {
+    padding: 0.2rem 0.3rem;
+  }
+  .tableHistory { /* Si la table history a une taille de police différente sur mobile */
+    font-size: var(--dividends-font-size-xs);
+  }
+  .tableHistory th, /* Si le header est aussi affecté */
+  .historyCell { /* Ou .tableHistory tbody td */
+    padding: 0.15rem 0.3rem;
+  }
+}
+--------------------------------------------------
+]]
+
+['ui\dividends\Table\Table.tsx': [
+--------------------------------------------------
+// # composant serveur (peut devenir client si des fonctionnalités comme le tri sont ajoutées)
+import React from 'react';
+import styles from './Table.module.css';
+
+export interface TableHeader {
+  key: string; // Identifiant unique pour la colonne
+  label: string;
+  className?: string; // Pour th
+  style?: React.CSSProperties; // Pour th
+  cellClassName?: string; // Classe à appliquer aux td de cette colonne
+  cellStyle?: React.CSSProperties; // Style à appliquer aux td de cette colonne
+}
+
+export interface TableRowData {
+  [key: string]: string | number | null | React.ReactNode; // Permet des nœuds React pour un contenu plus riche
+}
+
+interface TableProps {
+  headers: TableHeader[];
+  rows: TableRowData[];
+  caption?: string;
+  className?: string; // Classe pour l'élément table
+  variant?: 'default' | 'key-stats' | 'annual-data' | 'history' | 'country-shares' | 'dense';
+  // Pour les tables History avec header séparé
+  isHistoryHeader?: boolean;
+  isHistoryBody?: boolean;
+  // Pour les tables avec layout fixe
+  tableLayout?: 'auto' | 'fixed';
+  minWidth?: string; // Pour table-layout: fixed
+  stickyHeader?: boolean; // Pour thead sticky
+}
+
+const Table: React.FC<TableProps> = ({
+  headers,
+  rows,
+  caption,
+  className = '',
+  variant = 'default',
+  isHistoryHeader = false,
+  isHistoryBody = false,
+  tableLayout,
+  minWidth,
+  stickyHeader = false,
+}) => {
+  const tableClasses = [
+    styles.tableBase,
+    'table', // Classe Bootstrap de base
+    'table-sm', // Souvent utilisé dans le HTML
+    variant === 'key-stats' ? styles.tableKeyStats : '',
+    variant === 'annual-data' ? styles.tableAnnualData : '',
+    variant === 'history' ? styles.tableHistory : '',
+    variant === 'country-shares' ? styles.tableCountryShares : '',
+    variant === 'dense' ? styles.tableDense : '', // Pour .dividends-table-dense
+    className,
+  ].filter(Boolean).join(' ');
+
+  const tableStyle: React.CSSProperties = {};
+  if (tableLayout) tableStyle.tableLayout = tableLayout;
+  if (minWidth) tableStyle.minWidth = minWidth;
+  if (isHistoryHeader || isHistoryBody) tableStyle.width = '100%'; // Souvent pour les tables history
+
+  const theadClasses = [
+    stickyHeader ? styles.stickyThead : '',
+    isHistoryHeader ? styles.historyHeaderTableSpecific : '', // Pour .dividends-history-header-table thead
+  ].filter(Boolean).join(' ');
+
+  return (
+    <table className={tableClasses} style={tableStyle}>
+      {caption && <caption>{caption}</caption>}
+      {!isHistoryBody && ( // Le corps de la table History n'a pas de thead
+        <thead className={theadClasses}>
+          <tr>
+            {headers.map((header) => (
+              <th
+                key={header.key}
+                scope="col"
+                className={`${header.className || ''} ${variant === 'key-stats' && header.key !== 'label' ? 'text-end' : ''} ${variant === 'annual-data' && header.key !== 'label' ? 'text-end' : ''}`}
+                style={header.style}
+              >
+                {header.label}
+              </th>
+            ))}
+          </tr>
+        </thead>
+      )}
+      <tbody>
+        {rows.map((row, rowIndex) => (
+          <tr key={rowIndex} className={row.isReported && variant === 'dense' ? styles.rowReported : ''}>
+            {headers.map((header, cellIndex) => {
+              const cellContent = row[header.key];
+              const isLabelColumn = header.key === 'label' || (variant === 'key-stats' && cellIndex === 0);
+
+              if (variant === 'history' && !isHistoryHeader) {
+                // Pour la table History, on utilise ListItem pour rendre les cellules
+                // Ceci est un peu une astuce, car ListItem est conçu pour des items de liste.
+                // Idéalement, HistorySection construirait ses propres <td>.
+                // Si on garde cette approche, ListItem doit être adapté.
+                // Pour l'instant, on va rendre directement les <td> ici pour plus de clarté.
+                return (
+                   <td
+                    key={header.key}
+                    style={{ ...header.cellStyle, ...header.style }} // header.style pour la largeur de colonne
+                    className={`${styles.historyCell} ${header.cellClassName || ''} ${cellIndex === 0 ? '' : 'text-end'} ${cellIndex === 2 || cellIndex === 4 ? styles.historyInactiveText : ''} ${cellIndex === 3 ? styles.historyAmountCell : ''}`}
+                  >
+                    {cellContent === null || cellContent === undefined ? '--' : String(cellContent)}
+                  </td>
+                );
+              }
+              
+              if (variant === 'country-shares' && !isHistoryHeader) {
+                 return (
+                    <td
+                      key={header.key}
+                      className={`${header.cellClassName || ''} ${header.key === 'shares' ? 'text-end' : ''}`}
+                      style={header.cellStyle}
+                    >
+                       {cellContent === null || cellContent === undefined ? '--' : String(cellContent)}
+                    </td>
+                 );
+              }
+
+
+              return (
+                <td
+                  key={header.key}
+                  className={`
+                    ${isLabelColumn && variant === 'key-stats' ? styles.keyStatsLabel : ''}
+                    ${isLabelColumn && variant === 'annual-data' ? styles.annualDataLabel : ''}
+                    ${!isLabelColumn && (variant === 'key-stats' || variant === 'annual-data') ? 'text-end' : ''}
+                    ${(cellContent === null || cellContent === undefined) && variant === 'annual-data' ? styles.noDataCell : ''}
+                    ${row.isYellow && variant === 'annual-data' ? styles.textYellow : ''}
+                    ${header.cellClassName || ''}
+                  `}
+                  style={header.cellStyle}
+                >
+                  {cellContent === null || cellContent === undefined ? '--' : cellContent}
+                </td>
+              );
+            })}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+};
+
+export default Table;
+--------------------------------------------------
+]]
+
+['ui\dividends\VerticalScroll\VerticalScroll.module.css': [
+--------------------------------------------------
+.vScrollContainer {
+  /* Ex: .dividends-history-scroll-wrapper, .dividends-country-scroll-inner-wrapper */
+  position: relative;
+  overflow: hidden; /* Cache les fades/indicateurs qui pourraient déborder */
+  flex-shrink: 0; /* Important pour les conteneurs dans flex */
+  isolation: isolate; /* Pour que z-index des enfants fonctionne bien */
+  border-radius: 2px; /* Appliqué à .dividends-history-scroll-wrapper */
+  display: flex; /* Pour que le wrapper interne puisse grandir */
+  flex-direction: column; /* Les indicateurs sont au-dessus/en dessous */
+}
+
+.verticalScrollWrapper {
+  /* Appliqué si children est directement scrollable (pas de scrollableContentSelector) */
+  /* Ex: .dividends-history-scroll-area, .dividends-news-list */
+  flex-grow: 1; /* Prend l'espace disponible */
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE, Edge */
+  position: relative; /* Pour que les fades internes fonctionnent si besoin */
+}
+.verticalScrollWrapper::-webkit-scrollbar {
+  display: none; /* Webkit */
+}
+
+/* Styles pour les indicateurs de scroll (flèches) */
+/* Les styles de base du bouton sont dans Button.module.css (variant="scroll-indicator") */
+.scrollIndicatorTop,
+.scrollIndicatorBottom {
+  z-index: 3 !important; /* Au-dessus des fades */
+  opacity: 0;
+  pointer-events: none;
+  position: absolute; /* Positionnés par rapport à .vScrollContainer */
+  left: 0; /* Prend toute la largeur par défaut */
+  right: 0;
+}
+.scrollIndicatorTop.clickable,
+.scrollIndicatorBottom.clickable {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Positionnement spécifique pour History table (indicateurs centrés) */
+.vScrollContainer.historyScroll .scrollIndicatorTop,
+.vScrollContainer.historyScroll .scrollIndicatorBottom {
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto; /* Pour que le bouton ne prenne pas toute la largeur */
+}
+
+
+/* Fades pour le scroll vertical */
+.topFade,
+.bottomFade {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1; /* En dessous des indicateurs */
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  height: var(--dividends-scroll-fade-size, 22px);
+}
+
+.topFade {
+  top: 0;
+  background: linear-gradient(to bottom, var(--dividends-scroll-fade-color) 0%, transparent 100%);
+}
+.bottomFade {
+  bottom: 0;
+  background: linear-gradient(to top, var(--dividends-scroll-fade-color) 0%, transparent 100%);
+}
+
+/* Visibilité des fades/indicateurs via classes JS (fallback :has) */
+.vScrollContainer.showTopIndicator .scrollIndicatorTop,
+.vScrollContainer.showTopFade .topFade {
+  opacity: 1;
+}
+.vScrollContainer.showBottomIndicator .scrollIndicatorBottom,
+.vScrollContainer.showBottomFade .bottomFade {
+  opacity: 1;
+}
+
+/* Styles spécifiques pour la table History où le fade/indicateur du haut est décalé */
+/* La classe .historyHeaderOffset est ajoutée au .vScrollContainer par le composant Feature */
+.vScrollContainer.historyHeaderOffset .topFade,
+.vScrollContainer.historyHeaderOffset .scrollIndicatorTop {
+  /* Le décalage 'top' sera appliqué via style prop si topIndicatorOffset est fourni */
+}
+.vScrollContainer.historyHeaderOffset.showTopFadeUnderOffset .topFade {
+    /* Le décalage 'top' sera appliqué via style prop */
+}
+
+
+/* Styles pour le conteneur de news qui utilise aussi des fades */
+.newsListContainer.showTopFade .topFade { /* .dividends-news-list-container::before */
+    opacity: 1;
+    /* top: 1.2rem; -> Géré par le positionnement du fade dans le composant Feature NewsWidget */
+}
+.newsListContainer.showBottomFade .bottomFade { /* .dividends-news-list-container::after */
+    opacity: 1;
+}
+--------------------------------------------------
+]]
+
+['ui\dividends\VerticalScroll\VerticalScroll.tsx': [
+--------------------------------------------------
+// # composant client
+'use client';
+
+import React, { useRef, useEffect, useState, useCallback } from 'react';
+import Button from '@/components/ui/dividends/Button/Button';
+import styles from './VerticalScroll.module.css';
+import Icon from '../Icon/Icon';
+
+interface VerticalScrollProps {
+  children: React.ReactNode; // Le contenu scrollable (ex: une table dans un div.table-responsive)
+  scrollableContentSelector?: string; // Sélecteur pour trouver l'élément scrollable à l'intérieur de children si children n'est pas directement scrollable
+  className?: string; // Classe pour le conteneur principal (ex: .dividends-history-scroll-wrapper)
+  wrapperClassName?: string; // Classe pour l'élément qui contient le contenu et les fades/indicateurs
+  maxHeight?: string; // Ex: '110px' ou 'var(--dividends-history-max-height)'
+  ariaLabel?: string;
+  // Pour la table History, l'indicateur du haut est décalé
+  topIndicatorOffset?: string; // Ex: '1.8rem'
+  showTopFadeUnderOffset?: boolean; // Si le fade du haut doit aussi commencer sous l'offset
+}
+
+const VerticalScroll: React.FC<VerticalScrollProps> = ({
+  children,
+  scrollableContentSelector,
+  className = '',
+  wrapperClassName = '',
+  maxHeight,
+  ariaLabel = "Scrollable vertical content",
+  topIndicatorOffset,
+  showTopFadeUnderOffset = false,
+}) => {
+  const scrollWrapperRef = useRef<HTMLDivElement>(null); // L'élément qui a overflow-y: auto
+  const containerRef = useRef<HTMLDivElement>(null); // Le conteneur global des indicateurs/fades
+  const [canScrollUp, setCanScrollUp] = useState(false);
+  const [canScrollDown, setCanScrollDown] = useState(true);
+
+  const SCROLL_MARGIN = 3;
+
+  const updateScrollIndicators = useCallback(() => {
+    const element = scrollableContentSelector ? scrollWrapperRef.current?.querySelector(scrollableContentSelector) as HTMLElement : scrollWrapperRef.current;
+    if (element) {
+      const currentScrollTop = Math.round(element.scrollTop);
+      const currentScrollHeight = Math.ceil(element.scrollHeight);
+      const currentClientHeight = Math.ceil(element.clientHeight);
+
+      const isScrollable = currentScrollHeight > currentClientHeight + 1;
+      const canUp = isScrollable && currentScrollTop > SCROLL_MARGIN;
+      const canDown = isScrollable && (currentScrollHeight - (currentScrollTop + currentClientHeight)) > SCROLL_MARGIN;
+      
+      setCanScrollUp(canUp);
+      setCanScrollDown(canDown);
+
+      containerRef.current?.classList.toggle(styles.showTopIndicator, canUp);
+      containerRef.current?.classList.toggle(styles.showBottomIndicator, canDown);
+      containerRef.current?.classList.toggle(styles.showTopFade, canUp); // Fades suivent les indicateurs pour simplicité
+      containerRef.current?.classList.toggle(styles.showBottomFade, canDown);
+    }
+  }, [scrollableContentSelector]);
+
+  useEffect(() => {
+    const element = scrollableContentSelector ? scrollWrapperRef.current?.querySelector(scrollableContentSelector) as HTMLElement : scrollWrapperRef.current;
+    if (element) {
+      updateScrollIndicators();
+      element.addEventListener('scroll', updateScrollIndicators, { passive: true });
+      
+      const resizeObserver = new ResizeObserver(updateScrollIndicators);
+      resizeObserver.observe(element);
+      if (element.firstElementChild) {
+        resizeObserver.observe(element.firstElementChild);
+      }
+      
+      const mutationObserver = new MutationObserver(updateScrollIndicators);
+      mutationObserver.observe(element, { childList: true, subtree: true, characterData: true });
+
+      return () => {
+        element.removeEventListener('scroll', updateScrollIndicators);
+        resizeObserver.disconnect();
+        mutationObserver.disconnect();
+      };
+    }
+  }, [updateScrollIndicators, scrollableContentSelector]);
+
+  const handleScrollAction = (direction: 'up' | 'down') => {
+    const element = scrollableContentSelector ? scrollWrapperRef.current?.querySelector(scrollableContentSelector) as HTMLElement : scrollWrapperRef.current;
+    if (element) {
+      const scrollAmount = element.clientHeight * 0.8;
+      if (direction === 'up') {
+        element.scrollTo({ top: element.scrollTop - scrollAmount, behavior: 'smooth' });
+      } else {
+        element.scrollTo({ top: element.scrollTop + scrollAmount, behavior: 'smooth' });
+      }
+    }
+  };
+  
+  const dynamicWrapperStyle: React.CSSProperties = {};
+  if (maxHeight && !scrollableContentSelector) { // Si le wrapper est lui-même scrollable
+      dynamicWrapperStyle.maxHeight = maxHeight;
+      dynamicWrapperStyle.overflowY = 'auto';
+  }
+  
+  const topIndicatorStyle: React.CSSProperties = {};
+  if (topIndicatorOffset) {
+      topIndicatorStyle.top = topIndicatorOffset;
+  }
+  const topFadeStyle: React.CSSProperties = {};
+   if (showTopFadeUnderOffset && topIndicatorOffset) {
+      topFadeStyle.top = topIndicatorOffset;
+  }
+
+
+  return (
+    <div ref={containerRef} className={`${styles.vScrollContainer} ${className} ${wrapperClassName}`} role="region" aria-label={ariaLabel}>
+      {canScrollUp && (
+        <Button
+          variant="scroll-indicator"
+          scrollDirection="up"
+          onClick={() => handleScrollAction('up')}
+          ariaLabel="Scroll Up"
+          className={`${styles.scrollIndicatorTop} ${styles.clickable}`}
+          style={topIndicatorStyle}
+        >
+          <Icon type="chevron-up" />
+        </Button>
+      )}
+      {/* Le fade du haut */}
+      <div className={`${styles.topFade}`} style={topFadeStyle}></div>
+
+      <div
+        ref={scrollWrapperRef}
+        className={scrollableContentSelector ? '' : styles.verticalScrollWrapper} // Si selecteur, children est le wrapper
+        style={dynamicWrapperStyle}
+      >
+        {children}
+      </div>
+      
+      {/* Le fade du bas */}
+      <div className={`${styles.bottomFade}`}></div>
+      {canScrollDown && (
+        <Button
+          variant="scroll-indicator"
+          scrollDirection="down"
+          onClick={() => handleScrollAction('down')}
+          ariaLabel="Scroll Down"
+          className={`${styles.scrollIndicatorBottom} ${styles.clickable}`}
+        >
+          <Icon type="chevron-down" />
+        </Button>
+      )}
+    </div>
+  );
+};
+
+export default VerticalScroll;
+--------------------------------------------------
+]]
+
+================================================================================
+FIN DE L'EXTRACTION
+================================================================================
+✅ 57 fichiers extraits avec succès
+📅 Extraction terminée le 2025-05-26 17:12:17
