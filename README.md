@@ -111,60 +111,6 @@ python codebase_extractor.py . --force
 python codebase_extractor.py . --ignore-patterns '*.bak,*.old'
 ```
 
-## Options CLI principales
-- `--format txt,json,md,html` : formats de sortie (un ou plusieurs, séparés par des virgules)
-- `--zip` : exporte tout dans une archive ZIP
-- `--chunk-size N` : découpe les fichiers en morceaux de N caractères pour LLM
-- `--ignore-patterns motif1,motif2` : motifs d'exclusion personnalisés
-- `--force` : force l'export même si des secrets sont détectés
-- `-o` ou `--output` : nom du fichier de sortie principal
-
-## Sécurité & Bonnes pratiques
-- Le script scanne les fichiers pour détecter des secrets (API keys, mots de passe, etc.).
-- Si des secrets sont trouvés, l'utilisateur est averti et doit confirmer l'export (sauf `--force`).
-- **Il est fortement recommandé de retirer ou d'anonymiser les secrets avant tout partage.**
-
-## Limitations
-- Fichiers >1Mo tronqués.
-- Encodages exotiques non garantis.
-- Découpage LLM basé sur le nombre de caractères (pas de tokens).
-
-## Compatibilité
-- Windows, Linux, macOS
-- Python 3.6+
-- Zéro dépendance externe
-
-## 🤝 Contribuer
-
-Les contributions sont les bienvenues ! Si vous avez des suggestions d'amélioration, des corrections de bugs, ou de nouvelles fonctionnalités à proposer :
-
-1. Forkez le projet sur GitHub.
-2. Créez une nouvelle branche pour votre fonctionnalité :
-   ```bash
-   git checkout -b feature/NomDeLaFeature
-   ```
-3. Faites vos modifications.
-4. Commitez vos changements :
-   ```bash
-   git commit -m 'Ajout de telle fonctionnalité'
-   ```
-5. Poussez vers la branche :
-   ```bash
-   git push origin feature/NomDeLaFeature
-   ```
-6. Ouvrez une Pull Request.
-
-Veuillez vous assurer que votre code respecte le style existant et inclut des commentaires pertinents si nécessaire.
-
-*Note de Jack-Josias : Vous pouvez adapter cette section selon vos préférences pour les contributions.*
-
-## Licence
-Voir le fichier LICENSE
-
----
-
-**© 2025 Jack-Josias – Tous droits réservés**
-
 ## Exemple de sortie générée
 
 Voici un extrait typique du rapport généré :
@@ -225,3 +171,59 @@ FIN DE L'EXTRACTION
 ```
 
 Ce format est identique pour tous les formats de sortie (TXT, JSON, Markdown, HTML), avec des adaptations de style.
+
+
+## Options CLI principales
+- `--format txt,json,md,html` : formats de sortie (un ou plusieurs, séparés par des virgules)
+- `--zip` : exporte tout dans une archive ZIP
+- `--chunk-size N` : découpe les fichiers en morceaux de N caractères pour LLM
+- `--ignore-patterns motif1,motif2` : motifs d'exclusion personnalisés
+- `--force` : force l'export même si des secrets sont détectés
+- `-o` ou `--output` : nom du fichier de sortie principal
+
+## Sécurité & Bonnes pratiques
+- Le script scanne les fichiers pour détecter des secrets (API keys, mots de passe, etc.).
+- Si des secrets sont trouvés, l'utilisateur est averti et doit confirmer l'export (sauf `--force`).
+- **Il est fortement recommandé de retirer ou d'anonymiser les secrets avant tout partage.**
+
+## Limitations
+- Fichiers >1Mo tronqués.
+- Encodages exotiques non garantis.
+- Découpage LLM basé sur le nombre de caractères (pas de tokens).
+
+## Compatibilité
+- Windows, Linux, macOS
+- Python 3.6+
+- Zéro dépendance externe
+
+## 🤝 Contribuer
+
+Les contributions sont les bienvenues ! Si vous avez des suggestions d'amélioration, des corrections de bugs, ou de nouvelles fonctionnalités à proposer :
+
+1. Forkez le projet sur GitHub.
+2. Créez une nouvelle branche pour votre fonctionnalité :
+   ```bash
+   git checkout -b feature/NomDeLaFeature
+   ```
+3. Faites vos modifications.
+4. Commitez vos changements :
+   ```bash
+   git commit -m 'Ajout de telle fonctionnalité'
+   ```
+5. Poussez vers la branche :
+   ```bash
+   git push origin feature/NomDeLaFeature
+   ```
+6. Ouvrez une Pull Request.
+
+Veuillez vous assurer que votre code respecte le style existant et inclut des commentaires pertinents si nécessaire.
+
+*Note de Jack-Josias : Vous pouvez adapter cette section selon vos préférences pour les contributions.*
+
+## Licence
+Voir le fichier LICENSE
+
+---
+
+**© 2025 Jack-Josias – Tous droits réservés**
+
