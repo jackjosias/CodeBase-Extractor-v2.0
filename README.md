@@ -86,9 +86,14 @@ Si Python 3.6+ est installé, le script fonctionnera directement.
 python codebase_extractor.py .
 ```
 
+### Extraction dossiers
+```bash
+python codebase_extractor.py 'chemin_Path_du_dossier' -o codebase.txt
+```
+
 ### Extraction multi-dossiers
 ```bash
-python codebase_extractor.py dossier1 dossier2 dossier3 -o rapport.txt
+python codebase_extractor.py 'chemin_Path_du_dossier1' 'chemin_Path_du_dossier2' 'chemin_Path_du_dossier3' -o rapport.txt
 ```
 
 ### Extraction multi-format et ZIP
