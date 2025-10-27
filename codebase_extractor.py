@@ -72,8 +72,8 @@ class TxtRenderer(ReportRenderer):
 
         final_content = "\n".join(parts)
         if data['file_blocks']:
-            # HEPHAESTUS v59.0 MODIFICATION: Utilisation de \n\n pour séparer les blocs, plus lisible que ' && '
-            final_content += "\n\n" + "\n\n".join(data['file_blocks'])
+
+            final_content += "\n\n" + " &&& ".join(data['file_blocks'])
 
         footer = [
             "\n\n" + "=" * 80,
