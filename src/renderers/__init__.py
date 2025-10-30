@@ -1,0 +1,1 @@
+# Fichier intentionnellement vide pour marquer le répertoire 'renderers' comme un package.

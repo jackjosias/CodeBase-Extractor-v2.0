@@ -1,5 +1,168 @@
 [
     {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "html",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "html",
+        "description": "html",
+        "detail": "html",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -45,36 +208,11 @@
         "documentation": {}
     },
     {
-        "label": "argparse",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "argparse",
-        "description": "argparse",
-        "detail": "argparse",
-        "documentation": {}
-    },
-    {
         "label": "datetime",
         "importPath": "datetime",
         "description": "datetime",
         "isExtraImport": true,
         "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "Dict",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
         "documentation": {}
     },
     {
@@ -87,39 +225,165 @@
         "documentation": {}
     },
     {
-        "label": "zipfile",
-        "kind": 6,
+        "label": "ThreadPoolExecutor",
+        "importPath": "concurrent.futures",
+        "description": "concurrent.futures",
         "isExtraImport": true,
-        "importPath": "zipfile",
-        "description": "zipfile",
-        "detail": "zipfile",
+        "detail": "concurrent.futures",
         "documentation": {}
     },
     {
-        "label": "json",
-        "kind": 6,
+        "label": "as_completed",
+        "importPath": "concurrent.futures",
+        "description": "concurrent.futures",
         "isExtraImport": true,
-        "importPath": "json",
-        "description": "json",
-        "detail": "json",
+        "detail": "concurrent.futures",
         "documentation": {}
     },
     {
-        "label": "re",
+        "label": "argparse",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "re",
-        "description": "re",
-        "detail": "re",
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "CodebaseExtractor",
+        "importPath": "src.core",
+        "description": "src.core",
+        "isExtraImport": true,
+        "detail": "src.core",
+        "documentation": {}
+    },
+    {
+        "label": "compress_to_oneline",
+        "importPath": "src.utils",
+        "description": "src.utils",
+        "isExtraImport": true,
+        "detail": "src.utils",
+        "documentation": {}
+    },
+    {
+        "label": "handle_interactive_compression",
+        "importPath": "src.utils",
+        "description": "src.utils",
+        "isExtraImport": true,
+        "detail": "src.utils",
+        "documentation": {}
+    },
+    {
+        "label": "TxtRenderer",
+        "importPath": "src.renderers.txt_renderer",
+        "description": "src.renderers.txt_renderer",
+        "isExtraImport": true,
+        "detail": "src.renderers.txt_renderer",
+        "documentation": {}
+    },
+    {
+        "label": "JsonRenderer",
+        "importPath": "src.renderers.json_renderer",
+        "description": "src.renderers.json_renderer",
+        "isExtraImport": true,
+        "detail": "src.renderers.json_renderer",
+        "documentation": {}
+    },
+    {
+        "label": "MdRenderer",
+        "importPath": "src.renderers.md_renderer",
+        "description": "src.renderers.md_renderer",
+        "isExtraImport": true,
+        "detail": "src.renderers.md_renderer",
+        "documentation": {}
+    },
+    {
+        "label": "HtmlRenderer",
+        "importPath": "src.renderers.html_renderer",
+        "description": "src.renderers.html_renderer",
+        "isExtraImport": true,
+        "detail": "src.renderers.html_renderer",
+        "documentation": {}
+    },
+    {
+        "label": "ReportRenderer",
+        "kind": 6,
+        "importPath": "src.renderers.base_renderer",
+        "description": "src.renderers.base_renderer",
+        "peekOfCode": "class ReportRenderer:\n    \"\"\"Classe de base abstraite pour les générateurs de rapports.\"\"\"\n    def render(self, data: Dict[str, Any]) -> str:\n        raise NotImplementedError\n    def get_extension(self) -> str:\n        raise NotImplementedError",
+        "detail": "src.renderers.base_renderer",
+        "documentation": {}
+    },
+    {
+        "label": "HtmlRenderer",
+        "kind": 6,
+        "importPath": "src.renderers.html_renderer",
+        "description": "src.renderers.html_renderer",
+        "peekOfCode": "class HtmlRenderer(ReportRenderer):\n    \"\"\"Génère le rapport au format HTML.\"\"\"\n    def get_extension(self) -> str:\n        return \"html\"\n    def render(self, data: Dict[str, Any]) -> str:\n        header = data['header']\n        stats = header['stats']\n        projects_html = \"\"\n        if header['projects']: projects_html += f\"<b>Projets/Dossiers:</b> {', '.join(header['projects'])}<br>\"\n        if header['direct_files']: projects_html += f\"<b>Fichiers directs:</b> {', '.join(header['direct_files'])}<br>\"",
+        "detail": "src.renderers.html_renderer",
+        "documentation": {}
+    },
+    {
+        "label": "JsonRenderer",
+        "kind": 6,
+        "importPath": "src.renderers.json_renderer",
+        "description": "src.renderers.json_renderer",
+        "peekOfCode": "class JsonRenderer(ReportRenderer):\n    \"\"\"Génère le rapport au format JSON.\"\"\"\n    def get_extension(self) -> str:\n        return \"json\"\n    def render(self, data: Dict[str, Any]) -> str:\n        files_content = []\n        for block in data['file_blocks']:\n            match = re.match(r\"'(.*?)': \\[\\n-+\\n(.*?)\\n-+\\n\\]\", block, re.DOTALL)\n            if match:\n                path, content = match.groups()",
+        "detail": "src.renderers.json_renderer",
+        "documentation": {}
+    },
+    {
+        "label": "MdRenderer",
+        "kind": 6,
+        "importPath": "src.renderers.md_renderer",
+        "description": "src.renderers.md_renderer",
+        "peekOfCode": "class MdRenderer(ReportRenderer):\n    \"\"\"Génère le rapport au format Markdown.\"\"\"\n    def get_extension(self) -> str:\n        return \"md\"\n    def render(self, data: Dict[str, Any]) -> str:\n        header = data['header']\n        stats = header['stats']\n        parts = [\n            \"# Codebase Extraction Report\\n\",\n            f\"**Date d'extraction**: {header['date']}\\n\",",
+        "detail": "src.renderers.md_renderer",
+        "documentation": {}
+    },
+    {
+        "label": "TxtRenderer",
+        "kind": 6,
+        "importPath": "src.renderers.txt_renderer",
+        "description": "src.renderers.txt_renderer",
+        "peekOfCode": "class TxtRenderer(ReportRenderer):\n    \"\"\"Génère le rapport au format texte brut.\"\"\"\n    def get_extension(self) -> str:\n        return \"txt\"\n    def render(self, data: Dict[str, Any]) -> str:\n        parts = []\n        header = data['header']\n        stats = header['stats']\n        parts.append(\"=\" * 80)\n        parts.append(\"CODEBASE EXTRACTION REPORT\")",
+        "detail": "src.renderers.txt_renderer",
         "documentation": {}
     },
     {
         "label": "CodebaseExtractor",
         "kind": 6,
-        "importPath": "codebase_extractor",
-        "description": "codebase_extractor",
-        "peekOfCode": "class CodebaseExtractor:\n    \"\"\"Agent intelligent pour extraire et formatter une codebase complète\"\"\"\n    def __init__(self, extra_ignore_patterns=None):\n        self.system_info = self._detect_system()\n        self.supported_extensions = {\n            # Langages de programmation\n            '.py', '.js', '.ts', '.jsx', '.tsx', '.java', '.c', '.cpp', '.cc', '.cxx',\n            '.h', '.hpp', '.cs', '.php', '.rb', '.go', '.rs', '.swift', '.kt', '.scala',\n            '.r', '.m', '.mm', '.pl', '.sh', '.bash', '.zsh', '.fish', '.ps1', '.bat',\n            '.cmd', '.vbs', '.lua', '.dart', '.elm', '.haskell', '.hs', '.clj', '.cljs',",
-        "detail": "codebase_extractor",
+        "importPath": "src.core",
+        "description": "src.core",
+        "peekOfCode": "class CodebaseExtractor:\n    \"\"\"Agent intelligent pour extraire et formatter une codebase complète.\"\"\"\n    def __init__(self, extra_ignore_patterns: Optional[List[str]] = None):\n        self.system_info = self._detect_system()\n        self.supported_extensions = {\n            '.py', '.js','.mjs', '.ts', '.txt', '.jsx', '.tsx', '.java', '.c', '.cpp', '.h', '.hpp', \n            '.cs', '.php', '.rb', '.go', '.rs', '.swift', '.kt', '.sh', '.bash', '.html', '.css', \n            '.scss', '.json', '.yaml', '.yml', '.toml', '.ini', '.md', '.sql', 'Dockerfile', 'Makefile'\n        }\n        self.base_ignore_patterns = {",
+        "detail": "src.core",
+        "documentation": {}
+    },
+    {
+        "label": "scan_for_secrets",
+        "kind": 2,
+        "importPath": "src.utils",
+        "description": "src.utils",
+        "peekOfCode": "def scan_for_secrets(file_content: str, file_path: str) -> List[Dict[str, str]]:\n    \"\"\"Scanne un contenu textuel à la recherche de secrets potentiels.\"\"\"\n    secret_patterns = [r'(?i)(api[_-]?key|secret|token|password|passwd|pwd)[\"\\'\\s:=]+[\\w\\-\\+/=]{8,}']\n    findings = []\n    for pat in secret_patterns:\n        for match in re.findall(pat, file_content):\n            findings.append({'file': file_path, 'secret': match})\n    return findings\ndef compress_to_oneline(input_filename: str):\n    \"\"\"Lit un fichier, le compresse en une seule ligne et écrit le résultat.\"\"\"",
+        "detail": "src.utils",
+        "documentation": {}
+    },
+    {
+        "label": "compress_to_oneline",
+        "kind": 2,
+        "importPath": "src.utils",
+        "description": "src.utils",
+        "peekOfCode": "def compress_to_oneline(input_filename: str):\n    \"\"\"Lit un fichier, le compresse en une seule ligne et écrit le résultat.\"\"\"\n    try:\n        print(f\"\\n🔄 Compression de {input_filename} en format une ligne...\")\n        with open(input_filename, 'r', encoding='utf-8', errors='ignore') as f:\n            content = f.read()\n        oneline_content = ' '.join(content.split())\n        base, ext = os.path.splitext(input_filename)\n        output_filename = f\"{base}.oneline{ext}\"\n        with open(output_filename, 'w', encoding='utf-8') as f:",
+        "detail": "src.utils",
+        "documentation": {}
+    },
+    {
+        "label": "handle_interactive_compression",
+        "kind": 2,
+        "importPath": "src.utils",
+        "description": "src.utils",
+        "peekOfCode": "def handle_interactive_compression(output_files: Dict[str, str]):\n    \"\"\"Gère la logique de l'invite interactive pour la compression.\"\"\"\n    file_to_compress = None\n    if 'txt' in output_files:\n        file_to_compress = output_files['txt']\n    elif 'md' in output_files:\n        file_to_compress = output_files['md']\n    if not file_to_compress:\n        return\n    try:",
+        "detail": "src.utils",
         "documentation": {}
     },
     {
@@ -127,7 +391,7 @@
         "kind": 2,
         "importPath": "codebase_extractor",
         "description": "codebase_extractor",
-        "peekOfCode": "def main():\n    \"\"\"Point d'entrée principal avec interface ligne de commande\"\"\"\n    parser = argparse.ArgumentParser(\n        description=\"🤖 CodeBase Extractor - Agent intelligent d'extraction de codebase\",\n        formatter_class=argparse.RawDescriptionHelpFormatter,\n        epilog=\"\"\"\nExemples d'utilisation:\n  python codebase_extractor.py /path/to/project\n  python codebase_extractor.py . -o mon_projet.txt\n  python codebase_extractor.py ~/Documents/MonProjet --output extraction.txt",
+        "peekOfCode": "def main():\n    \"\"\"Fonction principale pour parser les arguments et lancer l'extraction.\"\"\"\n    parser = argparse.ArgumentParser(\n        description=\"🤖 CodeBase Extractor v3.5 (Refactored)\",\n        formatter_class=argparse.RawDescriptionHelpFormatter\n    )\n    parser.add_argument('paths', help='Un ou plusieurs chemins vers les répertoires ET/OU fichiers à analyser', nargs='+')\n    parser.add_argument('-o', '--output', help='Nom de base du fichier de sortie (sans extension)')\n    parser.add_argument('--format', type=str, default='txt', help='Formats: txt,json,md,html (séparés par virgule)')\n    parser.add_argument('--zip', action='store_true', help='Archiver les sorties dans un ZIP (non implémenté)')",
         "detail": "codebase_extractor",
         "documentation": {}
     }
