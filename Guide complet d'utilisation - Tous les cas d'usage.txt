@@ -1,453 +1,142 @@
 // Jack-Josias – Créateur du projet
+// Documentation mise à jour pour la v3.5 (Architecture Modulaire)
 
-## 🚀 Guide complet d'utilisation - Tous les cas d'usage
+# 🎯 GUIDE COMPLET D'UTILISATION - CodeBase Extractor v3.5
 
-Voici tous les cas d'usage possibles avec des exemples concrets :
-
-
-
-# 🎯 GUIDE COMPLET D'UTILISATION - CodeBase Extractor
+Ce guide couvre tous les cas d'usage avec des exemples concrets, en tenant compte des dernières fonctionnalités.
 
 ## 📋 Préparation
 
-1. **Sauvegarder le script** : `codebase_extractor.py`
-2. **Ouvrir un terminal/console**
-3. **Naviguer vers le dossier du script** : `cd /chemin/vers/le/script`
+1.  **Télécharger le projet** et conserver sa structure de dossiers.
+2.  **Ouvrir un terminal/console**.
+3.  **Naviguer vers le dossier du projet** : `cd /chemin/vers/CodeBase-Extractor`
 
 ---
+## 🎪 CAS D'USAGE FONDAMENTAUX
 
-## 🎪 CAS D'USAGE #1 : Analyser le projet courant
-
-### Situation
-Vous êtes dans votre dossier de projet et voulez extraire tout le code.
-
+### #1 : Analyser un projet
+Vous voulez extraire tout le code d'un projet.
 ```bash
-# Vous êtes dans : /home/user/MonProjet/
-cd /home/user/MonProjet
-python /chemin/vers/codebase_extractor.py .
+# Analyser un projet qui se trouve ailleurs
+python3 codebase_extractor.py /chemin/vers/mon/projet
+
+# Analyser le projet courant (si vous êtes dans le dossier de votre projet)
+# Note: vous devez fournir le chemin complet vers le script
+python3 /chemin/vers/CodeBase-Extractor/codebase_extractor.py .
 ```
+**Résultat :** Un fichier `.txt` est généré avec un nom automatique.
 
-**Résultat :** 
-- Fichier généré : `codebase_MonProjet_20250526_143015.txt`
-- Contient TOUT le code du projet courant
 
----
 
-## 🎪 CAS D'USAGE #2 : Analyser un projet distant
-
-### Situation
-Analyser un projet qui se trouve ailleurs sur votre machine.
-
+### #2 : Nom de fichier et format personnalisés
+Vous voulez contrôler la sortie.
 ```bash
-# Analyser un projet sur le Bureau
-python codebase_extractor.py ~/Desktop/MonAutreProjet
+# Nom personnalisé et format Markdown
+python3 codebase_extractor.py . -o rapport_projet --format md
 
-# Analyser un projet dans Documents
-python codebase_extractor.py "/home/user/Documents/ProjetClient"
-
-# Sur Windows
-python codebase_extractor.py "C:\Users\User\Documents\MonProjet"
+# Plusieurs formats en une seule fois
+python3 codebase_extractor.py . -o rapport_projet --format txt,json,html
 ```
+**Résultat :** Fichiers `rapport_projet.md`, `rapport_projet.txt`, `rapport_projet.json`, `rapport_projet.html` générés.
 
-**Résultat :**
-- Fichier généré dans le répertoire où vous lancez la commande
-- Nom automatique basé sur le nom du projet
 
----
 
-## 🎪 CAS D'USAGE #3 : Nom de fichier personnalisé
-
-### Situation
-Vous voulez donner un nom spécifique au fichier de sortie.
-
+### #3 : Extraction de plusieurs dossiers simultanément
+Vous voulez combiner le contenu de plusieurs parties de votre projet.
 ```bash
-# Nom personnalisé simple
-python codebase_extractor.py . -o extraction_pour_claude.txt
-
-# Nom avec chemin spécifique
-python codebase_extractor.py ~/Bureau/MonProjet -o ~/Desktop/codebase_client_v2.txt
-
-# Nom descriptif
-python codebase_extractor.py /path/to/project --output "projet_ecommerce_complet.txt"
+python3 codebase_extractor.py ./frontend ./backend -o rapport_complet.txt
 ```
+**Résultat :** Un seul rapport contenant l'arborescence et le contenu des deux dossiers.
 
-**Résultat :**
-- Fichier avec le nom exact que vous voulez
-- Placé où vous voulez
 
----
-
-## 🎪 CAS D'USAGE #4 : Extraction pour collaboration IA
-
-### Situation
-Préparer votre code pour ChatGPT, Claude, ou autres IA.
-
+**Exemple avec des chemins absolus génériques et des fichiers spécifiques :**
 ```bash
-# Extraction optimisée IA
-python codebase_extractor.py . -o "pour_claude_debug_session.txt"
+python3 codebase_extractor.py '/chemin/vers/mon/projet/bin/' '/chemin/vers/mon/projet/config/' '/chemin/vers/mon/projet/src/main.py' -o rapport_personnalise.txt
 ```
-
-**Utilisation ensuite :**
-1. Ouvrez le fichier `.txt` généré
-2. Copiez tout le contenu
-3. Collez dans votre chat IA avec votre question
-
-**Exemple de prompt :**
-```
-Voici ma codebase complète :
-[COLLER LE CONTENU DU FICHIER]
-
-Peux-tu analyser ce code et me dire comment optimiser les performances ?
-```
+**Résultat :** Un rapport unique `rapport_personnalise.txt` incluant le contenu des dossiers et fichiers spécifiés par leurs chemins absolus génériques.
 
 ---
+## 🚀 CAS D'USAGE AVANCÉS
 
-## 🎪 CAS D'USAGE #5 : Audit de code client
 
-### Situation
-Un client vous donne accès à son code, vous devez l'analyser rapidement.
 
+### #4 : Préparation pour IA / LLM (Chunking)
+Votre projet est volumineux et vous voulez le fournir à une IA qui a une limite de contexte.
 ```bash
-# Extraction client
-python codebase_extractor.py /chemin/vers/projet_client -o "audit_client_ABC_2025.txt"
+# Découper le projet en morceaux de 4000 caractères
+python3 codebase_extractor.py /chemin/vers/projet --chunk-size 4000 -o projet_pour_claude
 ```
+**Résultat :** Une série de fichiers `projet_pour_claude_chunk_1.txt`, `projet_pour_claude_chunk_2.txt`, etc.
 
-**Workflow :**
-1. Extraction automatique
-2. Analyse du fichier généré
-3. Rapport d'audit basé sur l'extraction
 
----
 
-## 🎪 CAS D'USAGE #6 : Backup de code avant refactoring
-
-### Situation
-Sauvegarder votre code dans un format lisible avant de gros changements.
-
+### #5 : Utilisation en Scripting / Intégration Continue (CI/CD)
+Vous voulez automatiser l'extraction sans interaction humaine.
 ```bash
-# Backup avant refactoring
-python codebase_extractor.py . -o "backup_avant_refactoring_$(date +%Y%m%d).txt"
+# Le flag --no-interactive empêche toute question
+python3 codebase_extractor.py . -o rapport_ci --no-interactive
 
-# Sur Windows
-python codebase_extractor.py . -o "backup_avant_refactoring.txt"
+# Le flag --force outrepasse les avertissements de sécurité
+python3 codebase_extractor.py . -o rapport_audit --force --no-interactive
 ```
 
-**Avantage :** Format lisible vs simple backup Git
 
----
 
-## 🎪 CAS D'USAGE #7 : Documentation automatique
-
-### Situation
-Créer une documentation complète de votre projet.
-
+### #6 : Exclusions personnalisées
+Vous voulez ignorer des fichiers ou dossiers spécifiques en plus du `.gitignore`.
 ```bash
-# Documentation complète
-python codebase_extractor.py . -o "documentation_technique_complete.txt"
+# Ignorer les fichiers de backup et les dossiers de test
+python3 codebase_extractor.py . --ignore-patterns "*.bak,*.tmp,tests/"
 ```
 
-**Usage :**
-- Partager avec l'équipe
-- Onboarding nouveaux développeurs
-- Documentation pour support technique
 
----
 
-## 🎪 CAS D'USAGE #8 : Analyse de sécurité
-
-### Situation
-Analyser le code pour des vulnérabilités avec des outils IA.
-
+### #7 : Compression pour IA
+Vous voulez une version du rapport sur une seule ligne, facile à copier-coller.
 ```bash
-# Extraction pour audit sécurité
-python codebase_extractor.py . -o "audit_securite.txt"
-```
+# Option 1: Automatique (si le mode interactif est activé)
+python3 codebase_extractor.py . -o rapport.txt
+# Le script demandera : "Voulez-vous créer une version compressée... ? (y/n)"
 
-**Workflow :**
-1. Extraction du code
-2. Analyse avec IA spécialisée sécurité
-3. Rapport de vulnérabilités
+# Option 2: Forcée (pour les scripts)
+python3 codebase_extractor.py . -o rapport.txt --oneline
+```
+**Résultat :** Un fichier supplémentaire `rapport.oneline.txt` sera créé.
 
 ---
+## 💡 WORKFLOWS TYPIQUES
 
-## 🎪 CAS D'USAGE #9 : Migration de projet
+### Audit de code
+1.  `python3 codebase_extractor.py /projet/client -o audit_client --format md,txt --force`
+2.  Analyser le `audit_client.md` pour une vue d'ensemble.
+3.  Utiliser le `audit_client.txt` pour des analyses textuelles ou avec d'autres outils.
 
-### Situation
-Migrer un projet vers une nouvelle technologie.
+### Onboarding d'un nouveau développeur
+1.  `python3 codebase_extractor.py . -o doc_projet --format html`
+2.  Partager le fichier `doc_projet.html` qui offre une vue navigable et facile à lire de toute la codebase.
 
-```bash
-# Extraction pour migration
-python codebase_extractor.py /ancien_projet -o "migration_vers_react.txt"
-```
-
-**Usage avec IA :**
-```
-Voici mon projet PHP :
-[CODEBASE]
-
-Peux-tu me générer l'équivalent en React/Node.js ?
-```
+### Session de débug à distance
+1.  `python3 codebase_extractor.py ./src -o debug_session.txt`
+2.  Envoyer le fichier `debug_session.txt` à un collègue pour qu'il ait le contexte complet du code concerné.
 
 ---
-
-## 🎪 CAS D'USAGE #10 : Formation et apprentissage
-
-### Situation
-Analyser du code open source pour apprendre.
-
-```bash
-# Analyser un repo GitHub téléchargé
-python codebase_extractor.py ~/Downloads/projet-opensource -o "etude_opensource.txt"
-```
-
-**Workflow apprentissage :**
-1. Clone un repo intéressant
-2. Extraction avec le script
-3. Analyse du code avec IA pour comprendre l'architecture
-
----
-
-## 🎪 CAS D'USAGE #11 : Debugging avec équipe distante
-
-### Situation
-Problème complexe, besoin d'aide d'un collègue à distance.
-
-```bash
-# Extraction pour debug
-python codebase_extractor.py . -o "debug_session_bug_critique.txt"
-```
-
-**Usage :**
-1. Extraction rapide
-2. Envoi du fichier au collègue
-3. Discussion basée sur le code complet
-
----
-
-## 🎪 CAS D'USAGE #12 : Revue de code automatisée
-
-### Situation
-Préparer le code pour une revue systématique.
-
-```bash
-# Revue de code
-python codebase_extractor.py /feature-branch -o "code_review_feature_X.txt"
-```
-
-**Workflow :**
-1. Extraction de la branche feature
-2. Analyse IA pour suggestions
-3. Revue humaine basée sur les suggestions
-
----
-
-## 🎪 CAS D'USAGE #13 : Estimation de projet
-
-### Situation
-Évaluer la complexité d'un projet existant.
-
-```bash
-# Estimation projet
-python codebase_extractor.py /projet_a_estimer -o "estimation_complexite.txt"
-```
-
-**Usage :** 
-- Compter les lignes de code
-- Analyser la complexité avec IA
-- Estimation temps/coût basée sur l'analyse
-
----
-
-## 🎪 CAS D'USAGE #14 : Génération de tests
-
-### Situation
-Créer des tests automatiques pour votre code.
-
-```bash
-# Extraction pour tests
-python codebase_extractor.py . -o "generation_tests.txt"
-```
-
-**Prompt IA :**
-```
-Voici mon code :
-[CODEBASE]
-
-Génère-moi des tests unitaires complets pour chaque fonction.
-```
-
----
-
-## 🎪 CAS D'USAGE #15 : Intégration continue
-
-### Situation
-Intégrer l'extraction dans vos scripts CI/CD.
-
-```bash
-#!/bin/bash
-# Script CI/CD
-echo "Extraction codebase pour analyse..."
-python codebase_extractor.py . -o "ci_analysis_$(date +%Y%m%d_%H%M%S).txt"
-
-# Analyse automatique avec IA API
-curl -X POST "https://api-ia.com/analyze" \
-  -F "file=@ci_analysis_$(date +%Y%m%d_%H%M%S).txt"
-```
-
----
-
-## 🎪 CAS D'USAGE #16 : Différents environnements
-
-### Linux/Mac
-```bash
-# Standard
-python3 codebase_extractor.py /home/user/projet
-
-# Avec alias (ajoutez dans ~/.bashrc)
-alias extract='python3 /path/to/codebase_extractor.py'
-extract . -o extraction.txt
-```
-
-### Windows
-```cmd
-# Command Prompt
-python codebase_extractor.py C:\Users\User\MonProjet
-
-# PowerShell
-python codebase_extractor.py . -o "extraction_$(Get-Date -Format 'yyyyMMdd_HHmmss').txt"
-```
-
-### Scripts batch/shell
-```bash
-#!/bin/bash
-# Script d'extraction automatique
-PROJECT_PATH="/home/user/projets"
-OUTPUT_DIR="/home/user/extractions"
-
-for project in "$PROJECT_PATH"/*; do
-    if [ -d "$project" ]; then
-        project_name=$(basename "$project")
-        python3 codebase_extractor.py "$project" -o "$OUTPUT_DIR/extraction_$project_name.txt"
-    fi
-done
-```
-
----
-
-## 🎪 CAS D'USAGE : Extraction de plusieurs dossiers simultanément
-
-Vous pouvez extraire plusieurs dossiers en une seule commande :
-
-```bash
-python codebase_extractor.py chemin1 chemin2 chemin3 -o rapport.txt
-```
-
-Exemple :
-```bash
-python codebase_extractor.py "D:\DONNEES\Bureau\WORSPACE-STAGIAIRE\Next.js 2025\algoway-front\algoway-front\src\lib" "D:\DONNEES\Bureau\WORSPACE-STAGIAIRE\Next.js 2025\algoway-front\algoway-front\src\feat" "D:\DONNEES\Bureau\WORSPACE-STAGIAIRE\Next.js 2025\algoway-front\algoway-front\src\hook" -o extraction_multi.txt
-```
-
-Le rapport final combinera l'arborescence, les statistiques et le contenu de tous les dossiers.
-
-## 🆕 Format de sortie (depuis v2.1)
-
-La section "CONTENU DES FICHIERS DE CODE" regroupe tous les fichiers extraits sur une seule ligne, chaque bloc étant séparé par `&&`.
-
-Exemple :
-```
-['main.py': [
---------------------------------------------------
-...contenu...
---------------------------------------------------] && 'utils.py': [
---------------------------------------------------
-...contenu...
---------------------------------------------------] ...
-```
-
----
-
-## NOUVEAUX CAS D'USAGE (2025)
-
-- Extraction multi-dossiers avec exclusion automatique des fichiers générés
-- Génération de rapports en TXT, JSON, Markdown, HTML
-- Export ZIP de tout le projet extrait
-- Analyse de sécurité (détection de secrets, confirmation utilisateur)
-- Découpage automatique en chunks pour ingestion LLM
-
-### Exemples pratiques
-
-- Extraction multi-format et ZIP :
-  python codebase_extractor.py src/ lib/ --format txt,md,html --zip
-
-- Extraction avec découpage LLM :
-  python codebase_extractor.py projet/ --chunk-size 2000
-
-- Forcer l'export malgré des secrets détectés :
-  python codebase_extractor.py . --force
-
-- Ajouter des motifs d'exclusion personnalisés :
-  python codebase_extractor.py . --ignore-patterns '*.bak,*.old'
-
----
-
-## CONSEIL SÉCURITÉ
-Toujours vérifier le rapport de secrets avant de partager le code extrait !
-
----
-
 ## 🎯 RÉSUMÉ DES COMMANDES ESSENTIELLES
 
 ```bash
-# Basique - projet courant
-python codebase_extractor.py .
+# Basique
+python3 codebase_extractor.py <chemin>
 
-# Avec nom personnalisé
-python codebase_extractor.py . -o mon_fichier.txt
+# Avec nom et format
+python3 codebase_extractor.py <chemin> -o <nom_sortie> --format <formats>
 
-# Projet distant
-python codebase_extractor.py /chemin/vers/projet
+# Pour IA (gros projets)
+python3 codebase_extractor.py <chemin> --chunk-size 4000
 
-# Combinaison complète
-python codebase_extractor.py /chemin/vers/projet --output /chemin/sortie/extraction.txt
+# Pour scripts automatisés
+python3 codebase_extractor.py <chemin> --no-interactive --force
 ```
 
-Chaque cas d'usage vous fait gagner des heures de travail manuel ! 🚀
-
-
-
-Voilà ! Vous avez maintenant **16 cas d'usage concrets** avec des exemples pratiques pour chaque situation. 
-
-## 🎯 Les plus populaires selon mon expérience :
-
-1. **Usage IA (#4)** - Le plus fréquent, pour nourrir ChatGPT/Claude
-2. **Projet courant (#1)** - Usage quotidien de développement  
-3. **Debugging (#11)** - Partage rapide de code avec collègues
-4. **Documentation (#7)** - Pour onboarding et archivage
-
-## 🚀 Conseil Pro :
-
-Créez un alias pour gagner encore plus de temps :
-
-**Linux/Mac :**
-```bash
-# Ajoutez dans ~/.bashrc ou ~/.zshrc
-alias extract='python3 /chemin/vers/codebase_extractor.py'
-
-# Usage : 
-extract . -o pour_claude.txt
-```
-
-**Windows :**
-```cmd
-# Créez un fichier extract.bat dans votre PATH
-@echo off
-python "C:\chemin\vers\codebase_extractor.py" %*
-```
-
-Avec ce script, vous passez de **plusieurs heures de copier-coller** à **quelques secondes** d'extraction automatique ! 
-
-Quel cas d'usage vous intéresse le plus ? Je peux détailler davantage si besoin ! 🎪
+Avec cette version modulaire, le script est plus robuste et prêt à évoluer pour de futurs cas d'usage !
 
 ---
-
-**Guide rédigé par Jack-Josias (2025)**
+**Guide rédigé et maintenu par Jack-Josias (2025)**

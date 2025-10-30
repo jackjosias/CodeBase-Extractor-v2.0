@@ -1,32 +1,34 @@
-```plaintext
 // Jack-Josias – Créateur du projet
-
-Excellente remarque ! 🎯 Voici les dépendances pour le script :
+// Documentation mise à jour pour la v3.5 (Architecture Modulaire)
 
 ## 📦 DÉPENDANCES DU SCRIPT
 
-### ✅ Bonne nouvelle : AUCUNE dépendance externe !
+### ✅ Bonne nouvelle : TOUJOURS AUCUNE dépendance externe !
 
-Le script utilise **uniquement des bibliothèques Python standard** :
+Même après sa refactorisation en une application modulaire, le script continue d'utiliser **uniquement des bibliothèques Python standard**.
 
 ```python
 # Bibliothèques intégrées à Python (pas besoin d'installer)
-import os          # Gestion fichiers/dossiers
-import sys         # Système
-import platform    # Détection OS
-import pathlib     # Chemins modernes
-import mimetypes   # Types de fichiers
-import argparse    # Arguments ligne de commande
-import datetime    # Dates
-import fnmatch     # Pattern matching
-from typing import # Annotations de type (Python 3.5+)
+import os
+import sys
+import platform
+import pathlib
+import mimetypes
+import argparse
+from datetime import datetime
+import fnmatch
+import json
+import re
+from concurrent.futures import ThreadPoolExecutor
+from typing import Dict, Optional, List, Any, Tuple
 ```
 
 ## 🚀 PRÉREQUIS SYSTÈME
 
-### Python version
+### Version de Python
+Le prérequis reste le même :
 ```bash
-# Vérifiez votre version Python
+# Vérifiez votre version de Python
 python --version
 # ou
 python3 --version
@@ -36,136 +38,47 @@ python3 --version
 
 ## 📦 INSTALLATION PYTHON (si nécessaire)
 
-Le script ne nécessite aucune installation de package pip supplémentaire : il fonctionne uniquement avec les bibliothèques standard de Python.
+Si Python n'est pas installé sur votre système, veuillez vous référer aux guides d'installation officiels.
 
-**Si Python n'est pas installé sur votre système, voici comment l'installer :**
+*   **Windows :** [python.org](https://python.org) ou Microsoft Store.
+*   **macOS :** Via Homebrew (`brew install python3`) ou [python.org](https://python.org).
+*   **Linux (Ubuntu/Debian) :** `sudo apt update && sudo apt install python3`
 
-### Windows
-- Télécharger depuis [python.org](https://python.org)
-- Ou via Microsoft Store
-- Ou via Chocolatey :
-  ```powershell
-  choco install python
-  ```
-
-### macOS
-- Avec Homebrew :
-  ```bash
-  brew install python3
-  ```
-- Ou télécharger depuis python.org
-
-### Linux (Ubuntu/Debian)
-  ```bash
-  sudo apt update
-  sudo apt install python3 python3-pip
-  ```
-
-### Linux (CentOS/RHEL)
-  ```bash
-  sudo yum install python3 python3-pip
-  # ou sur les versions récentes
-  sudo dnf install python3 python3-pip
-  ```
-
-**Vérifiez l'installation :**
-```bash
-python --version
-# ou
-python3 --version
-```
-
-**Aucune commande pip n'est requise pour ce script !**
+**Aucune commande `pip install ...` n'est requise pour ce script !**
 
 ## 🎯 INSTALLATION ET TEST
 
-### 1. Télécharger le script
-```bash
-# Créer le fichier
-nano codebase_extractor.py
-# ou
-vim codebase_extractor.py
-# ou utilisez votre éditeur préféré
-```
+1.  **Télécharger le projet**
+    Assurez-vous de télécharger l'ensemble du projet, y compris le répertoire `src/`.
+    ```
+    CodeBase-Extractor/
+    ├── codebase_extractor.py
+    └── src/
+        └── ...
+    ```
 
-### 2. Rendre exécutable (Linux/Mac)
-```bash
-chmod +x codebase_extractor.py
-```
+2.  **Rendre exécutable (Linux/Mac)**
+    ```bash
+    chmod +x codebase_extractor.py
+    ```
 
-### 3. Test rapide
-```bash
-# Test de base
-python codebase_extractor.py --help
+3.  **Test rapide**
+    Placez-vous dans le répertoire `CodeBase-Extractor/` et lancez :
+    ```bash
+    # Test de l'aide pour vérifier que les imports fonctionnent
+    python3 codebase_extractor.py --help
 
-# Test sur répertoire courant
-python codebase_extractor.py . -o test.txt
-
-# Test multi-dossiers (nouveau)
-python codebase_extractor.py dossier1 dossier2 dossier3 -o rapport.txt
-```
-
-## 🔧 VÉRIFICATION DES DÉPENDANCES
-
-Créez ce petit script de test :
-
-## 🧪 PROCÉDURE DE VÉRIFICATION COMPLÈTE
-
-### 1. Testez d'abord les dépendances :
-```bash
-# Lancez le script de vérification
-python dependency_check.py
-```
-
-### 2. Si tout est OK, testez le script principal :
-```bash
-# Test aide
-python codebase_extractor.py --help
-
-# Test extraction simple  
-python codebase_extractor.py . -o test.txt
-```
+    # Test sur un répertoire (créez un dossier de test)
+    python3 codebase_extractor.py /chemin/vers/votre/projet -o test.txt
+    ```
 
 ## 🎯 RÉSUMÉ ULTRA-SIMPLE
 
-- Le script accepte plusieurs dossiers à extraire en une seule commande.
-- Le rapport combine l'arborescence, les stats et le contenu de tous les dossiers.
-- Les fichiers extraits sont listés sur une seule ligne, séparés par `&&`.
+*   **Vous n'avez RIEN à installer** (à part Python 3.6+).
+*   Le script fonctionne "out-of-the-box" car il n'utilise que des bibliothèques standard.
+*   Assurez-vous de conserver la structure de dossiers `codebase_extractor.py` et `src/` ensemble.
 
-**Vous n'avez RIEN à installer !** 🎉
-
-Si vous avez **Python 3.6+** installé, le script fonctionne directement car il utilise uniquement les bibliothèques intégrées à Python.
-
-```bash
-# Seule commande nécessaire pour vérifier :
-python --version
-
-# Si ça affiche Python 3.6+ → Vous êtes prêt ! 🚀
-```
-
-C'est l'un des avantages du script : **zéro dépendance externe** pour éviter les problèmes d'installation ! 
-
-Voulez-vous que je crée une version encore plus simple sans les annotations de type pour compatibilité Python plus ancienne ?
-
-## 🚀 NOUVELLES FONCTIONNALITÉS (2025)
-
-- Exclusion automatique des fichiers/dossiers générés (node_modules, .venv, dist, etc.)
-- Génération de rapports multi-format : TXT, JSON, Markdown, HTML (option --format)
-- Export ZIP de tous les rapports et fichiers extraits (--zip)
-- Analyse de sécurité : détection de secrets/credentials, confirmation utilisateur (--force)
-- Découpage automatique en chunks pour LLM (--chunk-size)
-
-### Options CLI principales
-- --format txt,json,md,html
-- --zip
-- --chunk-size N
-- --ignore-patterns motif1,motif2
-- --force
-
-## 🔒 CONSEIL SÉCURITÉ
-Le script vous avertit si des secrets sont détectés dans le code. Toujours vérifier le rapport avant partage !
+C'est l'un des avantages majeurs du script : **zéro dépendance externe** pour une portabilité et une facilité d'utilisation maximales.
 
 ---
-
 **Fichier rédigé et maintenu par Jack-Josias (2025)**
-```

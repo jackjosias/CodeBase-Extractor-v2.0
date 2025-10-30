@@ -1,119 +1,55 @@
 // Jack-Josias – Créateur du projet
+// Documentation mise à jour pour la v3.5 (Architecture Modulaire)
 
 ## 🔍 Comportement détaillé du script
 
-### 📁 Scénario : Dossier avec sous-dossiers et fichiers
+Le script fonctionne désormais selon une architecture modulaire qui sépare clairement les responsabilités pour plus de robustesse et de clarté.
 
-Supposons cette structure :
-```
-MonProjet/
-├── app.py
-├── config.json
-├── README.md
-├── frontend/
-│   ├── index.html
-│   ├── style.css
-│   └── components/
-│       ├── header.js
-│       └── footer.js
-├── backend/
-│   ├── server.py
-│   ├── models/
-│   │   ├── user.py
-│   │   └── product.py
-│   └── utils/
-│       └── helpers.py
-└── node_modules/  (ignoré)
-    └── ...
-```
+### 🤖 Flux d'Exécution
 
-### 🤖 Comportement du script :
+Supposons le lancement de la commande suivante :
+`python codebase_extractor.py ./MonProjet -o rapport --format txt,md`
 
-1. **Analyse initiale** :
-   - Détecte le système d'exploitation
-   - Scan récursif de TOUS les dossiers et sous-dossiers
-   - Compte les fichiers et dossiers
-   - Ignore automatiquement `node_modules`, `.git`, etc.
+1.  **Phase 1 : Interface CLI (`codebase_extractor.py`)**
+    *   Le script principal reçoit les arguments : le chemin `./MonProjet`, le nom de base `rapport`, et les formats `txt,md`.
+    *   Il ne contient plus la logique métier. Son rôle est d'orchestrer les autres modules.
+    *   Il instancie le moteur principal : `extractor = CodebaseExtractor(...)`.
+    *   Il appelle la méthode d'extraction : `extractor.extract_codebase(...)`.
 
-2. **Traitement récursif** :
-   - Parcourt `MonProjet/` → trouve `app.py`, `config.json`, `README.md`
-   - Descend dans `frontend/` → trouve `index.html`, `style.css`
-   - Descend dans `frontend/components/` → trouve `header.js`, `footer.js`
-   - Descend dans `backend/` → trouve `server.py`
-   - Descend dans `backend/models/` → trouve `user.py`, `product.py`
-   - Descend dans `backend/utils/` → trouve `helpers.py`
+2.  **Phase 2 : Moteur d'Extraction (`src/core.py`)**
+    *   La classe `CodebaseExtractor` prend le contrôle.
+    *   **Normalisation :** Le chemin `./MonProjet` est converti en un chemin absolu.
+    *   **Analyse `.gitignore` :** Le moteur recherche un fichier `.gitignore` à la racine de `MonProjet` et charge ses règles.
+    *   **Parcours Récursif :** Il scanne tous les dossiers et fichiers de `MonProjet`, en appliquant les filtres (règles de base + `.gitignore`).
+    *   **Collecte :** Il dresse la liste de tous les fichiers de code pertinents à extraire.
+    *   **Extraction Parallèle :** Il lance plusieurs threads pour lire le contenu de tous les fichiers collectés simultanément, pour une vitesse maximale.
+    *   **Préparation des Données :** Il assemble toutes les informations (statistiques, arborescence, contenu des fichiers) dans une structure de données unique (`report_data`).
 
-3. **Extraction intelligente** :
-   - Lit le contenu de CHAQUE fichier de code trouvé
-   - Formate selon votre demande : `['chemin_relatif': [contenu]]`
-   - Gère les erreurs d'encodage automatiquement
+3.  **Phase 3 : Moteur de Rendu (`src/renderers/`)**
+    *   Le moteur d'extraction transmet la structure `report_data` aux modules de rendu demandés.
+    *   `txt_renderer.py` prend les données et génère le contenu du fichier `rapport.txt`.
+    *   `md_renderer.py` prend les mêmes données et génère le contenu du fichier `rapport.md`.
+    *   Chaque renderer est spécialisé dans un seul format, ce qui rend l'ajout de nouveaux formats (ex: XML) très simple.
 
-## 🆕 Comportement multi-dossiers (v2.1+)
+4.  **Phase 4 : Écriture et Post-Traitement (`codebase_extractor.py`)**
+    *   Le script principal récupère le contenu généré par chaque renderer et l'écrit dans les fichiers correspondants.
+    *   Si le mode interactif est activé, il peut faire appel à `src/utils.py` pour proposer la compression du rapport en une seule ligne.
 
-- Le script accepte désormais plusieurs dossiers en arguments.
-- Il combine l'arborescence, les statistiques et le contenu de tous les dossiers dans un seul rapport.
-- La section "CONTENU DES FICHIERS DE CODE" affiche tous les fichiers extraits sur une seule ligne, séparés par `&&`.
+### ✅ Ce que fait le script (Résumé) :
 
-### Exemple de flux :
+1.  **Orchestration Claire :** Le script principal dirige le flux.
+2.  **Logique Centralisée :** Le module `core` gère toute la logique d'extraction.
+3.  **Rendu Spécialisé :** Le module `renderers` s'occupe de la mise en forme de la sortie.
+4.  **Utilitaires Isolés :** Le module `utils` fournit des fonctions annexes.
+5.  **Extraction TOTALE et Parallèle :** Récupère le contenu de TOUS les fichiers pertinents à haute vitesse.
+6.  **Intelligence d'Exclusion :** Ignore automatiquement les dossiers inutiles via des règles de base et le support de `.gitignore`.
 
-1. L'utilisateur lance :
-   ```bash
-   python codebase_extractor.py dossier1 dossier2 dossier3 -o rapport.txt
-   ```
-2. Le script analyse chaque dossier, fusionne les stats et l'arborescence.
-3. Le rapport final contient :
-   - Un en-tête global
-   - Les stats cumulées
-   - L'arborescence combinée
-   - Tous les fichiers extraits sur une seule ligne (blocs séparés par &&)
-   - Un pied de page
+### 🚀 Avantages de la nouvelle architecture :
 
-## 📄 Exemple de sortie générée
-
-## 🎯 Résumé du comportement
-
-### ✅ Ce que fait le script :
-
-1. **Parcours COMPLET** : Va dans chaque sous-dossier, même à plusieurs niveaux de profondeur
-2. **Extraction TOTALE** : Récupère le contenu de TOUS les fichiers de code trouvés
-3. **Format EXACT** : Respecte votre demande `['chemin_relatif': [contenu]]`
-4. **Chemin RELATIF** : Utilise des chemins comme `backend/models/user.py` (pas des chemins absolus)
-5. **Intelligence** : Ignore automatiquement les dossiers inutiles (`node_modules`, `.git`, etc.)
-
-### 🚀 Avantages pour vous :
-
-- **Fini le copier-coller** : Un seul clic et tout est extrait
-- **Format IA-ready** : Parfait pour nourrir des LLM
-- **Vue d'ensemble** : Statistiques + arborescence + contenu
-- **Zéro effort** : Lance et oublie, le script fait tout
-
-### 💡 Usage typique :
-
-```bash
-# Dans votre projet
-python codebase_extractor.py .
-
-# Résultat : Un fichier .txt avec TOUT votre code formaté pour les IA !
-```
-
-Le script va littéralement remplacer des heures de copier-coller par quelques secondes d'exécution. Plus jamais de perte de temps ! 🎉
+*   **Maintenabilité :** Corriger un bug de rendu ne risque plus de casser la logique de parcours de fichiers.
+*   **Testabilité :** Chaque module peut être testé de manière indépendante.
+*   **Évolutivité :** Ajouter un nouveau format de rapport se résume à créer un nouveau fichier dans `src/renderers/`.
+*   **Clarté :** Le code est plus facile à lire et à comprendre pour les nouveaux contributeurs.
 
 ---
-
-## COMPORTEMENT DÉTAILLÉ (2025)
-
-- Le script ignore automatiquement les fichiers/dossiers générés (node_modules, .venv, dist, etc.)
-- Il extrait tous les fichiers de code pertinents et génère un rapport dans un ou plusieurs formats (TXT, JSON, Markdown, HTML)
-- Si l'option --zip est utilisée, tous les rapports et fichiers extraits sont archivés dans un ZIP
-- Avant l'export, le script scanne les fichiers pour détecter des secrets/credentials (API keys, mots de passe, etc.)
-  - Si des secrets sont trouvés, l'utilisateur doit confirmer l'export (sauf --force)
-- Si --chunk-size est utilisé, un rapport spécial est généré avec les fichiers découpés en chunks pour ingestion LLM
-
-### Résumé CLI
-- --format txt,json,md,html : formats de sortie
-- --zip : export ZIP
-- --chunk-size N : découpage LLM
-- --ignore-patterns : motifs d'exclusion personnalisés
-- --force : forcer l'export malgré secrets
-
-**Document rédigé par Jack-Josias (2025)**
+**Document rédigé et maintenu par Jack-Josias (2025)**
